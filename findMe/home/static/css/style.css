@@ -1,0 +1,171 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  /*start navbar*/
+  
+  .navbar-brand > span{
+    font-size: 40px;
+  }
+  .navbar-light .navbar-nav .active > .nav-link{
+    color: #ec1c23 !important;
+    font-weight: bold;
+  }
+  
+  
+  .navbar-brand span:first-child{
+    color: #08526d;
+    font-weight: bold;
+  }
+  .navbar-brand span:last-child{
+    color: #ec1c23;
+  }
+  .navbar-nav .nav-link{
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    color: #08526d;
+  }
+  .navbar-brand{
+  margin-bottom: 9px;
+  margin-right: 20px
+  
+  }
+  
+  
+  
+  /*end navbar*/
+  
+  /* login*/
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  .content-section form{
+    margin-left: 30px;
+  }
+  .content-section button{
+    margin-top: 20px;
+  }
+  
+  .content-section label{
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .content-section a:hover{
+    text-decoration: none;
+  }
+  
+  /*end login*/
+  
+  
+  /*start home*/
+  .image{
+    width: 1110px;
+    margin-bottom: 30px;
+  }
+  
+  .heh{
+    color: #08526d;
+    margin-bottom: 50px;
+  }
+  .my-image{
+    height: 450px;
+  }
+  /*end home*/
+  
+  /*start detail*/
+  .det{
+    width: 300px;
+    height: 300px;
+  }
+  .carousel-control-prev-icon{
+    color: black;
+  }
+  
+  .carousel-control-next-icon{
+    color: black;
+  }
+  
+  .det:hover{
+    width: 800px;
+    height: 800px;
+    z-index: 99;
+  }
+  
+  /*end detail*/
+  
+  .my-table{
+  min-width: 400px;
+  font-size: 14px;
+  }
+  
+  .my-table-head{
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  background-color: #f8f9fa!important;
+  }
+  
+  .custom-image{
+  width: 100px;
+  height: 100px;
+  }
+  .custom-a{
+  text-decoration: none;
+  }
+  .custom-icon{
+  text-decoration: none;
+  color: #868e96!important;
+  }
+  
+  .my-custom-button{
+  margin-top: 5px;
+  }
+  /*stripe*/
+  .stripe-button-el{
+  width: 100%!important;
+  display: block!important;
+  background-color: #868e96!important;
+  background-image: none!important;
+  }
+  
+  .stripe-button-el span{
+  display: block;
+  position: relative;
+  padding: 0px 12px;
+  height: 36px!important;
+  line-height: 36px!important;
+  font-family:'Roboto', sans-serif!important;
+  font-size: 16px!important;
+  color: #fff!important;
+  background-image: none!important;
+  background: none!important;
+  }
+  
+  /**/
+  .errorList li{
+  color: red;
+  font-weight: bold;
+  }
+  
+  /*footer*/
+  .footer{
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+  
+  }
+  /*footer*/
