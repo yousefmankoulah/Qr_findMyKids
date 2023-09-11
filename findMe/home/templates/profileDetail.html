@@ -3,14 +3,23 @@
 
 {% block content %}
 {% for qr in qr  %}
-{{qr.name}}
-{{qr.address}}
-{{qr.phoneNumber}}
+<div class="container lead">
+{{qr.name}}<br>
+{{qr.address}}<br>
+{{qr.phoneNumber}}<br>
+{{qr.summary}}<br>
+
+
 
 {% if qr.qr %}
 <img src="{{qr.qr.url}}" id="parent">
 
 {% endif %}
+<br>
+<a class="btn btn-primary" href="{% url 'updateProfile' qr.id %}">Edit Profile</a>
+<a class="btn btn-danger" href="{% url 'delete' qr.id %}">Delete Profile</a>
+</div>
+
 
 {% endfor %}
     

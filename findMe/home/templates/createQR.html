@@ -10,19 +10,19 @@
         </ul>
         {% endif %}
         
-        
+        <div class="container">
         <h1 class="text-center">
             QR code generate Profile
         </h1>
         <br><br><br>
-        <form method="post">
-            {% csrf_token %}
-            <input type="text" name="name" id="roll" placeholder="Enter the name">
-            <input type="text" name="address" id="roll2" placeholder="Enter the address">
-            <input type="text" name="phone" id="roll3" placeholder="Enter the phone number">
-            <textarea name="summary" placeholder="enter more details"></textarea>
+        <form method="post" class="content form-group">
+            {% csrf_token %}<br><br>
+            <input class="form-control input_check" type="text" name="name" id="roll" placeholder="Enter the name"><br><br>
+            <input class="form-control input_check" type="text" name="address" id="roll2" placeholder="Enter the address"><br><br>
+            <input class="form-control input_check" type="text" name="phone" id="roll3" placeholder="Enter the phone number"><br><br>
+            <textarea class="form-control input_check" name="summary" placeholder="enter more details"></textarea>
 
-
+            <br><br>
             <button class="btn btn-primary generate" onClick="return empty()">Generate QR</button>
         </form>
 
@@ -31,7 +31,9 @@
                 <img src="/media/{{ img_name }}" alt="qr code"  id="parent" onclick='myApp.printDiv()'>
             {% endif %}
         </div>
-    </main>
+    
+    </div>
+
 
 
 

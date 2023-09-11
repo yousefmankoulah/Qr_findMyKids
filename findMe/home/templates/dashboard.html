@@ -3,10 +3,19 @@
 
 {% block content %}
 {% for dashboard in dashboard  %}
-{{dashboard.name}}
-{{dashboard.address}}
-{{dashboard.phoneNumber}}
-<a class="btn btn-primary" href="{% url 'profileDetail' dashboard.id %}">Mor Detail</a>
+<div class="container lead">
+
+{{dashboard.name}}<br>
+
+{{dashboard.address}}<br>
+
+{{dashboard.phoneNumber}}<br>
+
+<a class="btn btn-primary" href="{% url 'profileDetail' dashboard.id %}">More Detail</a>
+<hr>
+
+</div>
+
 
 <br>
 {% endfor %}
