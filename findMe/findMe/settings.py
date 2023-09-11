@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
-    "qr_code",
 
     "home",
     "import_export",
+    "product",
+    "cart",
 
 ]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = "findMe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'home', 'templates'),],
+        "DIRS": [os.path.join(BASE_DIR, 'home', 'templates'), os.path.join(BASE_DIR, 'product', 'templates'), os.path.join(BASE_DIR, 'cart', 'templates'),],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

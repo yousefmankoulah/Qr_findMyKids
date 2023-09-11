@@ -7,6 +7,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('findmeAdmin/', admin.site.urls),
     path('', include('home.urls')),
+    path('product/', include('product.urls')),
+    path('cart/', include('cart.urls')),
+
 ]
 
 
