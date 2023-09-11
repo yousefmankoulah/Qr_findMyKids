@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+
+
+    
+    <h1 class="text-center heh">Our Category</h1><br><br>
+
+
+    <div class="row mx-auto">
+        {% for category in category %}
+            <div class="my_button col-md-6 col-sm-12 mt-4 mb-4">
+                <div class="card text-center">
+                    <a href="{% url 'product' category.id %}"><img class="card-img-top my-image" src="{{category.image.url}}" alt="{{category.name}}"></a>
+                    <div class="card-body">
+                        <h4>{{category.name}}</h4>
+                        <p class="lead">{{category.description}}</p>
+                       <a href="{% url 'product' category.id %}" class="btn btn-primary">More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+  </div>
+</div>
+{% endblock %}

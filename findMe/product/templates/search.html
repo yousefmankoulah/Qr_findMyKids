@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div>
+    <p class="text-center my-search">You have searched for: <b>"{{query}}"</b></p>
+</div>
+<div class="container">
+    <div class="row mx-auto">
+        {% for product in posts %}
+            <div class="my_button col-md-6 col-sm-12 mt-4 mb-4">
+                <div class="card text-center">
+                    <img class="card-img-top my-image" src="{{product.image.url}}" alt="{{product.name}}">
+                    <div class="card-body">
+                        <h4>{{product.name}}</h4>
+                        <p class="lead">Description: {{product.description}}</p>
+                        <p class="lead">Price: $ {{product.price}}</p>
+                        <a class="btn btn-primary" href="{% url 'detail' product.id %}">More Details</a>
+                       
+                         <a class="btn btn-primary" href="">Add to Cart</a>
+                       
+
+                    </div>
+                </div>
+            </div>
+  </div>
+
+               {% empty %}
+           <div class="row mx-auto">
+               <p class="text-center my-search">0 results found.</p>
+           </div>
+
+           {% endfor %}
+
+</div>
+      
+
+{% endblock %}
