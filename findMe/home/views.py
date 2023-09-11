@@ -8,13 +8,28 @@ from django.conf import settings
 #from qrcode import *
 import time
 from django.contrib import messages
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .forms import SignUpForm
+
 
 
 # Create your views here.
 
 def home(request):
     return render(request, 'home.html')
+
+# ---------------------Start Auth-------------#
+
+def register(request):
+    if request.method == 'POST':
+        form = SignUpForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            signup_user = User.objects.get(username=username)
+            return redirect('login')
+    else:
+        form = SignUpForm()
+    return render(request, 'register.html', {'form': form})
 
 
 def signInView(request):
@@ -44,3 +59,5 @@ def signInView(request):
 def signoutView(request):
     logout(request)
     return redirect('login')
+
+# ---------------------End Auth-------------#

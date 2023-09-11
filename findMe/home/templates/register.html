@@ -7,29 +7,26 @@
 <div class="content-section container">
   <form method="POST">
     {% csrf_token %}
-        <label class="border-bottom mb-4">Log In</label>
+        <label class="border-bottom mb-4">Join Today</label>
         <div class="row">
-          <div class="<col-md-7>">
+          <div class="col-md-7">
             {{ form|crispy }}
-
           </div>
         </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-outline-info">Login</button>
-      <small class="text-muted ml-2">
-        <a href="#">Forgot Password</a>
-      </small>
+      <button type="submit" class="btn btn-outline-info">Register</button>
     </div>
   </form>
 
   <div class="border-top pt-3">
     <small class="text-muted">
-      Need an account? <a href="{% url 'register' %}" class="ml-2">Sign Up Now</a>
+      Already have an account? <a href="{% url 'login' %}" class="ml-2">Sign In</a>
     </small>
 
   </div>
 
 
 </div>
+
 
 {% endblock %}
