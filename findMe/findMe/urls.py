@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('audioCareAdmin/', admin.site.urls),
+    path('findmeAdmin/', admin.site.urls),
     path('', include('home.urls')),
 ]
 

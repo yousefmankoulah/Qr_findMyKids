@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "qr_code",
 
     "home",
+    "import_export",
+
 ]
 
 MIDDLEWARE = [

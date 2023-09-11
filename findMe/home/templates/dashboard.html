@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% for dashboard in dashboard  %}
+{{dashboard.parent}}
+{{dashboard.name}}
+{{dashboard.address}}
+{{dashboard.phoneNumber}}
+
+{% endfor %}
+    
+{% endblock %}

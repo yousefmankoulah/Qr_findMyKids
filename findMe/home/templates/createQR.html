@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<br><br>
+        {% if messages %}
+        <ul class="alert alert-primary"  id="box" role="alert">
+            <li>Qr code Generated</li>
+        </ul>
+        {% endif %}
+        
+        
+        <h1 class="text-center">
+            QR code generate Profile
+        </h1>
+        <br><br><br>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="name" id="roll" placeholder="Enter the name">
+            <input type="text" name="address" id="roll2" placeholder="Enter the address">
+            <input type="text" name="phone" id="roll3" placeholder="Enter the phone number">
+            <textarea name="summary" placeholder="enter more details"></textarea>
+
+
+            <button class="btn btn-primary generate" onClick="return empty()">Generate QR</button>
+        </form>
+
+        <div class="qr-img">
+            {% if img_name %}
+                <img src="/media/{{ img_name }}" alt="qr code"  id="parent" onclick='myApp.printDiv()'>
+            {% endif %}
+        </div>
+    </main>
+
+
+
+    <script>
+        // hide sucess message
+    setTimeout(() => {
+    const box = document.getElementById('box');
+
+    // removes element from DOM
+    box.style.display = 'none';
+    }, 2000); //  time in milliseconds
+
+
+    // prevent reload page
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+
+    //prevent submitting empty form
+    function empty() {
+        var x;
+        var z;
+        x = document.getElementById("roll").value;
+        z = document.getElementById("roll3").value;
+        if (x == "" || z == "") {
+            alert("Enter a Valid Value");
+            return false;
+        };
+    }
+
+    </script>
+    
+{% endblock %}
