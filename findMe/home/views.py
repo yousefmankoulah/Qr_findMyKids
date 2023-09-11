@@ -21,7 +21,7 @@ def home(request):
 
 @login_required
 def dashboard(request, id):
-    dashboard = GenerateQr.objects.filter(id=request.user.id)
+    dashboard = GenerateQr.objects.filter(parent=request.user)
     return render(request, 'dashboard.html', {'dashboard': dashboard})
 
 
@@ -39,7 +39,7 @@ def createQR(request):
         store_data.save()
         
         #---------------------you have to edit the link after you upload the webiste-------------------------#
-        data = "http://127.0.0.1:8000/siteDetail/" + str(store_data.id)
+        data = "http://127.0.0.1:8000/profileDetail/" + str(store_data.id)
         #----------------------------------------------------------#
         
         img = make(data)
@@ -49,6 +49,11 @@ def createQR(request):
     
         return render(request, 'createQR.html', {'img_name': img_name})
     return render(request, 'createQR.html')
+
+
+def profileDetail(request, id):
+    qr = GenerateQr.objects.filter(id=id)
+    return render(request, 'profileDetail.html', {'qr': qr})
 
 
 # ---------------------Start Auth-------------#

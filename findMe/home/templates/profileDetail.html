@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% for qr in qr  %}
+{{qr.name}}
+{{qr.address}}
+{{qr.phoneNumber}}
+
+{% if qr.qr %}
+<img src="{{qr.qr.url}}" id="parent">
+
+{% endif %}
+
+{% endfor %}
+    
+{% endblock %}
