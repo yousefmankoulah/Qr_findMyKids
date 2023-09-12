@@ -10,16 +10,21 @@
 {{qr.summary}}<br>
 
 
+{% if request.user == qr.parent %}
 
 {% if qr.qr %}
 <img src="{{qr.qr.url}}" id="parent">
 
 {% endif %}
 <br>
+<button class="btn btn-primary printit" onclick='myApp.printDiv()'>Print QR Code</button>
 <a class="btn btn-primary" href="{% url 'updateProfile' qr.id %}">Edit Profile</a>
 <a class="btn btn-danger" href="{% url 'delete' qr.id %}">Delete Profile</a>
 </div>
+{% else %}
+<a class="btn btn-primary" href="tel:{{qr.phoneNumber}}">Call Their parent now</a>
 
+{% endif %}
 
 {% endfor %}
     

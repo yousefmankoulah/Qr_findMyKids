@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from qrcode import *
-import time
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
@@ -38,12 +37,12 @@ def createQR(request):
         summary = request.POST['summary']    
 
         #saving data to database
-        img_name = 'qr' + str(time.time()) + '.png'
+        img_name = 'qr_' + name + '.png'
         store_data = GenerateQr(parent = request.user, name=name, address=address, phoneNumber=phone, summary=summary, qr=img_name)    
         store_data.save()
         
         #---------------------you have to edit the link after you upload the webiste-------------------------#
-        data = "http://127.0.0.1:8000/profileDetail/" + str(store_data.id)
+        data = "https://glowing-fortnight-pwq79wrrrv3r4q5-8000.app.github.dev/profileDetail/" + str(store_data.id)
         #----------------------------------------------------------#
         
         img = make(data)
@@ -56,7 +55,6 @@ def createQR(request):
 
 
 
-@login_required(login_url='login')
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     return render(request, 'profileDetail.html', {'qr': qr})
