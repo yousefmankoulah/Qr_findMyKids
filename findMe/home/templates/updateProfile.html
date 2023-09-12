@@ -14,6 +14,18 @@
           <div class="col-12 col-lg-12">
             <input class="form-control input_check" type="text" placeholder="name" name="name" value="{{ profile.name }}">
             <br>
+            <label for="type">What is the Type of the Profile</label>
+            <select name="type">
+                <option value="{{ profile.type }}" selected>{{ profile.type }}</option>
+                <option disabled>------------</option>
+                <option value="Boy">Boy</option>
+                <option value="Girl">Girl</option>
+                <option value="Old Man">Old Man</option>
+                <option value="Sick">Sick</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Other Pets">Other Pets</option>
+            </select><br>
             <input class="form-control input_check" type="text" placeholder="phone" name="phoneNumber" value="{{ profile.phoneNumber }}"><br>
 
             <br>

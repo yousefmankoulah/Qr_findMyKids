@@ -5,8 +5,8 @@ from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
 class QRAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    search_fields = ['name', 'address', 'phoneNumber']
+    search_fields = ['name', 'address', 'phoneNumber', 'type']
     ordering = ['name']
-    list_filter = ['name', 'parent']
-    list_display = ['parent', 'name', 'phoneNumber']
+    list_filter = ['type', 'name', 'parent']
+    list_display = ['parent', 'name', 'type', 'phoneNumber']
 admin.site.register(GenerateQr, QRAdmin)

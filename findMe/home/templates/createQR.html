@@ -18,7 +18,18 @@
         <form method="post" class="content form-group">
             {% csrf_token %}<br><br>
             <input class="form-control input_check" type="text" name="name" id="roll" placeholder="Enter the name"><br><br>
-            <input class="form-control input_check" type="text" name="address" id="roll2" placeholder="Enter the address"><br><br>
+            <label for="type">What is the Type of the Profile</label>
+            <select name="type" id="roll2">
+                <option disabled>------------</option>
+                <option value="Boy">Boy</option>
+                <option value="Girl">Girl</option>
+                <option value="Old Man">Old Man</option>
+                <option value="Sick">Sick</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Other Pets">Other Pets</option>
+            </select>
+            <input class="form-control input_check" type="text" name="address" placeholder="Enter the address"><br><br>
             <input class="form-control input_check" type="text" name="phone" id="roll3" placeholder="Enter the phone number"><br><br>
             <textarea class="form-control input_check" name="summary" placeholder="enter more details"></textarea>
 
@@ -58,8 +69,9 @@
         var x;
         var z;
         x = document.getElementById("roll").value;
+        y = document.getElementById("roll2").value;
         z = document.getElementById("roll3").value;
-        if (x == "" || z == "") {
+        if (x == "" || y == "" || z == "") {
             alert("Enter a Valid Value");
             return false;
         };

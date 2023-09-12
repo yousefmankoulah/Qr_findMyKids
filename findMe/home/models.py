@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class GenerateQr(models.Model):
     parent = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
+    type = models.CharField(max_length=300, blank=True, null=True)
     address= models.CharField(max_length=300, blank=True, null=True)
     phoneNumber= models.CharField(max_length=300)
     summary = models.TextField(blank=True, null=True)

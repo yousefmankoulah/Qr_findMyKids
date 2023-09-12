@@ -34,11 +34,12 @@ def createQR(request):
         name = request.POST['name']
         address = request.POST['address']
         phone = request.POST['phone']    
-        summary = request.POST['summary']    
+        summary = request.POST['summary']
+        type = request.POST['type']   
 
         #saving data to database
         img_name = 'qr_' + name + '.png'
-        store_data = GenerateQr(parent = request.user, name=name, address=address, phoneNumber=phone, summary=summary, qr=img_name)    
+        store_data = GenerateQr(parent = request.user, name=name, type=type, address=address, phoneNumber=phone, summary=summary, qr=img_name)    
         store_data.save()
         
         #---------------------you have to edit the link after you upload the webiste-------------------------#
