@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from .models import Category, Product
+from home.models import GenerateQr
 
 
 # Create your views here.
@@ -12,7 +13,8 @@ def category(request):
 
 def product(request, category):
     product = Product.objects.filter(category=category)
-    return render(request, 'product.html', {'product': product})
+    kids_name = GenerateQr.objects.filter(parent = request.user)
+    return render(request, 'product.html', {'product': product, 'kids': kids_name})
 
 
 def prod_detail(request, id):

@@ -27,7 +27,18 @@
                         <p class="lead">Price: $ {{product.price}}</p>
                         <a class="btn btn-primary" href="{% url 'detail' product.id %}">More Details</a>
                        
-                         <a class="btn btn-primary" href="">Add to Cart</a>
+                        <a class="btn btn-primary">Add to Cart</a>
+
+                        <div>
+                            <label for="kids_name">Choose your kids name</label>
+                            <select type="kids_name" id="name">
+                                <option></option>
+                                <option value="{{ kids.parent.name }}">{{ kids.parent.name }}</option>
+                            </select>
+                        </div>
+
+
+                        <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
                        
 
                     </div>
@@ -36,4 +47,9 @@
         {% endfor %}
   </div>
 </div>
+
+<script>
+
+    
+</script>
 {% endblock %}
