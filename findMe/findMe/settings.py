@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "import_export",
     "product",
     "cart",
+    'order',
+    'stripe',
 
 ]
 
@@ -62,7 +64,7 @@ ROOT_URLCONF = "findMe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'home', 'templates'), os.path.join(BASE_DIR, 'product', 'templates'), os.path.join(BASE_DIR, 'cart', 'templates'),],
+        "DIRS": [os.path.join(BASE_DIR, 'home', 'templates'), os.path.join(BASE_DIR, 'product', 'templates'), os.path.join(BASE_DIR, 'cart', 'templates'), os.path.join(BASE_DIR, 'order', 'templates'),],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -143,3 +145,8 @@ EMAIL_HOST_PASSWORD = 'qlbbsjkapqhqvjaz'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# stripe
+STRIPE_PUBLISHABLE_KEY = 'pk_test_KDo4WyciCbVyG4hGciOwwh4P00XoAg5zzK'
+STRIPE_SECRET_KEY = 'sk_test_l0Dm5N3UZzi6DaAlXTBmttqy00A008TZX3'
