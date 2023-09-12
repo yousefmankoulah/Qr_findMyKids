@@ -71,12 +71,15 @@ def updateProfile(request, id):
             name = request.POST['name']
             address = request.POST['address']
             phone = request.POST['phoneNumber']
-            summary = request.POST['summary']    
+            summary = request.POST['summary']
+            type = request.POST['type']   
+    
 
             profile.name = name
             profile.address = address
             profile.phoneNumber = phone
             profile.summary = summary
+            profile.type = type
           
             profile.save()
 
