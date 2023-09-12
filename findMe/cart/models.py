@@ -19,9 +19,6 @@ class Cart(models.Model):
 
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    parent = models.ForeignKey(GenerateQr, on_delete=models.CASCADE)
-    kids_name = models.CharField(max_length=250, blank=True)
-    qr = models.ImageField(upload_to='media', blank=True)
 
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     quantity = models.IntegerField()

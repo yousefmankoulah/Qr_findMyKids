@@ -46,20 +46,14 @@
                                <td>
                                    ${{cart_item.sub_total}}
                                </td>
-                                    {% if cart_item.quantity < cart_item.product.stock %}
+                                    
                                         <td>
-                                            <a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom-a"><i class="fa fa-plus-circle custom-icon"></i></a>&nbsp;
-                                            <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom-a"><i class="fa fa-minus-circle custom-icon"></i></a> &nbsp;
-                                            <a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom-a"><i class="fa fa-trash custom-icon"></i></a>
+                                            <a href="{% url 'add_cart' cart_item.product.id %}" class="custom-a"><i class="fa fa-plus-circle custom-icon"></i></a>&nbsp;
+                                            <a href="{% url 'cart_remove' cart_item.product.id %}" class="custom-a"><i class="fa fa-minus-circle custom-icon"></i></a> &nbsp;
+                                            <a href="{% url 'full_remove' cart_item.product.id %}" class="custom-a"><i class="fa fa-trash custom-icon"></i></a>
                                         </td>
 
-                                        {% else %}
-                                        <td>
-                                            &nbsp;
-                                            <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom-a"><i class="fa fa-minus-circle custom-icon"></i></a> &nbsp;
-                                            <a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom-a"><i class="fa fa-trash-alt custom-icon"></i></a>
-                                        </td>
-                                     {% endif %}
+                            
                            </tr>
                         {% endfor %}
                     </tbody>
@@ -96,7 +90,7 @@
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{data_key}}"
                             data-amount="{{stripe_total}}"
-                            data-name="Hand Shop"
+                            data-name="Gabt Eltaiha"
                             data-description="{{description}}"
                             data-image="{% static 'img/logo.png' %}"
                             data-locale="auto"
@@ -107,7 +101,7 @@
                         </script>
                     </form>
 
-                    <a href="{% url 'home' %}" class="btn btn-secondary btn-block my-custom-button">Continue Shopping</a>
+                    <a href="{% url 'category' %}" class="btn btn-secondary btn-block my-custom-button">Continue Shopping</a>
                 </div>
             </div>
         </div><br>

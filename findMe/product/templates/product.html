@@ -28,7 +28,7 @@
                         <p class="lead">Price: $ {{product.price}}</p>
                         <a class="btn btn-primary" href="{% url 'detail' product.id %}">More Details</a>
                        
-                        <a class="btn btn-primary">Add to Cart</a>
+                        {% comment %} <a class="btn btn-primary">Add to Cart</a>
 
                         <div>
                             <form method="post" class="content form-group">
@@ -40,7 +40,7 @@
                                 {% endfor %}
                             </select>
                             </form>
-                        </div>
+                        </div> {% endcomment %}
 
 
                         <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>

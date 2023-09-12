@@ -28,8 +28,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     product = models.CharField(max_length=250)
-    parent = models.ForeignKey(GenerateQr, on_delete=models.CASCADE)
-    kids = models.CharField(max_length=250)
+
     quantity = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='GBP Price')
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
