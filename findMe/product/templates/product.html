@@ -15,9 +15,10 @@
     </div><br><br><hr>
     <h1 class="text-center heh">Our Product</h1><br><br>
 
-
     <div class="row mx-auto">
         {% for product in product %}
+       
+
             <div class="my_button col-md-6 col-sm-12 mt-4 mb-4">
                 <div class="card text-center">
                     <img class="card-img-top my-image" src="{{product.image.url}}" alt="{{product.name}}">
@@ -30,11 +31,15 @@
                         <a class="btn btn-primary">Add to Cart</a>
 
                         <div>
+                            <form method="post" class="content form-group">
                             <label for="kids_name">Choose your kids name</label>
                             <select type="kids_name" id="name">
                                 <option></option>
-                                <option value="{{ kids.parent.name }}">{{ kids.parent.name }}</option>
+                                {% for kid in kids %}
+                                <option value="{{ kid.name }}">{{ kid.name }}</option>
+                                {% endfor %}
                             </select>
+                            </form>
                         </div>
 
 
@@ -43,9 +48,13 @@
 
                     </div>
                 </div>
+                
             </div>
+           
         {% endfor %}
   </div>
+
+
 </div>
 
 <script>

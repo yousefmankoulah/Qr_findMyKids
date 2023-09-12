@@ -13,7 +13,7 @@ def category(request):
 
 def product(request, category):
     product = Product.objects.filter(category=category)
-    kids_name = GenerateQr.objects.filter(parent = request.user)
+    kids_name = GenerateQr.objects.filter(parent=request.user)
     return render(request, 'product.html', {'product': product, 'kids': kids_name})
 
 

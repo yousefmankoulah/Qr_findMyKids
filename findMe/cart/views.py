@@ -5,8 +5,8 @@ from .models import Cart, CartItem
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
-
-#from order.models import Order, OrderItem
+from django.contrib.auth.decorators import login_required
+from order.models import Order, OrderItem
 
 
 # Create your views here.
@@ -19,33 +19,36 @@ def _cart_id(request):
     return cart
 
 
+@login_required(login_url='login')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
     parent = GenerateQr.objects.filter(parent=request.user)
+    
     try:
-        cart = Cart.objects.get(cart_id=_cart_id(request))
+            cart = Cart.objects.get(cart_id=_cart_id(request))
     except Cart.DoesNotExist:
         cart = Cart.objects.create(
             cart_id=_cart_id(request)
         )
-        cart.save(),
+        cart.save()
+
+    if request.method == "POST":
+        global name
+        name = request.POST['kids_name']
+        
 
     try:
-        cart_item = CartItem.objects.get(product=product, cart=cart, parent=parent, kids_name=parent.name, qr=parent.qr)
+        cart_item = CartItem.objects.get(product=product, cart=cart, parent=parent, kids_name=name, qr=parent.qr)
         cart_item.quantity += 1
         cart_item.save()
 
     except CartItem.DoesNotExist:
-        cart_item = CartItem.objects.create(
-            product=product,
-            quantity=1,
-            cart=cart
-        )
+        cart_item = CartItem.objects.create(product=product, quantity=1, cart=cart, parent=parent, kids_name=name, qr=parent.qr)
         cart_item.save()
-    return redirect('cart:cart_detail')
+    return redirect('cart_detail')
 
 
-
+@login_required(login_url='login')
 def cart_detail(request, total=0, counter=0, cart_items=None):
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -124,6 +127,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
     return render(request, 'cart.html', dict(cart_items=cart_items, total=total, counter=counter, data_key=data_key, stripe_total=stripe_total, description=description))
 
 
+@login_required(login_url='login')
 def cart_remove(request, product_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     product = get_object_or_404(Product, id=product_id)
@@ -136,6 +140,7 @@ def cart_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 
+@login_required(login_url='login')
 def full_remove(request, product_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     product = get_object_or_404(Product, id=product_id)
