@@ -24,7 +24,6 @@ def _cart_id(request):
 @login_required(login_url='login')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
-    parent = GenerateQr.objects.filter(parent=request.user)
     
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -33,17 +32,9 @@ def add_cart(request, product_id):
             cart_id=_cart_id(request)
         )
         cart.save()
-        print('saved')
 
-    try:
-        cart_item = CartItem.objects.get(product=product, cart=cart)
-        cart_item.quantity += 1
-        cart_item.save()
-
-    except CartItem.DoesNotExist:
-        cart_item = CartItem.objects.create(
-            product=product, quantity=1, cart=cart)
-        cart_item.save()
+    cart_item = CartItem.objects.create(product=product, quantity=1, cart=cart)
+    cart_item.save()
     return redirect('cart_detail')
 
 
@@ -66,7 +57,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
     description = 'We sell everything'
     data_key = settings.STRIPE_PUBLISHABLE_KEY
     if request.method == 'POST':
-        kids = request.POST.get('kids_name')
+        kids = request.POST.getlist('kids_name')
 
         try:
             token = request.POST['stripeToken']
@@ -111,23 +102,27 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 )
                 order_details.save()
                 
-                kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=kids)
+                
 
                 for order_item in cart_items:
-                    oi = OrderItem.objects.create(
-                        product=order_item.product.name,
-                        quantity=order_item.quantity,
-                        price=order_item.product.price,
-                        order=order_details,
-                        parent=kids_qr_name,
-                        kids_name=kids,
-                        qr=kids_qr_name.qr,
-                    )
-                    ################################################################# t3deeel
-                    oi.save()
-            
-
+                    
+                    for i in kids:
+                        
+                        kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=i)
+                        
+                        oi = OrderItem.objects.create(
+                            product=order_item.product.name,
+                            quantity=order_item.quantity,
+                            price=order_item.product.price,
+                            order=order_details,
+                            parent=kids_qr_name,
+                            kids_name=kids_qr_name.name,
+                            qr=kids_qr_name.qr,
+                        )
+                            ############################### t3deeel
+                        oi.save()
                     order_item.delete()
+
                     message = "You order " + order_item.product.name + \
                         " and the total price is " + \
                         str(order_item.product.price)
@@ -154,23 +149,11 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
     return render(request, 'cart.html', dict(cart_items=cart_items, total=total, counter=counter, data_key=data_key, stripe_total=stripe_total, description=description, kids_name=kids_name))
 
 
-@login_required(login_url='login')
-def cart_remove(request, product_id):
-    cart = Cart.objects.get(cart_id=_cart_id(request))
-    product = get_object_or_404(Product, id=product_id)
-    cart_item = CartItem.objects.get(product=product, cart=cart)
-    if cart_item.quantity > 1:
-        cart_item.quantity -= 1
-        cart_item.save()
-    else:
-        cart_item.delete()
-    return redirect('cart_detail')
-
 
 @login_required(login_url='login')
-def full_remove(request, product_id):
+def full_remove(request, cartItem_id, id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
-    product = get_object_or_404(Product, id=product_id)
-    cart_item = CartItem.objects.get(product=product, cart=cart)
+    product = get_object_or_404(Product, id=id)
+    cart_item = CartItem.objects.filter(id = cartItem_id, product=product.id, cart=cart)
     cart_item.delete()
     return redirect('cart_detail')
