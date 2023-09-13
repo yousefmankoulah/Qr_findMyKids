@@ -43,7 +43,7 @@
                                     Qty: {{cart_item.quantity}} * ${{cart_item.product.price}}<br>
                                
                                   
-                                        <form method="post" class="content form-group">
+                                        {% comment %} <form method="post" class="content form-group">
                                             {% csrf_token %}
                                         <label for="kids_name">Choose your kids name: </label>
                                         <select name="kids_name" id="name" required>
@@ -53,7 +53,7 @@
 
                                             {% endfor %}
                                         </select>
-                                        </form> 
+                                        </form>  {% endcomment %}
                                  
                                </td>
                                <td>
@@ -100,7 +100,16 @@
                     <form action="" method="post">
                         
                         {% csrf_token %}
-                        
+                       
+                        <label for="kids_name">Choose your kids name: </label>
+                        <select name="kids_name" id="name" required>
+                            <option></option>
+                            {% for kid in kids_name %}
+                            <option value="{{ kid.name }}">{{ kid.name }}</option>
+
+                            {% endfor %}
+                        </select>
+           
                         <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{data_key}}"

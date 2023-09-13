@@ -24,9 +24,6 @@ class CartItem(models.Model):
     quantity = models.IntegerField()
     active = models.BooleanField(default=True)
 
-    parent = models.ForeignKey(GenerateQr, on_delete=models.CASCADE, default="")
-    kids_name = models.CharField(max_length=250, blank=True, null=True)
-    qr = models.ImageField(upload_to='media', blank=True, null=True)
 
     class Meta:
         db_table = 'CartItem'

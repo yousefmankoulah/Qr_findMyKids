@@ -24,30 +24,26 @@ def _cart_id(request):
 @login_required(login_url='login')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
-    print('hello')
-    if request.method == 'POST':
-        kids = request.POST.get('kids_name')
-        print(kids)
-        kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=kids)
-        print(kids_qr_name.qr)
-        try:
-            cart = Cart.objects.get(cart_id=_cart_id(request))
-        except Cart.DoesNotExist:
-            cart = Cart.objects.create(
-                cart_id=_cart_id(request)
-            )
-            cart.save()
-            print('saved')
+    parent = GenerateQr.objects.filter(parent=request.user)
+    
+    try:
+        cart = Cart.objects.get(cart_id=_cart_id(request))
+    except Cart.DoesNotExist:
+        cart = Cart.objects.create(
+            cart_id=_cart_id(request)
+        )
+        cart.save()
+        print('saved')
 
-        try:
-            cart_item = CartItem.objects.get(product=product, cart=cart, parent=kids_qr_name, kids_name=kids, qr=kids_qr_name.qr)
-            cart_item.quantity += 1
-            cart_item.save()
+    try:
+        cart_item = CartItem.objects.get(product=product, cart=cart)
+        cart_item.quantity += 1
+        cart_item.save()
 
-        except CartItem.DoesNotExist:
-            cart_item = CartItem.objects.create(
-                product=product, quantity=1, cart=cart, parent=kids_qr_name, kids_name=kids, qr=kids_qr_name.qr)
-            cart_item.save()
+    except CartItem.DoesNotExist:
+        cart_item = CartItem.objects.create(
+            product=product, quantity=1, cart=cart)
+        cart_item.save()
     return redirect('cart_detail')
 
 
@@ -116,7 +112,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 order_details.save()
                 
                 kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=kids)
-        
+
                 for order_item in cart_items:
                     oi = OrderItem.objects.create(
                         product=order_item.product.name,
