@@ -8,8 +8,11 @@ class OrderItemAdmin(admin.TabularInline):
         ('Product', {'fields': ['product'], }),
         ('Quantity', {'fields': ['quantity'], }),
         ('Price', {'fields': ['price'], }),
+        ('kids_name', {'fields': ['kids_name'], }),
+        ('qr', {'fields': ['qr'], }),
+
     ]
-    readonly_fields = ['product', 'quantity', 'price']
+    readonly_fields = ['product', 'quantity', 'price', 'qr', 'kids_name']
     can_delete = False
     max_num = 0
     template = 'admin/order/tabular.html'
@@ -29,6 +32,6 @@ class OrderAdmin(admin.ModelAdmin):
         OrderItemAdmin,
     ]
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
     def has_add_permission(self, request):
         return False

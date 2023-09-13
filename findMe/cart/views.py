@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from order.models import Order, OrderItem
 from django.core.mail import send_mail
+from django.contrib import messages
 
 
 # Create your views here.
@@ -23,29 +24,37 @@ def _cart_id(request):
 @login_required(login_url='login')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
-    
-    try:
-        cart = Cart.objects.get(cart_id=_cart_id(request))
-    except Cart.DoesNotExist:
-        cart = Cart.objects.create(
-            cart_id=_cart_id(request)
-        )
-        cart.save()
+    print('hello')
+    if request.method == 'POST':
+        kids = request.POST.get('kids_name')
+        print(kids)
+        kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=kids)
+        print(kids_qr_name.qr)
+        try:
+            cart = Cart.objects.get(cart_id=_cart_id(request))
+        except Cart.DoesNotExist:
+            cart = Cart.objects.create(
+                cart_id=_cart_id(request)
+            )
+            cart.save()
+            print('saved')
 
+        try:
+            cart_item = CartItem.objects.get(product=product, cart=cart, parent=kids_qr_name, kids_name=kids, qr=kids_qr_name.qr)
+            cart_item.quantity += 1
+            cart_item.save()
 
-    try:
-        cart_item = CartItem.objects.get(product=product, cart=cart)
-        cart_item.quantity += 1
-        cart_item.save()
-
-    except CartItem.DoesNotExist:
-        cart_item = CartItem.objects.create(product=product, quantity=1, cart=cart)
-        cart_item.save()
+        except CartItem.DoesNotExist:
+            cart_item = CartItem.objects.create(
+                product=product, quantity=1, cart=cart, parent=kids_qr_name, kids_name=kids, qr=kids_qr_name.qr)
+            cart_item.save()
     return redirect('cart_detail')
+
 
 
 @login_required(login_url='login')
 def cart_detail(request, total=0, counter=0, cart_items=None):
+    kids_name = GenerateQr.objects.filter(parent=request.user)
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart, active=True)
@@ -60,6 +69,8 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
     description = 'We sell everything'
     data_key = settings.STRIPE_PUBLISHABLE_KEY
     if request.method == 'POST':
+        kids = request.POST.get('kids_name')
+
         try:
             token = request.POST['stripeToken']
             email = request.POST['stripeEmail']
@@ -73,16 +84,17 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
             shippingCity = request.POST['stripeShippingAddressCity']
             shippingPostcode = request.POST['stripeShippingAddressZip']
             shippingCountry = request.POST['stripeShippingAddressCountryCode']
+            
             customer = stripe.Customer.create(
-                    email=email,
-                    source=token
-                )
+                email=email,
+                source=token
+            )
             charge = stripe.Charge.create(
-                    amount=stripe_total,
-                    currency="usd",
-                    description=description,
-                    customer=customer.id
-                )
+                amount=stripe_total,
+                currency="usd",
+                description=description,
+                customer=customer.id
+            )
             '''creating order'''
             try:
                 order_details = Order.objects.create(
@@ -101,18 +113,27 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     shippingCountry=shippingCountry
                 )
                 order_details.save()
+                
+                kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=kids)
+        
                 for order_item in cart_items:
                     oi = OrderItem.objects.create(
                         product=order_item.product.name,
                         quantity=order_item.quantity,
                         price=order_item.product.price,
                         order=order_details,
-                        
+                        parent=kids_qr_name,
+                        kids_name=kids,
+                        qr=kids_qr_name.qr,
                     )
+                    ################################################################# t3deeel
                     oi.save()
-                   
+            
+
                     order_item.delete()
-                    message = "You order " + order_item.product.name + " and the total price is " + str(order_item.product.price)
+                    message = "You order " + order_item.product.name + \
+                        " and the total price is " + \
+                        str(order_item.product.price)
                     send_mail(
                         "The order has been confirmed",
                         message,
@@ -133,7 +154,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 pass
         except stripe.error.CardError as e:
             return False, e
-    return render(request, 'cart.html', dict(cart_items=cart_items, total=total, counter=counter, data_key=data_key, stripe_total=stripe_total, description=description))
+    return render(request, 'cart.html', dict(cart_items=cart_items, total=total, counter=counter, data_key=data_key, stripe_total=stripe_total, description=description, kids_name=kids_name))
 
 
 @login_required(login_url='login')

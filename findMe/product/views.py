@@ -19,7 +19,8 @@ def product(request, category):
 
 def prod_detail(request, id):
     product = Product.objects.filter(id=id)
-    return render(request, 'productDetail.html', {'product': product})
+    kids_name = GenerateQr.objects.filter(parent=request.user)
+    return render(request, 'productDetail.html', {'product': product, 'kids': kids_name})
 
 
 ## search

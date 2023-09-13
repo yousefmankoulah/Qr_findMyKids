@@ -28,10 +28,13 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     product = models.CharField(max_length=250)
-
     quantity = models.IntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='GBP Price')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+
+    parent = models.ForeignKey(GenerateQr, on_delete=models.CASCADE, default="")
+    kids_name = models.CharField(max_length=250, blank=True, null=True)
+    qr = models.ImageField(upload_to='media', blank=True, null=True)
 
     class Meta:
         db_table = 'OrderItem'

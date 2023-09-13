@@ -39,9 +39,22 @@
                             </td>
                                <td class="text-left">
                                     {{cart_item.product.name}}<br>
-                                    SKU: {{cart_item.product.id}}<br>
                                     Unit Price: ${{cart_item.product.price}}<br>
-                                   Qty: {{cart_item.quantity}} * ${{cart_item.product.price}}
+                                    Qty: {{cart_item.quantity}} * ${{cart_item.product.price}}<br>
+                               
+                                  
+                                        <form method="post" class="content form-group">
+                                            {% csrf_token %}
+                                        <label for="kids_name">Choose your kids name: </label>
+                                        <select name="kids_name" id="name" required>
+                                            <option></option>
+                                            {% for kid in kids_name %}
+                                            <option value="{{ kid.name }}">{{ kid.name }}</option>
+
+                                            {% endfor %}
+                                        </select>
+                                        </form>
+                                 
                                </td>
                                <td>
                                    ${{cart_item.sub_total}}
@@ -85,7 +98,9 @@
                 </table>
                 <div class="mx-auto">
                     <form action="" method="post">
+                        
                         {% csrf_token %}
+                        
                         <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{data_key}}"
@@ -98,7 +113,9 @@
                             data-shipping-address="true"
                             data-billing-address="true"
                             data-zip-code="true">
-                        </script>
+                            
+                        </script>                   
+              
                     </form>
 
                     <a href="{% url 'category' %}" class="btn btn-secondary btn-block my-custom-button">Continue Shopping</a>
@@ -106,4 +123,26 @@
             </div>
         </div><br>
     {% endif %}
+
+    <script>
+       
+    // prevent reload page
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+
+    //prevent submitting empty form
+    function empty() {
+        var x;
+        
+        x = document.getElementById("name").value;
+        
+        if (x == "") {
+            alert("Choose your Kids name for each product items");
+            return false;
+        };
+    }
+
+    </script>
 {% endblock %}

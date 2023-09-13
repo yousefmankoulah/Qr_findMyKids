@@ -12,8 +12,8 @@ admin.site.register(Cart, CartAdmin)
 
 
 class CartItemAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    search_fields = ['product', 'cart']
+    search_fields = ['product', 'cart', 'kids_name', 'parent']
     ordering = ['product']
-    list_filter = ['product']
-    list_display = ['product', 'cart']
+    list_filter = ['product', 'parent']
+    list_display = ['product', 'kids_name', 'parent', 'cart']
 admin.site.register(CartItem, CartItemAdmin)

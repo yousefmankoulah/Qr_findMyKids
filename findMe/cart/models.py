@@ -13,7 +13,7 @@ class Cart(models.Model):
         ordering = ['date_added']
 
     def __str__(self):
-        return self.cart_id
+        return str(self.cart_id)
 
 
 
@@ -24,6 +24,10 @@ class CartItem(models.Model):
     quantity = models.IntegerField()
     active = models.BooleanField(default=True)
 
+    parent = models.ForeignKey(GenerateQr, on_delete=models.CASCADE, default="")
+    kids_name = models.CharField(max_length=250, blank=True, null=True)
+    qr = models.ImageField(upload_to='media', blank=True, null=True)
+
     class Meta:
         db_table = 'CartItem'
 
@@ -31,4 +35,4 @@ class CartItem(models.Model):
         return self.product.price * self.quantity
 
     def __str__(self):
-        return self.product
+        return str(self.product)

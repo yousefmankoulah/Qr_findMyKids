@@ -27,21 +27,6 @@
                         <p class="lead">Description: {{product.description}}</p>
                         <p class="lead">Price: $ {{product.price}}</p>
                         <a class="btn btn-primary" href="{% url 'detail' product.id %}">More Details</a>
-                       
-                        {% comment %} <a class="btn btn-primary">Add to Cart</a>
-
-                        <div>
-                            <form method="post" class="content form-group">
-                            <label for="kids_name">Choose your kids name</label>
-                            <select type="kids_name" id="name">
-                                <option></option>
-                                {% for kid in kids %}
-                                <option value="{{ kid.name }}">{{ kid.name }}</option>
-                                {% endfor %}
-                            </select>
-                            </form>
-                        </div> {% endcomment %}
-
 
                         <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
                        
@@ -57,8 +42,25 @@
 
 </div>
 
-<script>
+{% comment %} <script>
+    // prevent reload page
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+
+    //prevent submitting empty form
+    function empty() {
+        var x;
+        
+        x = document.getElementById("name").value;
+        
+        if (x == "") {
+            alert("Choose your Kids name for each product items");
+            return false;
+        };
+    }
 
     
-</script>
+</script> {% endcomment %}
 {% endblock %}

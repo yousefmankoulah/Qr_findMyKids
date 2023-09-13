@@ -45,12 +45,14 @@
                         <h1 class="my-prod2">{{product.name}}</h1>
                         <p class="mt-4">Price: ${{product.price}}</p>
                         <p class="lead">Product Description: {{product.description}}</p>
-                      
-                        <a class="btn btn-secondary" href="">Add to Cart</a>
+   
+                          <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
+
                     </div>
                 </div>
             </div>
         </div>
         {% endfor %}
+
 
 {% endblock %}
