@@ -105,9 +105,6 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 
 
                 for order_item in cart_items:
-                    print(order_item.product)
-                    print(order_item.id)
-                    print(order_item.product.id)
 
                     for i in kids:
                         
@@ -124,6 +121,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                         )
                             ############################### t3deeel
                         oi.save()  
+                  
 
                     order_item.delete()
 
@@ -144,7 +142,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                         ["yousef.mankola10@gmail.com",],
                         fail_silently=False,
                     )
-                    print('The order has been created')
+                   
                 return redirect('thanks', order_details.id)
             except ObjectDoesNotExist:
                 pass
