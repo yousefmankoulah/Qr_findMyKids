@@ -15,7 +15,6 @@ from .models import GenerateQr
 
 
 
-
 # Create your views here.
 
 def home(request):

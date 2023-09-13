@@ -42,16 +42,16 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'dashboard' request.user.id %}">Dashboard<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
-                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'createQR' %}">Create a Qr Profile<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
                 </li>
-                
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item mainy">
                   <a class="nav-link" href="{% url 'logout' %}">logout <span class="sr-only">(current)</span></a>
                 </li>
@@ -60,7 +60,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+              </li>
               <li class="nav-item mainy">
                 <a class="nav-link" href="{% url 'login' %}">Sign In <span class="sr-only">(current)</span></a>
               </li>

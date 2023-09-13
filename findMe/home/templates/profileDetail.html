@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block content %}
+{% if request.user != qr.parent %}
+    <h1>Please caall the phone number below</h1>
+{% endif %}
+
 {% for qr in qr  %}
 <div class="container lead">
 {{qr.name}}<br>
