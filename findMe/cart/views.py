@@ -105,7 +105,10 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 
 
                 for order_item in cart_items:
-                    
+                    print(order_item.product)
+                    print(order_item.id)
+                    print(order_item.product.id)
+
                     for i in kids:
                         
                         kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=i)
@@ -120,7 +123,8 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                             qr=kids_qr_name.qr,
                         )
                             ############################### t3deeel
-                        oi.save()
+                        oi.save()  
+
                     order_item.delete()
 
                     message = "You order " + order_item.product.name + \
