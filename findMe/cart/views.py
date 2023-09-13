@@ -52,6 +52,7 @@ def add_cart(request, product_id):
 
 
 
+
 @login_required(login_url='login')
 def cart_detail(request, total=0, counter=0, cart_items=None):
     kids_name = GenerateQr.objects.filter(parent=request.user)

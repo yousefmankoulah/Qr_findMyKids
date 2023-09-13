@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from .models import Category, Product
 from home.models import GenerateQr
@@ -21,6 +21,7 @@ def prod_detail(request, id):
     product = Product.objects.filter(id=id)
     kids_name = GenerateQr.objects.filter(parent=request.user)
     return render(request, 'productDetail.html', {'product': product, 'kids': kids_name})
+
 
 
 ## search

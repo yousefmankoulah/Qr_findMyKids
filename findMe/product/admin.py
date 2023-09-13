@@ -18,3 +18,5 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_filter = ['name', 'category']
     list_display = ['category', 'name', 'price']
 admin.site.register(Product, ProductAdmin)
+
+

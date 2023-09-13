@@ -27,7 +27,18 @@
                         <p class="lead">Description: {{product.description}}</p>
                         <p class="lead">Price: $ {{product.price}}</p>
                         <a class="btn btn-primary" href="{% url 'detail' product.id %}">More Details</a>
+                        
+                        <form method="post" class="content form-group">
+                            {% csrf_token %}
+                        <label for="kids_name">Choose your kids name: </label>
+                        <select name="kids_name" id="name" required>
+                            <option></option>
+                            {% for kid in kids %}
+                            <option value="{{ kid.name }}">{{ kid.name }}</option>
 
+                            {% endfor %}
+                        </select>
+                        </form>
                         <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
                        
 

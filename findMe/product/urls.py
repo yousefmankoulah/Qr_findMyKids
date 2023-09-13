@@ -8,5 +8,4 @@ urlpatterns = [
 
     path('search/', views.searchResult, name='search'),
 
-
 ]
