@@ -36,6 +36,11 @@
                         <td>${{item.price}}</td>
                         <td>${{item.sub_total}}</td>
                     </tr>
+                    <tr>
+                        <td><img src="{{item.qr.url}}" width="200px" height="200px" /></td>
+                        <td>{{item.kids_name}}</td>
+                        
+                    </tr>
                 {% endfor %}
                 <tr>
                     <td class="text-right" colspan="3"><b>Total</b></td>

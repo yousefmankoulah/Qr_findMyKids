@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from home.models import GenerateQr
@@ -18,10 +18,18 @@ def orderHistory(request):
     return render(request, 'order/orders_list.html', {'order_details': order_details})
 
 @login_required()
+def allOrderHistory(request):
+    if request.user.is_superuser:
+        order_details = Order.objects.all()
+    else:
+        return HttpResponse("<h1>You are not welcoming here</h1>")
+    return render(request, 'order/all_order_list.html', {'order_details': order_details})
+
+
+@login_required()
 def viewOrder(request, order_id):
     if request.user.is_authenticated:
         email = str(request.user.email)
         order = Order.objects.get(id=order_id)
         order_items = OrderItem.objects.filter(order=order)
-
     return render(request, 'order/order_detail.html', {'order': order, 'order_items': order_items})

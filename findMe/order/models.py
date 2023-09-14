@@ -36,6 +36,9 @@ class OrderItem(models.Model):
     kids_name = models.CharField(max_length=250, blank=True, null=True)
     qr = models.ImageField(upload_to='media', blank=True, null=True)
 
+    ready_to_ship = models.BooleanField(default=False, blank=True, null=True)
+    ship = models.BooleanField(default=False, blank=True, null=True)
+
     class Meta:
         db_table = 'OrderItem'
     def sub_total(self):

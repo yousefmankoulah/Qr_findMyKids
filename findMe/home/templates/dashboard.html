@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block content %}
-{% for dashboard in dashboard  %}
 <div class="container lead">
+
+    <br><br><a class="btn btn-info" href={% url 'order_history' %}>History Orders</a><br><br><hr>
+{% for dashboard in dashboard  %}
 
 {{dashboard.name}}<br>
 
@@ -16,10 +18,11 @@
 <a class="btn btn-primary" href="{% url 'profileDetail' dashboard.id %}">More Detail</a>
 <hr>
 
-</div>
 
 
 <br>
 {% endfor %}
+</div>
+
     
 {% endblock %}
