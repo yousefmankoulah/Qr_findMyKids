@@ -99,16 +99,11 @@
                     </tbody>
                 </table>
                
-                       
-                        {% comment %} <label for="kids_name">Choose your kids name: </label>
-                        <select name="kids_name" id="name" required>
-                            <option></option>
-                            {% for kid in kids_name %}
-                            <option value="{{ kid.name }}">{{ kid.name }}</option>
 
-                            {% endfor %}
-                        </select> {% endcomment %}
-                        <script
+                    {% if kid.name == "" %}
+                        <p>Choose the kids name for</p>
+                    {% else %}
+                    <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{data_key}}"
                             data-amount="{{stripe_total}}"
@@ -120,8 +115,9 @@
                             data-shipping-address="true"
                             data-billing-address="true"
                             data-zip-code="true">
-                            
-                        </script>                   
+                        </script>   
+                    {% endif %}   
+                        
               
                     </form>
 
@@ -131,25 +127,5 @@
         </div><br>
     {% endif %}
 
-    <script>
-       
-    // prevent reload page
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
 
-
-    //prevent submitting empty form
-    function empty() {
-        var x;
-        
-        x = document.getElementById("name").value;
-        
-        if (x == "") {
-            alert("Choose your Kids name for each product items");
-            return false;
-        };
-    }
-
-    </script>
 {% endblock %}

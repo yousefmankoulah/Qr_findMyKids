@@ -103,31 +103,26 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 order_details.save()
                 
                 
+                arr3 = []
+                for i, j in zip(cart_items, kids):
+                    kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=j)
 
-                for order_item in cart_items:
+                    arr3.append((i.product.name, i.quantity, i.product.price, kids_qr_name, kids_qr_name.name, kids_qr_name.qr))
+                    order_item = OrderItem.objects.create(
+                        product=i.product.name,
+                        quantity=i.quantity,
+                        price=i.product.price,
+                        order=order_details,
+                        parent=kids_qr_name,
+                        kids_name=kids_qr_name.name,
+                        qr=kids_qr_name.qr,
+                    )
+                    order_item.save()                 
+                    i.delete()
 
-                    for i in kids:
-                        
-                        kids_qr_name = GenerateQr.objects.get(parent=request.user.id, name=i)
-                        
-                        oi = OrderItem.objects.create(
-                            product=order_item.product.name,
-                            quantity=order_item.quantity,
-                            price=order_item.product.price,
-                            order=order_details,
-                            parent=kids_qr_name,
-                            kids_name=kids_qr_name.name,
-                            qr=kids_qr_name.qr,
-                        )
-                            ############################### t3deeel
-                        oi.save()  
-                  
-
-                    order_item.delete()
-
-                    message = "You order " + order_item.product.name + \
+                    message = "You order " + str(i.product.name) + \
                         " and the total price is " + \
-                        str(order_item.product.price)
+                        str(i.product.price)  + " for your kids: " + str(kids_qr_name.name) + "address: " + billingAddress1
                     send_mail(
                         "The order has been confirmed",
                         message,
