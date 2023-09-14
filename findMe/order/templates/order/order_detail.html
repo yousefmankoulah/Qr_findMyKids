@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    {% if request.user.email == order.emailAddress %}
+    {% if request.user.email == order.emailAddress or request.user.is_superuser %}
     <div>
         <div class="text-center"><br>
             <h1 class="text-center my-title">Order Details</h1>

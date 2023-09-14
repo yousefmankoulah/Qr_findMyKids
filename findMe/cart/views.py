@@ -121,7 +121,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     )
                     order_item.save()   
                     messages.success(request, "We recieved your order")              
-                    i.delete()
+                    cart_items.delete()
 
                 html_message = render_to_string('mail_template.html', {'id': order_details.id})
                 plain_message = strip_tags(html_message)
