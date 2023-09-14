@@ -2,10 +2,15 @@
 {% load static %}
 
 {% block content %}
+{% if request.user.is_superuser %}
+<div class="mx-auto container">
+    <p><a href="{% url 'allOrderHistory' %}">All Orders</a> | <a href="{% url 'NotReadyOrderHistory' %}">Not Readt to ship</a> | <a href="{% url 'shippedOrderHistory' %}">Shipped Orders</a></p>
+</div>
+
     <div>
         <div class="text-center"><br>
             <h1 class="text-center my-title">
-                Order History
+                Not Ready to Ship Orders 
             </h1><br>
             {% if order_details %}
             <table class="table table-stripped">
@@ -14,7 +19,6 @@
                     <th>Order Number</th>
                     <th>Order Date</th>
                     <th>Total Amount</th>
-                    <td>Status</td>
                     <td>Action</td>
                 </tr>
                 </thead>
@@ -24,16 +28,17 @@
                             <td>{{order.id}}</td>
                             <td>{{ order.created|date:"d M Y" }}</td>
                             <td>{{order.total}}</td>
-                            <td><i class="fa fa-check"></i>&nbsp;Complete</td>
                             <td><a href="{% url 'order_detail' order.id %}">View Order</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
             {% else %}
-                <p>You have not placed any order yet <br><br><a href="{% url 'category' %}" class="btn btn-secondary">Continue shopping</a></p>
+                <p>All The orders are ready to ship <br><br></p>
             {% endif %}
         </div>
     </div>
 <br><br>
+{% endif %}
+
 {% endblock %}

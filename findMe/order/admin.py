@@ -10,8 +10,7 @@ class OrderItemAdmin(admin.TabularInline):
         ('Price', {'fields': ['price'], }),
         ('kids_name', {'fields': ['kids_name'], }),
         ('qr', {'fields': ['qr'], }),
-        ('notReady', {'fields': ['ready_to_ship'], }),
-        ('ship', {'fields': ['ship'], }),
+        
 
     ]
     readonly_fields = ['product', 'quantity', 'price', 'qr', 'kids_name']
@@ -29,6 +28,8 @@ class OrderAdmin(admin.ModelAdmin):
         ('ORDER INFORMATION', {'fields': ['id', 'token', 'total', 'created'], }),
         ('BILLING INFORMATION', {'fields': ['emailAddress', 'billingName', 'billingAddress1'], }),
         ('SHIPPING INFORMATION', {'fields': ['shippingAddress1', 'shippingCity', 'shippingCountry'], }),
+        ('notReady', {'fields': ['ready_to_ship'], }),
+        ('ship', {'fields': ['ship'], }),
     ]
     inlines = [
         OrderItemAdmin,

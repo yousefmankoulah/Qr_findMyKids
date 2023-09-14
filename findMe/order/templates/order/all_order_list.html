@@ -3,7 +3,9 @@
 
 {% block content %}
 {% if request.user.is_superuser %}
-
+<div class="mx-auto container">
+    <p><a href="{% url 'allOrderHistory' %}">All Orders</a> | <a href="{% url 'NotReadyOrderHistory' %}">Not Readt to ship</a> | <a href="{% url 'shippedOrderHistory' %}">Shipped Orders</a></p>
+</div>
     <div>
         <div class="text-center"><br>
             <h1 class="text-center my-title">
@@ -16,6 +18,7 @@
                     <th>Order Number</th>
                     <th>Order Date</th>
                     <th>Total Amount</th>
+                    <th>Status</th>
                     <td>Action</td>
                 </tr>
                 </thead>
@@ -25,6 +28,12 @@
                             <td>{{order.id}}</td>
                             <td>{{ order.created|date:"d M Y" }}</td>
                             <td>{{order.total}}</td>
+                            {% if order.ready_to_ship == False or order.ship == False %}
+                            <td>Not Completed</td>
+
+                            {% else %}
+                            <td>Completed</td>
+                            {% endif %}
                             <td><a href="{% url 'order_detail' order.id %}">View Order</a></td>
                         </tr>
                     {% endfor %}

@@ -18,6 +18,8 @@ class Order(models.Model):
     shippingCity = models.CharField(max_length=250, blank=True)
     shippingPostcode = models.CharField(max_length=10, blank=True)
     shippingCountry = models.CharField(max_length=200, blank=True)
+    ready_to_ship = models.BooleanField(default=False, blank=True, null=True)
+    ship = models.BooleanField(default=False, blank=True, null=True)
 
     class Meta:
         db_table = 'Order'
@@ -36,8 +38,7 @@ class OrderItem(models.Model):
     kids_name = models.CharField(max_length=250, blank=True, null=True)
     qr = models.ImageField(upload_to='media', blank=True, null=True)
 
-    ready_to_ship = models.BooleanField(default=False, blank=True, null=True)
-    ship = models.BooleanField(default=False, blank=True, null=True)
+   
 
     class Meta:
         db_table = 'OrderItem'

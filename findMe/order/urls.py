@@ -7,4 +7,6 @@ urlpatterns = [
     path('history/', views.orderHistory, name='order_history'),
     path('<int:order_id>/', views.viewOrder, name='order_detail'),
     path('allOrderHistory/', views.allOrderHistory, name="allOrderHistory"),
+    path('NotReadyOrderHistory/', views.NotReadyOrderHistory, name="NotReadyOrderHistory"),
+    path('shippedOrderHistory/', views.shippedOrderHistory, name="shippedOrderHistory"),
 ]
