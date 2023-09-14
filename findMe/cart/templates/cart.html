@@ -49,8 +49,8 @@
                                   
                                         
                                           
-                                        <label for="kids_name">Choose your kids name: </label>
-                                        <select name="kids_name" id="name" required>
+                                        <label for="kids_name" style="color:#ec1c23">Choose your kids name: </label>
+                                        <select name="kids_name" id="name" class="name" required style="border-color: #ec1c23; color:#ec1c23">
                                             <option></option>
                                             {% for kid in kids_name %}
                                             <option value="{{ kid.name }}">{{ kid.name }}</option>
@@ -99,10 +99,9 @@
                     </tbody>
                 </table>
                
-
-                    {% if kid.name == "" %}
-                        <p>Choose the kids name for</p>
-                    {% else %}
+                <h5 style="color: #ec1c23">Please choose the name of the kids for each product</h5>
+                    <div class="stripeButton" id="stripeButton">
+                        
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{data_key}}"
@@ -116,7 +115,7 @@
                             data-billing-address="true"
                             data-zip-code="true">
                         </script>   
-                    {% endif %}   
+                    </div>
                         
               
                     </form>
@@ -127,5 +126,40 @@
         </div><br>
     {% endif %}
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all select inputs with the name "name" and class "name"
+            var selectInputs = document.querySelectorAll('select[name="kids_name"].name');
+            
+            // Get the div with class "stripeButton"
+            var stripeButtonDiv = document.querySelector(".stripeButton");
+            
+            // Function to handle changes in select inputs
+            function handleSelectChange() {
+                // Check if any select input is empty
+                var isEmpty = false;
+                selectInputs.forEach(function(selectInput) {
+                    if (selectInput.value === "") {
+                        isEmpty = true;
+                    }
+                });
+                
+                // Hide/show the "stripeButton" div based on the isEmpty variable
+                if (isEmpty) {
+                    stripeButtonDiv.style.display = "none";
+                } else {
+                    stripeButtonDiv.style.display = "block";
+                }
+            }
+        
+            // Add an event listener to each select input
+            selectInputs.forEach(function(selectInput) {
+                selectInput.addEventListener("change", handleSelectChange);
+            });
+        
+            // Call the function once to set the initial state
+            handleSelectChange();
+        });
+       
+        </script>
 {% endblock %}
