@@ -22,7 +22,7 @@ def allOrderHistory(request):
     if request.user.is_superuser:
         order_details = Order.objects.all()
     else:
-        return HttpResponse("<h1>You are not welcoming here</h1>")
+        return HttpResponse("<h1>You are not welcoming in this page here</h1>")
     return render(request, 'order/all_order_list.html', {'order_details': order_details})
 
 @login_required()
@@ -30,7 +30,7 @@ def NotReadyOrderHistory(request):
     if request.user.is_superuser:
         order_details = Order.objects.filter(ready_to_ship= False).order_by('id').values()
     else:
-        return HttpResponse("<h1>You are not welcoming here</h1>")
+        return HttpResponse("<h1>You are not welcoming in this page here</h1>")
     return render(request, 'order/ready_to_ship.html', {'order_details': order_details})
 
 
@@ -39,7 +39,7 @@ def shippedOrderHistory(request):
     if request.user.is_superuser:
         order_details = Order.objects.filter(ship= False).order_by('id').values()
     else:
-        return HttpResponse("<h1>You are not welcoming here</h1>")
+        return HttpResponse("<h1>You are not welcoming in this page here</h1>")
     return render(request, 'order/shipOrder.html', {'order_details': order_details})
 
 
