@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+    {% if request.user.email == order.emailAddress %}
     <div>
         <div class="text-center"><br>
             <h1 class="text-center my-title">Order Details</h1>
@@ -61,4 +62,9 @@
         </div>
     </div>
 <br><br>
+
+{% else %}
+    <h3>You Are not welcome here</h3>
+    <h4>You used a different email address when placing your product order compared to the one you are currently using.</h4>
+{% endif %}
 {% endblock %}

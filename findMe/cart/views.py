@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from order.models import Order, OrderItem
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 # Create your views here.
@@ -117,26 +119,28 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                         kids_name=kids_qr_name.name,
                         qr=kids_qr_name.qr,
                     )
-                    order_item.save()                 
+                    order_item.save()   
+                    messages.success(request, "We recieved your order")              
                     i.delete()
 
-                    message = "You order " + str(i.product.name) + \
-                        " and the total price is " + \
-                        str(i.product.price)  + " for your kids: " + str(kids_qr_name.name) + "address: " + billingAddress1
-                    send_mail(
-                        "The order has been confirmed",
-                        message,
-                        "yousef.mankola10@gmail.com",
-                        [email,],
-                        fail_silently=False,
+                html_message = render_to_string('mail_template.html', {'id': order_details.id})
+                plain_message = strip_tags(html_message)
+                send_mail(
+                    "The order has been confirmed",
+                    plain_message,
+                    "yousef.mankola10@gmail.com",
+                    [email,],
+                    fail_silently=False,
+                    html_message=html_message
                     )
-                    send_mail(
-                        "You received a new order",
-                        message,
-                        "yousef.mankola10@gmail.com",
-                        ["yousef.mankola10@gmail.com",],
-                        fail_silently=False,
-                    )
+                send_mail(
+                    "You received a new order",
+                    plain_message,
+                    "yousef.mankola10@gmail.com",
+                    ["yousef.mankola10@gmail.com",],
+                    fail_silently=False,
+                    html_message=html_message
+                )
                    
                 return redirect('thanks', order_details.id)
             except ObjectDoesNotExist:

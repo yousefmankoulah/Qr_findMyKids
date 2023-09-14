@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
+from home.models import GenerateQr
 # Create your views here.
 
 
@@ -20,6 +21,7 @@ def orderHistory(request):
 def viewOrder(request, order_id):
     if request.user.is_authenticated:
         email = str(request.user.email)
-        order = Order.objects.get(id=order_id, emailAddress=email)
+        order = Order.objects.get(id=order_id)
         order_items = OrderItem.objects.filter(order=order)
+
     return render(request, 'order/order_detail.html', {'order': order, 'order_items': order_items})
