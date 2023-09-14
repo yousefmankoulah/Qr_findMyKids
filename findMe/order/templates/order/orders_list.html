@@ -24,7 +24,11 @@
                             <td>{{order.id}}</td>
                             <td>{{ order.created|date:"d M Y" }}</td>
                             <td>{{order.total}}</td>
-                            <td><i class="fa fa-check"></i>&nbsp;Complete</td>
+                            {% if order.ready_to_ship == False or order.ship == False %}
+                            <td>Order on Progress</td>
+                            {% else %}
+                            <td>Completed and Shipped</td>
+                            {% endif %}
                             <td><a href="{% url 'order_detail' order.id %}">View Order</a></td>
                         </tr>
                     {% endfor %}
