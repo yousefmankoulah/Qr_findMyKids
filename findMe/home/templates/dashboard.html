@@ -2,10 +2,13 @@
 {% load static %}
 
 {% block content %}
+
 <div class="container lead">
 
     <br><br><a class="btn btn-info" href={% url 'order_history' %}>History Orders</a><br><br><hr>
 {% for dashboard in dashboard  %}
+
+{% if request.user == dashboard.parent %}
 
 {{dashboard.name}}<br>
 
@@ -21,8 +24,11 @@
 
 
 <br>
-{% endfor %}
+{% else %}
+Ro7 4oflak kalba
+    {% endif %}
+    {% endfor %}
 </div>
 
-    
+
 {% endblock %}

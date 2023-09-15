@@ -15,6 +15,9 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete_post, name="delete"),
 
 
+#     path("set_language/<str:user_language>/", views.set_language_from_url, name="set_language_from_url"),
+
+
 
     #password reset
     path('password-reset/', views.ResetPasswordView.as_view(), name='password_reset'),

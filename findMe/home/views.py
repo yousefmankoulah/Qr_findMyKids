@@ -13,10 +13,20 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils import translation
-
+# from django.utils.translation import LANGUAGE_SESSION_KEY
 
 
 # Create your views here.
+
+def set_language_from_url(request, user_language):
+    translation.activate(user_language)
+    # request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+    
+
+    # I use HTTP_REFERER to direct them back to previous path 
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
 
 def home(request):
     return render(request, 'home.html')

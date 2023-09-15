@@ -4,7 +4,7 @@
 
 {% block content %}
     
-   
+{% if request.user == profile.parent %}
 <h1 class="head_top">Edit The Profile Info</h1>
 <div class="content-section container">
   <form method="POST" enctype="multipart/form-data" class="content form-group">
@@ -43,5 +43,9 @@
   </form>
 
 </div>
+
+{% else %}
+Ro7 4oflak kalba
+    {% endif %}
 
 {% endblock %}

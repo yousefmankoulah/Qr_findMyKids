@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
-{% if request.user != qr.parent %}
-    <h1>Please caall the phone number below</h1>
-{% endif %}
+
 
 {% for qr in qr  %}
+{% if request.user != qr.parent %}
+    <h1>Please call the phone number below</h1>
+{% endif %}
 <div class="container lead">
 {{qr.name}}<br>
 {{qr.type}}<br>
@@ -25,8 +26,8 @@
 <button class="btn btn-primary printit" onclick='myApp.printDiv()'>Print QR Code</button>
 <a class="btn btn-primary" href="{% url 'updateProfile' qr.id %}">Edit Profile</a>
 <a class="btn btn-danger" href="{% url 'delete' qr.id %}">Delete Profile</a>
-<br>
-</div>
+
+</div><br><br>
 {% else %}
 <a class="btn btn-primary" href="tel:{{qr.phoneNumber}}">Call Their parent now</a><br>
 
