@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from .models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from home.models import GenerateQr
+from django.core.mail import send_mail
+
 # Create your views here.
 
 
@@ -58,6 +60,14 @@ def viewOrder(request, order_id):
             order.ship = ship == 'on'
             
             order.save()
+            if order.ship == True:
+                send_mail(
+                    "The order has been confirmed",
+                    "Your order is shipped",
+                    "yousef.mankola10@gmail.com",
+                    [order.emailAddress,],
+                    fail_silently=False,
+                    )
             return redirect('allOrderHistory')
             
 
