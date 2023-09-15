@@ -12,6 +12,7 @@ from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
+from django.utils import translation
 
 
 
@@ -158,3 +159,5 @@ def signoutView(request):
     return redirect('login')
 
 # ---------------------End Auth-------------#
+
+

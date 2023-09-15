@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
+    "translation_manager",
+    # 'geoip2',
 
     "home",
     "import_export",
@@ -52,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -64,7 +68,12 @@ ROOT_URLCONF = "findMe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'home', 'templates'), os.path.join(BASE_DIR, 'product', 'templates'), os.path.join(BASE_DIR, 'cart', 'templates'), os.path.join(BASE_DIR, 'order', 'templates'),],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'home', 'templates'), 
+            os.path.join(BASE_DIR, 'product', 'templates'), 
+            os.path.join(BASE_DIR, 'cart', 'templates'), 
+            os.path.join(BASE_DIR, 'order', 'templates',         
+            ),],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -72,6 +81,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+             
             ],
         },
     },
@@ -113,13 +123,27 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = 'en'
 
-TIME_ZONE = "UTC"
+LANGUAGE = (
+    ('en', _('English')),
+    ('ar', _('Arabic')),
+)
+
+TIME_ZONE = "Africa/Cairo"
 
 USE_I18N = True
 
 USE_TZ = True
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
+
+USE_L10N = True
+
+TRANSLATIONS_ADMIN_EXCLUDE_FIELDS = ['get_hint', 'locale_parent_dir', 'domain']
 
 
 # Static files (CSS, JavaScript, Images)
