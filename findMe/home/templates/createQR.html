@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load i18n %}
+
 {% load static %}
 
 {% block content %}
@@ -15,6 +17,7 @@
             QR code generate Profile
         </h1>
         <br><br><br>
+        
         <form method="post" class="content form-group">
             {% csrf_token %}<br><br>
             <input class="form-control input_check" type="text" name="name" id="roll" placeholder="Enter the name"><br><br>
@@ -29,12 +32,13 @@
                 <option value="Cat">Cat</option>
                 <option value="Other Pets">Other Pets</option>
             </select>
-            <input class="form-control input_check" type="text" name="address" placeholder="Enter the address"><br><br>
+            <input class="form-control input_check" type="text" name="address" placeholder= "Enter the address"><br><br>
             <input class="form-control input_check" type="text" name="phone" id="roll3" placeholder="Enter the phone number"><br><br>
             <textarea class="form-control input_check" name="summary" placeholder="enter more details"></textarea>
 
             <br><br>
             <button class="btn btn-primary generate" onClick="return empty()">Generate QR</button>
+
         </form>
 
         <div class="qr-img">
