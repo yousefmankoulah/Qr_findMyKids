@@ -1,13 +1,14 @@
 from django.db import models
 from home.models import GenerateQr
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=250, unique=True)
-    slug = models.SlugField(max_length=250, unique=True)
-    description = models.TextField(blank=True)
+    name = models.CharField(_('name'), max_length=250, unique=True)
+    slug = models.SlugField(_('slug'), max_length=250, unique=True)
+    description = models.TextField(_('description'), blank=True)
     image = models.ImageField(upload_to='category', blank=True)
 
     class Meta:
@@ -19,9 +20,9 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=250, unique=True)
-    slug = models.SlugField(max_length=250, unique=True)
-    description = models.TextField(blank=True)
+    name = models.CharField(_('name'), max_length=250, unique=True)
+    slug = models.SlugField( max_length=250, unique=True)
+    description = models.TextField(_('description'), blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='product')

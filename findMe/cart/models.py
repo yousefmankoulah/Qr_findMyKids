@@ -1,6 +1,8 @@
 from django.db import models
 from product.models import Product
 from home.models import GenerateQr
+from django.utils.translation import gettext_lazy as _
+
 # Create your models here.
 
 

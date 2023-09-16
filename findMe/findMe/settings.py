@@ -29,6 +29,7 @@ SECRET_KEY = "django-insecure-(^1njtlhv5+y*x@dy37uez-bdo0%!w%&2+lrmd#cdyq#f4pd5s
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']
 
 
 # Application definition
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
-    # "translation_manager",
     # 'geoip2',
+    'rosetta',
 
     "home",
     "import_export",
@@ -56,8 +57,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'django.middleware.locale.LocaleMiddleware',
     "django.middleware.common.CommonMiddleware",
-    # "django.middleware.locale.LocaleMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -81,7 +82,6 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
-                # 'django.template.context_processors.i18n',
                 "django.contrib.messages.context_processors.messages",
              
             ],
@@ -127,23 +127,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-# LANGUAGE = (
-#     ('en', _('English')),
-#     ('ar', _('Arabic')),
-# )
+LANGUAGE = (
+    ('en', _('English')),
+    ('ar', _('Arabic')),
+)
 
 TIME_ZONE = "Africa/Cairo"
 
 USE_I18N = True
-
 USE_TZ = True
-
-# LOCALE_PATHS = (
-#     os.path.join(BASE_DIR, 'locale'),
-# )
-
-
 USE_L10N = True
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 TRANSLATIONS_ADMIN_EXCLUDE_FIELDS = ['get_hint', 'locale_parent_dir', 'domain']
 

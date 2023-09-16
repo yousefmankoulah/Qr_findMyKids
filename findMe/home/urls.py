@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('dashboard/<id>/', views.dashboard, name="dashboard"),
+    path('dashboard/<int:id>/', views.dashboard, name="dashboard"),
     path('login/', views.signInView, name='login'),
     path('logout/', views.signoutView, name='logout'),
     path('register/', views.register, name="register"),
@@ -13,10 +13,6 @@ urlpatterns = [
     path('profileDetail/<id>/', views.profileDetail, name="profileDetail"),
     path('updateProfile/<int:id>/', views.updateProfile, name="updateProfile"),
     path('delete/<int:id>/', views.delete_post, name="delete"),
-
-
-#     path("set_language/<str:user_language>/", views.set_language_from_url, name="set_language_from_url"),
-
 
 
     #password reset
@@ -29,6 +25,4 @@ urlpatterns = [
          name='password_reset_complete'),
 
     #end password reset
-
-    
 ]

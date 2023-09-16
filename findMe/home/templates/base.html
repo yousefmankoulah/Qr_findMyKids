@@ -1,4 +1,4 @@
-
+{% load i18n %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -24,12 +24,20 @@
 
     <body>
       {% comment %} class="{% ifequal request.LANGUAGE_CODE 'en' %}en{% else %}ar{% endifequal %}" {% endcomment %}
-{% comment %} 
-      <a href="{% url 'set_language_from_url' 'en' %}">English</a>
-      <a href="{% url 'set_language_from_url' 'ar' %}">Arabic</a> {% endcomment %}
-      
-    
-      
+
+      <div class="container">
+  
+        {% get_current_language as CURRENT_LANGUAGE %}
+        {% get_available_languages as AVAILABLE_LANGUAGES %}
+        {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+        <div class="languages">
+          
+          {% trans "Choose Your Language" %}: <a href="/ar/"
+                  {% if languages.code == CURRENT_LANGUAGE %} class="active"{% endif %}>Arabic </a> ||
+                <a href="/en/"
+                  {% if languages.code == CURRENT_LANGUAGE %} class="active"{% endif %}> English </a>
+        </div>
+
       <!--start navbar-->
       <div class="container">
 
