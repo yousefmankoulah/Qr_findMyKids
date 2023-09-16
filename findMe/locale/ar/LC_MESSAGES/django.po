@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-16 14:15+0300\n"
-"PO-Revision-Date: 2023-09-16 14:21+0300\n"
+"POT-Creation-Date: 2023-09-16 15:01+0300\n"
+"PO-Revision-Date: 2023-09-16 15:04+0300\n"
 "Last-Translator:   <yousef.mankola10@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: cart/views.py:130
+msgid "The order has been confirmed"
+msgstr ""
+
+#: cart/views.py:138
+msgid "You received a new order"
+msgstr ""
 
 #: findMe/settings.py:131
 msgid "English"
@@ -63,20 +71,57 @@ msgstr ""
 msgid "Choose Your Language"
 msgstr "اختر لغتك"
 
-#: home/templates/base.html:43
-msgid ""
-"\n"
-"    I can show you how to translate your links.\n"
-"    Click <a href=\"https://www.djangoproject.com/\"> here </a> for\n"
-"    more information about Django.\n"
-msgstr ""
-"\n"
-"يمكنني أن أوضح لك كيفية ترجمة الروابط الخاصة بك.\n"
-"انقر\n"
+#: home/templates/createQR.html:23
+msgid "Enter the name"
+msgstr "أدخل الاسم"
+
+#: home/templates/createQR.html:25
+msgid "What is the Type"
+msgstr "ما هو النوع"
+
+#: home/templates/createQR.html:36 home/templates/createQR.html:37
+msgid "Enter the address"
+msgstr "أدخل العنوان"
+
+#: home/templates/createQR.html:38
+msgid "Enter the phone number"
+msgstr "أدخل رقم الهاتف"
+
+#: home/templates/createQR.html:40
+msgid "Enter more details"
+msgstr "أدخل المزيد من التفاصيل"
+
+#: home/templates/createQR.html:44
+msgid "Generate Profile"
+msgstr "إنشاء الملف الشخصي"
 
 #: home/templates/home.html:8
 msgid "Site Home Page"
 msgstr "الصفحة الرئيسية للموقع"
+
+#: home/views.py:95
+msgid "you delete the post"
+msgstr "قمت بحذف هذا المنصب"
+
+#: home/views.py:97
+msgid "you can't delete this post"
+msgstr "لا يمكنك حذف هذه المشاركة"
+
+#: home/views.py:125
+msgid "You are now logged in."
+msgstr ""
+
+#: home/views.py:128 home/views.py:131
+msgid "Invalid username or password."
+msgstr ""
+
+#: home/views.py:143
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly. If you "
+"don't receive an email, please make sure you've entered the address you "
+"registered with, and check your spam folder."
+msgstr ""
 
 #: order/models.py:13
 msgid "billingName"
@@ -149,3 +194,13 @@ msgstr ""
 #: product/models.py:11 product/models.py:25
 msgid "description"
 msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "    I can show you how to translate your links.\n"
+#~ "    Click <a href=\"https://www.djangoproject.com/\"> here </a> for\n"
+#~ "    more information about Django.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "يمكنني أن أوضح لك كيفية ترجمة الروابط الخاصة بك.\n"
+#~ "انقر\n"

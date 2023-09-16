@@ -11,6 +11,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your views here.
@@ -126,7 +127,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 html_message = render_to_string('mail_template.html', {'id': order_details.id})
                 plain_message = strip_tags(html_message)
                 send_mail(
-                    "The order has been confirmed",
+                    _("The order has been confirmed"),
                     plain_message,
                     "yousef.mankola10@gmail.com",
                     [email,],
@@ -134,7 +135,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     html_message=html_message
                     )
                 send_mail(
-                    "You received a new order",
+                    _("You received a new order"),
                     plain_message,
                     "yousef.mankola10@gmail.com",
                     ["yousef.mankola10@gmail.com",],

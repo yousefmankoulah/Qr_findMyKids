@@ -20,8 +20,9 @@
         
         <form method="post" class="content form-group">
             {% csrf_token %}<br><br>
+            <label for="name">{% trans "Enter the name" %}</label>
             <input class="form-control input_check" type="text" name="name" id="roll" placeholder="Enter the name"><br><br>
-            <label for="type">What is the Type of the Profile</label>
+            <label for="type">{% trans "What is the Type" %}</label>
             <select name="type" id="roll2">
                 <option></option>
                 <option value="Boy">Boy</option>
@@ -31,13 +32,16 @@
                 <option value="Dog">Dog</option>
                 <option value="Cat">Cat</option>
                 <option value="Other Pets">Other Pets</option>
-            </select>
-            <input class="form-control input_check" type="text" name="address" placeholder= "Enter the address"><br><br>
+            </select><br><br>
+            <label for="address">{% trans "Enter the address" %}</label>
+            <input class="form-control input_check" type="text" name="address" placeholder= 'Enter the address'><br><br>
+            <label for="phone">{% trans "Enter the phone number" %}</label>
             <input class="form-control input_check" type="text" name="phone" id="roll3" placeholder="Enter the phone number"><br><br>
+            <label for="summary">{% trans "Enter more details" %}</label>
             <textarea class="form-control input_check" name="summary" placeholder="enter more details"></textarea>
 
             <br><br>
-            <button class="btn btn-primary generate" onClick="return empty()">Generate QR</button>
+            <button class="btn btn-primary generate" onClick="return empty()">{% trans "Generate Profile" %}</button>
 
         </form>
 

@@ -12,6 +12,7 @@ from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
+from django.utils.translation import gettext_lazy as _
 
 
 def home(request):
@@ -91,8 +92,9 @@ def delete_post(request, id):
     profile = GenerateQr.objects.get(id=id)
     if profile.parent == request.user:
         profile.delete()
+        messages.success(request, _("you delete the post"))
     else:
-        messages.error(request, "you can't delete this post")
+        messages.error(request, _("you can't delete this post"))
     return redirect('dashboard', id=request.user)
 
 
@@ -120,13 +122,13 @@ def signInView(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.info(request, "You are now logged in.")
+                messages.info(request, _("You are now logged in."))
                 return redirect('dashboard', id=request.user.id)
             else:
-                messages.error(request,"Invalid username or password.")
+                messages.error(request, _("Invalid username or password."))
 
         else:
-            messages.error(request,"Invalid username or password.")
+            messages.error(request, _("Invalid username or password."))
 
     else:
         form = AuthenticationForm()
@@ -138,10 +140,10 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'password/password_reset.html'
     email_template_name = 'password/password_reset_email.html'
     subject_template_name = 'password/password_reset_subject.txt'
-    success_message = "We've emailed you instructions for setting your password, " \
+    success_message = _("We've emailed you instructions for setting your password, " \
                       "if an account exists with the email you entered. You should receive them shortly." \
                       " If you don't receive an email, " \
-                      "please make sure you've entered the address you registered with, and check your spam folder."
+                      "please make sure you've entered the address you registered with, and check your spam folder.")
     success_url = reverse_lazy('login')
     
 

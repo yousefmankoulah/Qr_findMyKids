@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-16 14:15+0300\n"
+"POT-Creation-Date: 2023-09-16 15:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/views.py:130
+msgid "The order has been confirmed"
+msgstr ""
+
+#: cart/views.py:138
+msgid "You received a new order"
+msgstr ""
+
 #: findMe/settings.py:131
 msgid "English"
 msgstr ""
@@ -61,16 +70,56 @@ msgstr ""
 msgid "Choose Your Language"
 msgstr ""
 
-#: home/templates/base.html:43
-msgid ""
-"\n"
-"    I can show you how to translate your links.\n"
-"    Click <a href=\"https://www.djangoproject.com/\"> here </a> for\n"
-"    more information about Django.\n"
+#: home/templates/createQR.html:23
+msgid "Enter the name"
+msgstr ""
+
+#: home/templates/createQR.html:25
+msgid "What is the Type"
+msgstr ""
+
+#: home/templates/createQR.html:36 home/templates/createQR.html:37
+msgid "Enter the address"
+msgstr ""
+
+#: home/templates/createQR.html:38
+msgid "Enter the phone number"
+msgstr ""
+
+#: home/templates/createQR.html:40
+msgid "Enter more details"
+msgstr ""
+
+#: home/templates/createQR.html:44
+msgid "Generate Profile"
 msgstr ""
 
 #: home/templates/home.html:8
 msgid "Site Home Page"
+msgstr ""
+
+#: home/views.py:95
+msgid "you delete the post"
+msgstr ""
+
+#: home/views.py:97
+msgid "you can't delete this post"
+msgstr ""
+
+#: home/views.py:125
+msgid "You are now logged in."
+msgstr ""
+
+#: home/views.py:128 home/views.py:131
+msgid "Invalid username or password."
+msgstr ""
+
+#: home/views.py:143
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly. If you "
+"don't receive an email, please make sure you've entered the address you "
+"registered with, and check your spam folder."
 msgstr ""
 
 #: order/models.py:13
