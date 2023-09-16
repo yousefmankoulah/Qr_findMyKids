@@ -13,6 +13,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils.translation import gettext_lazy as _
+from geopy.geocoders import Nominatim
 
 
 def home(request):
@@ -65,26 +66,9 @@ def profileVistorLocation(request, id):
     profile = GenerateQr.objects.get(id=id)
 
 
-    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    # if x_forwarded_for:
-    #     ip = x_forwarded_for.split(',')[0]
-    # else:
-    #     ip = request.META.get('REMOTE_ADDR')
-        
-
-    # g = GeoIP2()
-    # location = g.city(ip)
-    # location_country = location["country_name"]
-    # location_city = location["city"]
-    # location_latitude = location["lon_lat"]
-    # location_longitude = location["lat_lon"]
         
     context = {
-        # "ip": ip,
-        # "location_country": location_country,
-        # "location_city": location_city,
-        # "location_latitude": location_latitude,
-        # "location_longitude": location_longitude,
+       
         'qr': qr
     }
     return render(request, 'profileVistorLocation.html', context)

@@ -4,18 +4,37 @@
 {% block content %}
 <p>The Location is for the last location he scan the qr code and enabled the location while using the browser exepnt if you. are login using the same owner email</p>
 
+<p id="demo"></p>
 
-<h1>Welcome Home!</h1>
-    <h3>You are visiting from :</h3>
-    <ul>
-        <li>IP Address : {{ip}}</li>
-        <li>City: {{ location_city }}</li>
-        <li>Country: {{ location_country }}</li>
-        <li>vistor_latitude: {{ vistor_latitude }}</li>
-        <li>location_longitude: {{ location_longitude }}</li>
-    </ul>
-{% for qr in qr  %}
+<script>
+var x = document.getElementById("demo");
 
-{% endfor %}
-    
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem('firstLoad');
+  }
+})();
+
+
+</script>
 {% endblock %}
