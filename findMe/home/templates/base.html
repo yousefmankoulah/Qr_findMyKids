@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang={% if request.LANGUAGE_CODE == 'ar' %}"ar"{% else %}"en"{% endif %}>
     <head>
         <title>Find Me</title>
         <meta charset="utf-8" />
@@ -11,7 +11,12 @@
         <meta name="description" content="this web site is for exchanging items from all countries all over the world">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        {% if request.LANGUAGE_CODE == 'ar' %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
+        {% else %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        {% endif %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -93,12 +98,15 @@
       </nav>
 
     </div>
+  
+
+
       <!--end navbar-->
 
 {% block content %}
 
 {% endblock%}
-
+</div>
       <!--footer-->
       <footer class="footer text-center">
         <p>Find me on social media.</p>
