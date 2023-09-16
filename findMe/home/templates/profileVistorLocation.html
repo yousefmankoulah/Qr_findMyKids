@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<p>The Location is for the last location he scan the qr code and enabled the location while using the browser exepnt if you. are login using the same owner email</p>
+
+
+<h1>Welcome Home!</h1>
+    <h3>You are visiting from :</h3>
+    <ul>
+        <li>IP Address : {{ip}}</li>
+        <li>City: {{ location_city }}</li>
+        <li>Country: {{ location_country }}</li>
+        <li>vistor_latitude: {{ vistor_latitude }}</li>
+        <li>location_longitude: {{ location_longitude }}</li>
+    </ul>
+{% for qr in qr  %}
+
+{% endfor %}
+    
+{% endblock %}

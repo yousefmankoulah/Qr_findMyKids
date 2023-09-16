@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     "cart",
     'order',
     'stripe',
-
 ]
 
 MIDDLEWARE = [
@@ -143,6 +142,9 @@ LOCALE_PATHS = (
 )
 
 TRANSLATIONS_ADMIN_EXCLUDE_FIELDS = ['get_hint', 'locale_parent_dir', 'domain']
+
+# GEOIP_PATH =os.path.join(BASE_DIR, 'geoip')
+
 
 
 # Static files (CSS, JavaScript, Images)

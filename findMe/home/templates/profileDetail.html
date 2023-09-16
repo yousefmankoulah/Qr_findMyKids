@@ -25,6 +25,7 @@
 <br>
 <button class="btn btn-primary printit" onclick='myApp.printDiv()'>Print QR Code</button>
 <a class="btn btn-primary" href="{% url 'updateProfile' qr.id %}">Edit Profile</a>
+<a class="btn btn-info" href="{% url 'profileVistorLocation' qr.id %}">Last Vistor Location</a>
 <a class="btn btn-danger" href="{% url 'delete' qr.id %}">Delete Profile</a>
 
 </div><br><br>

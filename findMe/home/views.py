@@ -58,6 +58,37 @@ def profileDetail(request, id):
     return render(request, 'profileDetail.html', {'qr': qr})
 
 
+### getting Customer Location
+@login_required(login_url='login')
+def profileVistorLocation(request, id):
+    qr = GenerateQr.objects.filter(id=id)
+    profile = GenerateQr.objects.get(id=id)
+
+
+    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    # if x_forwarded_for:
+    #     ip = x_forwarded_for.split(',')[0]
+    # else:
+    #     ip = request.META.get('REMOTE_ADDR')
+        
+
+    # g = GeoIP2()
+    # location = g.city(ip)
+    # location_country = location["country_name"]
+    # location_city = location["city"]
+    # location_latitude = location["lon_lat"]
+    # location_longitude = location["lat_lon"]
+        
+    context = {
+        # "ip": ip,
+        # "location_country": location_country,
+        # "location_city": location_city,
+        # "location_latitude": location_latitude,
+        # "location_longitude": location_longitude,
+        'qr': qr
+    }
+    return render(request, 'profileVistorLocation.html', context)
+
 
 @login_required(login_url='login')
 def updateProfile(request, id):
