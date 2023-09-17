@@ -16,6 +16,7 @@ from django.utils.translation import gettext_lazy as _
 from geopy.geocoders import Nominatim
 
 
+
 def home(request):
     return render(request, 'home.html')
 
@@ -56,6 +57,15 @@ def createQR(request):
 
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
+    profile = GenerateQr.objects.get(id=id)
+
+    if request.user == profile.parent:
+        if request.method == "POST":
+            lat = request.POST['latitude']
+            lon = request.POST['longitude']
+            profile.vistor_latitude = lat
+            profile.vistor_longitude = lon
+            profile.save()
     return render(request, 'profileDetail.html', {'qr': qr})
 
 
@@ -64,8 +74,7 @@ def profileDetail(request, id):
 def profileVistorLocation(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
-
-
+            
         
     context = {
        
