@@ -49,39 +49,39 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var x = document.getElementById("latitude");
-        var y = document.getElementById("longitude");
-        var myForm = document.getElementById("myForm");
-        var submitted = false;
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     var x = document.getElementById("latitude");
+    //     var y = document.getElementById("longitude");
+    //     var myForm = document.getElementById("myForm");
+    //     var submitted = false;
 
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition(showPosition);
+    //     } else { 
+    //         x.innerHTML = "Geolocation is not supported by this browser.";
+    //     }
     
-        function showPosition(position) {
-            x.value = position.coords.latitude;
-            y.value = position.coords.longitude;
+    //     function showPosition(position) {
+    //         x.value = position.coords.latitude;
+    //         y.value = position.coords.longitude;
     
-            myForm.submit();
-        }
+    //         myForm.submit();
+    //     }
     
-    });
-    {% comment %} (function()
-    {
-      if( window.localStorage )
-      {
-        if( !localStorage.getItem('firstLoad') )
-        {
-          localStorage['firstLoad'] = true;
-          window.location.reload();
-        }  
-        else
-          localStorage.removeItem('firstLoad');
-      }
-    })(); {% endcomment %}
+    // });
+    //  (function()
+    // {
+    //   if( window.localStorage )
+    //   {
+    //     if( !localStorage.getItem('firstLoad') )
+    //     {
+    //       localStorage['firstLoad'] = true;
+    //       window.location.reload();
+    //     }  
+    //     else
+    //       localStorage.removeItem('firstLoad');
+    //   }
+    // })(); 
 
 
     </script>

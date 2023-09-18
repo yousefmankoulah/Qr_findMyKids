@@ -13,7 +13,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils.translation import gettext_lazy as _
-from geopy.geocoders import Nominatim
+
 
 
 
