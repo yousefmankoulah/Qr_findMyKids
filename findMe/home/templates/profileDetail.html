@@ -38,31 +38,40 @@
 {% endfor %}
 
 <script>
-$(document).ready(function () {
-navigator.geolocation.getCurrentPosition((position) => {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    $.ajax({
-                type: 'POST',
-                url: '/profileDetail/' + {{ profile.id }} + '/',  // URL to your Django view
+    $(document).ready(function () {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+            console.log(lat, long);
+    
+            // Get the CSRF token from the page
+            let csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+            let profileId = '{{ profile.id }}';
+    
+            // Concatenate the profile.id to the URL
+            let url = `/profileDetail/${profileId}/`;
+    
+            // Send the AJAX request
+            $.ajax({
+                type: 'GET',
+                url: url,
                 data: {
                     'latitude': lat,
                     'longitude': long,
-                    'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()  // Include CSRF token for security
-                 },
+                    'csrfmiddlewaretoken': csrfToken
+                },
                 success: function (response) {
-                        // Handle the response from the server
+                    // Handle the response from the server
                     console.log(response);
                 },
                 error: function (error) {
-                        // Handle errors
+                    // Handle errors
                     console.error(error);
                 }
+            });
         });
-    
-  });
     });
-
+    
   </script>
     
 {% endblock %}

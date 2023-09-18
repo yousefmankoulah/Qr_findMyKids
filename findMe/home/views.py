@@ -68,9 +68,9 @@ def profileDetail(request, id):
     profile = GenerateQr.objects.get(id=id)
     
     if request.user == profile.parent:
-        if request.method == 'POST':
-            lat = request.POST.get('latitude')
-            long = request.POST.get('longitude')
+        if request.method == 'GET':
+            lat = request.GET.get('latitude')
+            long = request.GET.get('longitude')
         
             profile.vistor_latitude = lat
             profile.vistor_longitude = long
