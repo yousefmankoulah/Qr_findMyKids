@@ -1,5 +1,5 @@
 from django import urls
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
@@ -66,20 +66,42 @@ def get_user_location():
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
+    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
     
-    if request.user == profile.parent:
-        location_data = get_user_location()
+    if x_forwarded_for:
+        # Split the X-Forwarded-For header to get the first IP address
+        x_forwarded_for = x_forwarded_for.split(',')[0]
+
+        # Initialize the geolocator
+        geolocator = Nominatim(user_agent="Mankoulah-gabteltaiha")
+        print(x_forwarded_for)
+        # Try to geocode the IP address
+        try:
+            location = geolocator.geocode(x_forwarded_for, timeout=1)
+            if location:
+                lat = location.latitude
+                long = location.longitude
+                # Do something with lat and long
+                return HttpResponse(f"Latitude: {lat}, Longitude: {long}")
+            else:
+                return HttpResponse("Location not found for the IP address.")
+        except Exception as e:
+            return HttpResponse(f"Error: {str(e)}")
+
+        
+    # if request.user == profile.parent:
+    #     location_data = get_user_location()
     
-        if 'loc' in location_data:
-            lat, lon = location_data['loc'].split(',')
-            print(location_data['city'])
+    #     if 'loc' in location_data:
+    #         lat, lon = location_data['loc'].split(',')
+    #         print(location_data['city'])
             
-            profile.vistor_latitude = lat
-            profile.vistor_longitude = lon
-            profile.save()
-            print(f"Latitude: {lat}, Longitude: {lon}")
-        else:
-            print("Location not found")
+    #         profile.vistor_latitude = lat
+    #         profile.vistor_longitude = lon
+    #         profile.save()
+    #         print(f"Latitude: {lat}, Longitude: {lon}")
+    #     else:
+    #         print("Location not found")
             
     return render(request, 'profileDetail.html', {'qr': qr})
 
