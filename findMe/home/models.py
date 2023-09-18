@@ -15,8 +15,8 @@ class GenerateQr(models.Model):
     summary = models.TextField(_('summary'), blank=True, null=True)
     qr = models.ImageField(upload_to='media', blank=True)
 
-    vistor_latitude = models.DecimalField(max_digits=20, decimal_places=10, blank=True, null=True)
-    vistor_longitude = models.DecimalField(max_digits=20, decimal_places=10, blank=True, null=True)
+    vistor_latitude = models.FloatField(blank=True, null=True)
+    vistor_longitude = models.FloatField(blank=True, null=True)
 
 
 

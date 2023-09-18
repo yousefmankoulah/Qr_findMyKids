@@ -63,7 +63,7 @@ def profileDetail(request, id):
     
     if request.user == profile.parent:
         geolocator = Nominatim(user_agent="Mankoulah-tahetwlenaha")
-        location = geolocator.geocode("")
+        location = geolocator.geocode(query=None, exactly_one=True, timeout=10)
 
         if location:
             lat = location.latitude
