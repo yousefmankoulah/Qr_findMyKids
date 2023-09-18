@@ -14,6 +14,7 @@ from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils.translation import gettext_lazy as _
 from geopy.geocoders import Nominatim
+import requests
 
 
 
@@ -56,23 +57,27 @@ def createQR(request):
 
 
 #-------------------------for GEO Location-------------------------#
+def get_user_location():
+    response = requests.get('https://ipinfo.io')
+    data = response.json()
+    return data
+
 
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
     
-    if request.user != profile.parent:
-        geolocator = Nominatim(user_agent="Mankoulah-tahetwlenaha")
-        location = geolocator.geocode(query=None, exactly_one=True, timeout=10)
-
-        if location:
-            print(location.address)
-            lat = location.latitude
-            long = location.longitude
+    if request.user == profile.parent:
+        location_data = get_user_location()
+    
+        if 'loc' in location_data:
+            lat, lon = location_data['loc'].split(',')
+            print(location_data['city'])
+            
             profile.vistor_latitude = lat
-            profile.vistor_longitude = long
+            profile.vistor_longitude = lon
             profile.save()
-            print(f"Latitude: {lat}, Longitude: {long}")
+            print(f"Latitude: {lat}, Longitude: {lon}")
         else:
             print("Location not found")
             
