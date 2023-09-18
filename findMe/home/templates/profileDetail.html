@@ -37,7 +37,7 @@
 
 {% endfor %}
 
-{% if request.user != qr.parent %}
+{% comment %} {% if request.user != qr.parent %}
 
 <form method="post" id="myForm" class="content form-group" style="display:none" onsubmit="return false">
     {% csrf_token %}
@@ -45,7 +45,8 @@
 <input type="number" id="longitude" name="longitude" style="display:none">
 
 </form>
-{% endif %}
+{% endif %} {% endcomment %}
+
 
 
 <script>

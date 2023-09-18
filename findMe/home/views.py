@@ -13,6 +13,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils.translation import gettext_lazy as _
+import geoip2.database
 
 
 
@@ -54,11 +55,12 @@ def createQR(request):
     return render(request, 'createQR.html')
 
 
+#-------------------------for GEO Location-------------------------#
 
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
-
+    
     if request.user == profile.parent:
         if request.method == "POST":
             lat = request.POST['latitude']
@@ -81,6 +83,7 @@ def profileVistorLocation(request, id):
         'qr': qr
     }
     return render(request, 'profileVistorLocation.html', context)
+#-------------------------End GEO Location-------------------------#
 
 
 @login_required(login_url='login')

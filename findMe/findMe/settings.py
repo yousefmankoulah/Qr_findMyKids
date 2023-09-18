@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "crispy_forms",
     'rosetta',
+    'geoip2',
 
     "home",
     "import_export",
