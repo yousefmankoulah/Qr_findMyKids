@@ -13,7 +13,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils.translation import gettext_lazy as _
-import geoip2.database
+from geopy.geocoders import Nominatim
 
 
 
@@ -62,12 +62,19 @@ def profileDetail(request, id):
     profile = GenerateQr.objects.get(id=id)
     
     if request.user == profile.parent:
-        if request.method == "POST":
-            lat = request.POST['latitude']
-            lon = request.POST['longitude']
+        geolocator = Nominatim(user_agent="Mankoulah-tahetwlenaha")
+        location = geolocator.geocode("")
+
+        if location:
+            lat = location.latitude
+            long = location.longitude
             profile.vistor_latitude = lat
-            profile.vistor_longitude = lon
+            profile.vistor_longitude = long
             profile.save()
+            print(f"Latitude: {lat}, Longitude: {long}")
+        else:
+            print("Location not found")
+            
     return render(request, 'profileDetail.html', {'qr': qr})
 
 
