@@ -66,6 +66,7 @@ def profileDetail(request, id):
         location = geolocator.geocode(query=None, exactly_one=True, timeout=10)
 
         if location:
+            print(location.address)
             lat = location.latitude
             long = location.longitude
             profile.vistor_latitude = lat
