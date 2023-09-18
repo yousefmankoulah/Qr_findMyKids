@@ -66,23 +66,20 @@ def get_user_location():
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
-
-        
-    # if request.user == profile.parent:
-    #     location_data = get_user_location()
     
-    #     if 'loc' in location_data:
-    #         lat, lon = location_data['loc'].split(',')
-    #         print(location_data['city'])
+    if request.user == profile.parent:
+        if request.method == 'POST':
+            lat = request.POST.get('latitude')
+            long = request.POST.get('longitude')
+        
+            profile.vistor_latitude = lat
+            profile.vistor_longitude = long
+            profile.save()
+            print(f"Latitude: {lat}, Longitude: {long}")
+        else:
+            print("Location not found")
             
-    #         profile.vistor_latitude = lat
-    #         profile.vistor_longitude = lon
-    #         profile.save()
-    #         print(f"Latitude: {lat}, Longitude: {lon}")
-    #     else:
-    #         print("Location not found")
-            
-    return render(request, 'profileDetail.html', {'qr': qr})
+    return render(request, 'profileDetail.html', {'qr': qr, 'profile': profile})
 
 
 ### getting Customer Location

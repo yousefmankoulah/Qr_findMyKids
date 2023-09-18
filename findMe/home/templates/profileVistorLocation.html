@@ -3,20 +3,5 @@
 
 {% block content %}
 <p>The Location is for the last location he scan the qr code and enabled the location while using the browser exepnt if you. are login using the same owner email</p>
-<iframe id="map-iframe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-<script>
-  // Get the iframe element by its ID
-  var iframe = document.getElementById("map-iframe");
-  
-  // Define latitude and longitude values
-  var latitude = '{{ profile.vistor_latitude }}';
-  var longitude = '{{ profile.vistor_longitude }}';
-  
-  // Construct the Google Maps embed URL with the dynamic latitude and longitude
-  var mapUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24431.10295973636!2d" + longitude + "!3d" + latitude + "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1695055280149!5m2!1sen!2sus";
-  
-  // Set the src attribute of the iframe to the constructed URL
-  iframe.src = mapUrl;
-</script>
 {% endblock %}

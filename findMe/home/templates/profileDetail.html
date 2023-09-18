@@ -37,5 +37,32 @@
 
 {% endfor %}
 
+<script>
+$(document).ready(function () {
+navigator.geolocation.getCurrentPosition((position) => {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    $.ajax({
+                type: 'POST',
+                url: '/profileDetail/' + {{ profile.id }} + '/',  // URL to your Django view
+                data: {
+                    'latitude': lat,
+                    'longitude': long,
+                    'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()  // Include CSRF token for security
+                 },
+                success: function (response) {
+                        // Handle the response from the server
+                    console.log(response);
+                },
+                error: function (error) {
+                        // Handle errors
+                    console.error(error);
+                }
+        });
+    
+  });
+    });
+
+  </script>
     
 {% endblock %}
