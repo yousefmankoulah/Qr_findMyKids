@@ -61,7 +61,7 @@ def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
     
-    if request.user == profile.parent:
+    if request.user != profile.parent:
         geolocator = Nominatim(user_agent="Mankoulah-tahetwlenaha")
         location = geolocator.geocode(query=None, exactly_one=True, timeout=10)
 
@@ -86,7 +86,7 @@ def profileVistorLocation(request, id):
             
         
     context = {
-       
+        'profile': profile,
         'qr': qr
     }
     return render(request, 'profileVistorLocation.html', context)

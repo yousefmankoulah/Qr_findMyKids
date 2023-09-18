@@ -37,54 +37,5 @@
 
 {% endfor %}
 
-{% comment %} {% if request.user != qr.parent %}
-
-<form method="post" id="myForm" class="content form-group" style="display:none" onsubmit="return false">
-    {% csrf_token %}
-<input type="number" id='latitude' name="latitude" style="display:none">
-<input type="number" id="longitude" name="longitude" style="display:none">
-
-</form>
-{% endif %} {% endcomment %}
-
-
-
-<script>
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     var x = document.getElementById("latitude");
-    //     var y = document.getElementById("longitude");
-    //     var myForm = document.getElementById("myForm");
-    //     var submitted = false;
-
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(showPosition);
-    //     } else { 
-    //         x.innerHTML = "Geolocation is not supported by this browser.";
-    //     }
-    
-    //     function showPosition(position) {
-    //         x.value = position.coords.latitude;
-    //         y.value = position.coords.longitude;
-    
-    //         myForm.submit();
-    //     }
-    
-    // });
-    //  (function()
-    // {
-    //   if( window.localStorage )
-    //   {
-    //     if( !localStorage.getItem('firstLoad') )
-    //     {
-    //       localStorage['firstLoad'] = true;
-    //       window.location.reload();
-    //     }  
-    //     else
-    //       localStorage.removeItem('firstLoad');
-    //   }
-    // })(); 
-
-
-    </script>
     
 {% endblock %}
