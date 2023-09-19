@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "product",
     "cart",
     'order',
+    "customer_service",
     'stripe',
 ]
 
@@ -73,8 +74,9 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'home', 'templates'), 
             os.path.join(BASE_DIR, 'product', 'templates'), 
             os.path.join(BASE_DIR, 'cart', 'templates'), 
-            os.path.join(BASE_DIR, 'order', 'templates',         
-            ),],
+            os.path.join(BASE_DIR, 'order', 'templates'), 
+            os.path.join(BASE_DIR, 'customer_service', 'templates'),         
+            ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
