@@ -37,6 +37,8 @@
 
 {% endfor %}
 
+{% if request.user != profile.parent %}
+
 <script>
     $(document).ready(function () {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -73,5 +75,5 @@
     });
     
   </script>
-    
+    {% endif %}
 {% endblock %}

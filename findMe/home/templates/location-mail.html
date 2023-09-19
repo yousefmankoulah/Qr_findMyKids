@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <p>This is the nearest location of who scan your qr code, it is not accurecy</p>
+        <p>Feel free to copy the latitude and longitude and pasted in your map {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}</p>
+
+<a class="btn btn-info" href="{% url 'profileVistorLocation' profile.id %}">Last Vistor Location</a>
+
+    </body>
+    </html>

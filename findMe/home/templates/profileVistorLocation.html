@@ -3,5 +3,16 @@
 
 {% block content %}
 <p>The Location is for the last location he scan the qr code and enabled the location while using the browser exepnt if you. are login using the same owner email</p>
+{% if request.user == profile.parent %}
+{% if profile.vistor_latitude == None or profile.vistor_longitude == None %}
+<p>No one scan the qr code or who scan the qr code didn't allow us to get his location</p>
+{% else %}
+<p>Feel free to copy the latitude and longitude and pasted in your map {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}</p>
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24431.10295973636!2d{{ profile.vistor_longitude }}!3d{{ profile.vistor_latitude }}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1695067445354!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{% endif %}
+
+{% endif %}
+
+
+
 {% endblock %}

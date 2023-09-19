@@ -1,5 +1,4 @@
-from django import urls
-from django.shortcuts import render, redirect, HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
@@ -13,9 +12,10 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import SignUpForm
 from .models import GenerateQr
 from django.utils.translation import gettext_lazy as _
-from geopy.geocoders import Nominatim
 import requests
-
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 
@@ -66,16 +66,25 @@ def get_user_location():
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
     profile = GenerateQr.objects.get(id=id)
-    
-    if request.user == profile.parent:
+    if request.user != profile.parent:
         if request.method == 'GET':
             lat = request.GET.get('latitude')
             long = request.GET.get('longitude')
-        
+            
             profile.vistor_latitude = lat
             profile.vistor_longitude = long
             profile.save()
-            print(f"Latitude: {lat}, Longitude: {long}")
+            html_message = render_to_string('location-mail.html', {'profile': profile})
+            plain_message = strip_tags(html_message)
+            if lat and long:
+                send_mail(
+                    _("This is thelocation of the vistor"),
+                    plain_message,
+                    "yousef.mankola10@gmail.com",
+                    [profile.parent.email,],
+                    fail_silently=False,
+                    html_message=html_message
+                    )
         else:
             print("Location not found")
             
@@ -102,6 +111,7 @@ def updateProfile(request, id):
     profile = GenerateQr.objects.get(id=id)
 
     if profile.parent == request.user:
+    
         if request.method == 'POST':
             name = request.POST['name']
             address = request.POST['address']
