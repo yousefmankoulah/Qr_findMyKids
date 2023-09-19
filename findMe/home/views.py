@@ -19,6 +19,7 @@ from django.utils.html import strip_tags
 import time
 
 
+
 def home(request):
     return render(request, 'home.html')
 
@@ -139,11 +140,12 @@ def updateProfile(request, id):
 def delete_post(request, id):
     profile = GenerateQr.objects.get(id=id)
     if profile.parent == request.user:
+        profile.qr.delete(save=False)
         profile.delete()
         messages.success(request, _("you delete the post"))
     else:
         messages.error(request, _("you can't delete this post"))
-    return redirect('dashboard', id=request.user)
+    return redirect('dashboard', id=request.user.id)
 
 
 # ---------------------Start Auth-------------#
