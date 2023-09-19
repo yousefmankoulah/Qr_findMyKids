@@ -16,7 +16,7 @@ import requests
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-
+import time
 
 
 def home(request):
@@ -39,7 +39,7 @@ def createQR(request):
         type = request.POST['type']   
 
         #saving data to database
-        img_name = 'qr_' + name + '.png'
+        img_name = 'qr_' + name + '__' + str(time.time()) + '.png'
         store_data = GenerateQr(parent = request.user, name=name, type=type, address=address, phoneNumber=phone, summary=summary, qr=img_name)    
         store_data.save()
         
