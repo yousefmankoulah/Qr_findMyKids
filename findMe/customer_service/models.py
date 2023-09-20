@@ -14,6 +14,7 @@ class Customer_service(models.Model):
     ticket_status = models.BooleanField(default=False)
     order_number = models.IntegerField(blank=True, null=True)
     ticket_number = models.IntegerField(blank=True, null=True)
+    category = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         db_table = 'customer_service'
