@@ -31,7 +31,7 @@
     <body>
       {% comment %} class="{% ifequal request.LANGUAGE_CODE 'en' %}en{% else %}ar{% endifequal %}" {% endcomment %}
 
-      <div class="container">
+      
   
         {% get_current_language as CURRENT_LANGUAGE %}
         {% get_available_languages as AVAILABLE_LANGUAGES %}
@@ -46,7 +46,7 @@
 
       <!--start navbar-->
 
-      <div class="container">
+     
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand ml-4" href="{% url 'home' %}"><span>Find</span> <span>Me</span></a>
@@ -61,6 +61,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'allOrderHistory' %}">all Order Admin <span class="sr-only">(current)</span></a>
         </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="{% url '' %}">Customer service <span class="sr-only">(current)</span></a>
+        </li> {% endcomment %}
         {% endif %}
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
@@ -77,6 +80,9 @@
                   <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item mainy">
@@ -90,6 +96,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+              </li>
               <li class="nav-item mainy">
                 <a class="nav-link" href="{% url 'login' %}">Sign In <span class="sr-only">(current)</span></a>
               </li>
@@ -98,9 +107,9 @@
         </div>
       </nav>
 
-    </div>
-  
 
+  
+      <div class="container">
 
       <!--end navbar-->
 
