@@ -43,7 +43,6 @@ body {
   }
   
   
-  
   /*end navbar*/
   
   /* login*/
@@ -55,6 +54,9 @@ body {
     margin-bottom: 30px;
     margin-top: 30px;
     margin-left: 30px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    
   }
   .content-section form{
     margin-left: 30px;
@@ -62,11 +64,13 @@ body {
   .content-section button{
     margin-top: 20px;
   }
+
   
   .content-section label{
     font-weight: bold;
     font-size: 18px;
     padding: 10px;
+
   }
   .content-section a:hover{
     text-decoration: none;

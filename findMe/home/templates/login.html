@@ -4,31 +4,30 @@
 
 {% block content %}
 
-<div class="content-section container">
+<br><br><h1 class="text-center mt-4" style="font-size: 40px; font-weight: bold; color:#170097">Log in Page</h1><br><br><br>
+
+<div class="row">
+<div class="col-md-3 col-sm-1"></div>
+<div class="content-section col-md-5 col-sm-11">
+  
+  
   <form method="POST">
     {% csrf_token %}
         <label class="border-bottom mb-4">Log In</label>
-        <div class="row">
-          <div class="<col-md-7>">
             {{ form|crispy }}
-
-          </div>
-        </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-outline-info">Login</button>
-      <small class="text-muted ml-2">
-        <a href="{% url 'password_reset' %}">Forgot Password</a>
-      </small>
+      <button type="submit" class="btn btn-outline-info" style=" position: relative; left: 40%;">Login</button>
     </div>
   </form>
-
   <div class="border-top pt-3">
-    <small class="text-muted">
-      Need an account? <a href="{% url 'register' %}" class="ml-2">Sign Up Now</a>
-    </small>
+   
+      <small class="text-muted ml-4">Don't have an account? <a href="{% url 'register' %}">Register</a></small>
+      <small class="text-muted ml-4">Forget The Password?
+        <a href="{% url 'password_reset' %}">Forgot Password</a>
+      </small>
 
   </div>
-
+</div>
 
 </div>
 
