@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat" sans-serif;
+  overflow-x: hidden;
+}
+
+.img-fluid {
+  width: 50px;
+  margin: -3px, 0px 0px 0px;
+}
+
+span i {
+  margin: 5px 0 0 0;
+}
+
+
+
+.header {
+  position: relative;
+  width: 100%;
+}
+
+.inner-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 99;
+}
+
+.logo {
+  color: #fff;
+  margin-left: 10px;
+}
+
+.logo img {
+  margin-right: 20px;
+  width: 100px;
+}
+
+.nav-item .nav-link {
+  display: block;
+  font-weight: 400;
+  line-height: 50px;
+  transition: 0.3s;
+  font-size: 16px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.nav-item .nav-link:hover {
+  color: rgb(75, 62, 185);
+  cursor: pointer;
+}
+
+.navbar-scroll {
+  background-color: #fff;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.6s;
+}
+
+.navbar-scroll .nav-item .nav-link {
+  color: black;
+}
+
+.navbar-scroll .header-btn {
+  color: #fff;
+  background-color: grey;
+}
+
+.navbar-scroll .logo {
+  color: #000;
+  font-weight: 500;
+}
+
+.first-title {
+  text-transform: capitalize;
+}
+
+section {
+  background-color: white;
+  padding: 4rem 0rem 4rem;
+}
+
+section:nth-of-type(even) {
+  background-color: rgb(22, 3, 78);
+  color: white;
+}
+
+.navbar-toggler-icon {
+  outline: none;
+  border: none;
+}
+
+.container {
+  text-align: center;
+  justify-content: center;
+}
+
+.feature-container {
+  padding: 0 50px;
+}
+
+section.features {
+  padding-bottom: 0;
+}
+
+.fa {
+  color: #170097;
+  text-shadow: 1px 1px 1px #ccc;
+  padding-bottom: 20px;
+}
+
+.fa:hover {
+  color: #5913fc;
+  cursor: pointer;
+}
+
+p.banner-des {
+  font-size: 20px !important;
+}
+
+p.banner-des span {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
+.home {
+  padding: 0;
+}
+
+.home .carousel-item {
+  height: 100vh;
+}
+
+.home div.banner {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+
+.home .carousel-caption {
+  padding-bottom: 250px;
+  font-family: poppins;
+  z-index: 3;
+}
+
+.home .carousel-caption strong {
+  font-size: 70px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.home .carousel-caption p {
+  font-size: 40px;
+}
+
+.home .carousel-caption a {
+  background-color: rgb(75, 62, 185);
+  border-radius: 25px;
+  padding-top: 0;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  margin: 15px;
+  z-index: 2;
+  color: white;
+  position: relative;
+  line-height: 50px;
+  height: 50px;
+  display: inline-block;
+  transition: 0.3s;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.home .carousel-caption a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: rgb(75, 62, 185);
+}
+
+.carousel-control-prev {
+  background-image: none;
+}
+
+.carousel-control-next {
+  background-image: none;
+}
+
+.home .carousel-indicators {
+  z-index: 4;
+}
+
+.home .carousel-indicators button {
+  height: 15px;
+  width: 15px;
+  margin: 10px;
+  background-color: #170097;
+  border-radius: 50%;
+  border: solid 3px transparent;
+  background-size: cover;
+  background-position: center;
+  transition: 0.3s ease all;
+}
+
+.home .carousel-indicators button.active {
+  transform: scale(1.5);
+}
+
+.home .carousel-control-next {
+  z-index: 3;
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.home .carousel-control-prev {
+  z-index: 3;
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+.home .carousel-item::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(17, 0, 77, 0.5);
+  z-index: 1;
+}
+/* end of navbar and header nav */
+
+/* start second section */
+.second-header {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  font-family: "Montserrat" sans-serif;
+}
+
+.second-header h2 {
+  color: #170097;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.who-use {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+}
+
+.card {
+  margin: 5px;
+}
+.card i {
+  font-size: 35px;
+}
+/* end second section */
+
+/* start product section */
+.most-product {
+  margin-top: 60px;
+  height: 450px;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.most-product h4 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 70px;
+}
+
+.most-product p {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 50px;
+}
+
+.most-product a {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(75, 62, 185);
+  opacity: 0.4;
+}
+/* end product section */
+
+/* start why-to-use */
+.why-to-use {
+  margin-top: 70px;
+  margin-bottom: 35px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.why-to-use h5 {
+  font-size: 35px;
+  color: #170097;
+  font-weight: bold;
+  margin-bottom: 70px;
+}
+
+.why-track {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.why-track img {
+  object-fit: contain;
+  width: 100%;
+  min-height: 400px;
+}
+
+.why-track-div {
+  padding-top: 100px;
+}
+
+.why-track-div h6 {
+  font-size: 20px;
+  color: #170097;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* end why-to-use */
+
+@media only screen and (min-width: 1200) {
+  .nav-item > .nav-link {
+    padding: 5px 20px !important;
+    display: block !important;
+  }
+}
+
+/* start css for different screens */
+@media only screen and (max-width: 992px) {
+  .inner-header {
+    background-color: white !important;
+  }
+  .nav-item > .nav-link {
+    color: black !important;
+  }
+  .logo {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  .content-banner .first-title {
+    font-size: 30px !important;
+  }
+
+  .carousel-item .carousel-caption strong {
+    font-size: 45px;
+  }
+
+  .carousel-item .carousel-caption p {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 750px) {
+}
+
+@media (max-width: 550px) {
+  html {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 340px) {
+  .logo {
+    margin-left: 5px;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+
+  .carousel-item .carousel-caption strong {
+    font-size: 30px;
+  }
+
+  .carousel-item .carousel-caption p {
+    font-size: 20px;
+  }
+
+  .second-header h2 {
+    color: #170097;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .most-product h4 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 70px;
+  }
+
+  .most-product p {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 50px;
+  }
+
+  .why-to-use h5 {
+    font-size: 25px;
+    color: #170097;
+    font-weight: bold;
+  }
+}
