@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% if request.user.is_superuser %}
+<div class="mx-auto">
+    <p><a href="{% url 'allTickets' %}">All Tickets</a> | <a href="{% url 'opendTickets' %}">Open Tickets</a> | <a href="{% url 'closedTickets' %}">Closed Tickets</a></p>
+</div>
+    <div>
+        <div class="text-center"><br>
+            <h1 class="text-center my-title">
+                Open Tickets
+            </h1><br>
+            {% if customer_service %}
+            <table class="table table-stripped">
+                <thead>
+                <tr>
+                    <th>Ticket Number</th>
+                    <th>Ticket Date</th>
+                    <th>Customer Name</th>
+                    <th>Title</th>
+                    <th>Representative Name</th>
+                    <th>Status</th>
+                    <th>View Ticket</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for order in customer_service %}
+                        <tr>
+                            <td>{{order.id}}</td>
+                            <td>{{ order.ticket_date|date:"d M Y" }}</td>
+                            <td>{{order.customer_name}}</td>
+                            <td>{{ order.customer_title }}</td>
+                            <td>{{ order.customer_service_rep }}</td>
+                            {% if order.ticket_status == False %}
+                            <td>Not Completed</td>
+
+                            {% else %}
+                            <td>Completed</td>
+                            {% endif %}
+                            <td><a href="{% url 'updateTickets' order.id %}">View Order</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>All Tickets are closed <br><br</p>
+            {% endif %}
+        </div>
+    </div>
+<br><br>
+{% endif %}
+
+{% endblock %}

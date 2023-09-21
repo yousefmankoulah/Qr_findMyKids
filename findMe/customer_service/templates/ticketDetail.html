@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .loginPage{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+    margin-right: 10px;
+  }
+
+  .form-group{
+    margin:10px;
+  }
+
+  button{
+    position: relative;
+    left: 45%;
+  }
+  h1{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+</style>
+    <h1>Update The Ticket</h1>
+    
+<div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+          <label class="border-bottom mb-4">Contact Us</label>
+    <div class="loginPage">
+        {% for ticket in customer_service %}
+
+        <div class="form-group">
+          <label for="customer_name">Full Name</label>
+          <input type="text" class="form-control" name="customer_name" value="{{ ticket.customer_name }}">
+        </div>
+        <div class="form-group">
+          <label for="customer_phone">Phone Number</label>
+          <input type="number" class="form-control"name="customer_phone" value="{{ ticket.customer_phone }}">
+        </div>
+        <div class="form-group">
+            <label for="customer_email">Email Address</label>
+            <input type="email" class="form-control" name="customer_email" value="{{ ticket.customer_email }}">
+          </div>
+          <div class="form-group">
+            <label for="category">Reason for Contacting us</label>
+            <select name="category" class="form-control" value="{{ ticket.category }}">
+                <option value="{{ ticket.category }}" selected>{{ ticket.category }}</option>
+                <option value="">Select Reason</option>
+                <option value="Report a Bug">Report a Bug</option>
+                <option value="Advertise">Advertise</option>
+                <option value="Return">Return order</option>
+                <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="customer_title">Title for the Problem</label>
+            <input type="text" class="form-control"name="customer_title" value="{{ ticket.customer_title }}">
+          </div>
+          <div class="form-group">
+            <label for="order_number">Order Number if needed</label>
+            <input type="text" class="form-control"name="order_number" value="{{ ticket.order_number }}">
+          </div>
+          <div class="form-group">
+            <label for="customer_service_rep">customer service_representitive</label>
+            <input type="text" class="form-control"name="customer_service_rep" value="{{ ticket.customer_service_rep }}">
+          </div>
+          <div class="form-group text-center">
+            <label for="ticket_status">Is the Ticket Closed</label><br>
+            <input class="form-check-input mr-4" type="checkbox" {% if order.ready_to_ship %}checked{% endif %} name="ticket_status"><b>check it</b>
+          </div>
+          <div class="form-group">
+            <label for="customer_description">Description for the Problem</label>
+            <textarea style="height:300px;" class="form-control" name="customer_description">{{ ticket.customer_description }}</textarea>
+          </div>
+          {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Save The Ticket</button>
+    </form>
+</div>
+
+{% endblock %}
