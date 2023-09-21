@@ -8,5 +8,6 @@ urlpatterns = [
     path('ticketDetails/<int:id>', views.updateTickets, name='updateTickets'),
     path('closedTickets/', views.closedTickets, name="closedTickets"),
     path('createTickets/', views.createTickets, name="createTickets"),
+    path('filterTickets/', views.filterTickets, name="filterTickets"),
 ]
     

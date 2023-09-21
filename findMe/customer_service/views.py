@@ -5,6 +5,7 @@ from django.utils.html import strip_tags
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .filters import ProductFilter
 
 
 # Create your views here.
@@ -113,3 +114,12 @@ def allTickets(request):
 def closedTickets(request):
     customer_service = Customer_service.objects.filter(ticket_status= True).order_by('id').values()
     return render(request, 'customerserviceDashboard.html', {'customer_service': customer_service})
+
+
+# filtering
+def filterTickets(request):
+    all_tickets = Customer_service.objects.order_by('-ticket_date')
+    my_Filter = ProductFilter(request.GET, queryset=all_tickets) 
+    all_tickets = my_Filter.qs
+    context = {"all_tickets": all_tickets, "my_Filter": my_Filter}
+    return render(request, 'ticketFilter.html', context)

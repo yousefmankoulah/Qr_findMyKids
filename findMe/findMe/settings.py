@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     'rosetta',
     'geopy',
+    'django_filters',
 
     "home",
     "import_export",
