@@ -26,6 +26,14 @@
     font-weight: bold;
   }
 </style>
+{% if request.user.is_superuser %}
+{% if messages %}
+        <ul class="alert alert-primary" id="box" role="alert">
+            {% for message in messages %}
+            <li style="text-decoration: none;">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     <h1>Create a New Ticket</h1>
     
 <div class="content-section">
@@ -81,5 +89,16 @@
         <button type="submit" class="btn btn-primary">Save The Ticket</button>
     </form>
 </div>
+{% endif %}
+
+<script>
+  setTimeout(() => {
+    const box = document.getElementById('box');
+
+    // removes element from DOM
+    box.style.display = 'none';
+    }, 2000); //  time in milliseconds
+
+</script>
 
 {% endblock %}

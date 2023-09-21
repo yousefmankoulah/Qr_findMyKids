@@ -7,8 +7,10 @@
 
 <br><br>
         {% if messages %}
-        <ul class="alert alert-primary"  id="box" role="alert">
-            <li>Qr code Generated</li>
+        <ul class="alert alert-primary" id="box" role="alert">
+            {% for message in messages %}
+            <li style="text-decoration: none;">{{ message }}</li>
+            {% endfor %}
         </ul>
         {% endif %}
         

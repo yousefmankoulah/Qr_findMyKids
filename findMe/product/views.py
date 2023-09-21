@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.db.models import Q
+from django.shortcuts import render
 from .models import Category, Product
 from home.models import GenerateQr
 
@@ -20,18 +19,3 @@ def prod_detail(request, id):
     product = Product.objects.filter(id=id)
     kids_name = GenerateQr.objects.filter(parent=request.user)
     return render(request, 'productDetail.html', {'product': product, 'kids': kids_name})
-
-
-
-## search
-
-def searchResult(request):
-    posts = None
-    query = None
-    if 'q' in request.GET:
-        query = request.GET.get('q')
-        posts = Product.objects.all().filter(Q(name__contains=query) |
-                                            Q(description__contains=query) |
-                                            Q(price__contains=query))
-
-    return render(request, 'search.html', {'query': query, 'posts': posts})

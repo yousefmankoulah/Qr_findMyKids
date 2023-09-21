@@ -26,6 +26,13 @@
     font-weight: bold;
   }
 </style>
+  {% if messages %}
+        <ul class="alert alert-primary" id="box" role="alert">
+            {% for message in messages %}
+            <li style="text-decoration: none;">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     <h1>Feel Free to contact us</h1>
     
 <div class="content-section">
@@ -72,5 +79,15 @@
         <button type="submit" class="btn btn-primary">Send it</button>
     </form>
 </div>
+
+<script>
+  setTimeout(() => {
+    const box = document.getElementById('box');
+
+    // removes element from DOM
+    box.style.display = 'none';
+    }, 2000); //  time in milliseconds
+
+</script>
 
 {% endblock %}

@@ -58,11 +58,6 @@ def createQR(request):
 
 
 #-------------------------for GEO Location-------------------------#
-def get_user_location():
-    response = requests.get('https://ipinfo.io')
-    data = response.json()
-    return data
-
 
 def profileDetail(request, id):
     qr = GenerateQr.objects.filter(id=id)
@@ -128,6 +123,7 @@ def updateProfile(request, id):
             profile.type = type
           
             profile.save()
+            messages.success(request, _("you update the profile"))
 
             return redirect('profileDetail', id=profile.id)
     else:

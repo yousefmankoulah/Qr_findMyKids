@@ -5,7 +5,17 @@
 
 
 {% for qr in qr  %}
+
+
 {% if request.user != qr.parent %}
+
+{% if messages %}
+        <ul class="alert alert-primary" id="box" role="alert">
+            {% for message in messages %}
+            <li style="text-decoration: none;">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     <h1>Please call the phone number below</h1>
 {% endif %}
 <div class="container lead">
@@ -40,6 +50,17 @@
 {% if request.user != profile.parent %}
 
 <script>
+
+ 
+        setTimeout(() => {
+          const box = document.getElementById('box');
+      
+          // removes element from DOM
+          box.style.display = 'none';
+          }, 2000); //  time in milliseconds
+      
+   
+      
     $(document).ready(function () {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
