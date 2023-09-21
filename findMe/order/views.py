@@ -13,14 +13,14 @@ def thanks(request, order_id):
     return render(request, 'thanks.html', {'customer_order': customer_order})
 
 
-@login_required('login')
+@login_required(login_url='login')
 def orderHistory(request):
     if request.user.is_authenticated:
         email = str(request.user.email)
         order_details = Order.objects.filter(emailAddress=email)
     return render(request, 'order/orders_list.html', {'order_details': order_details})
 
-@login_required('login')
+@login_required(login_url='login')
 def allOrderHistory(request):
     if request.user.is_superuser:
         order_details = Order.objects.all()
@@ -28,7 +28,7 @@ def allOrderHistory(request):
         return HttpResponse("<h1>You are not welcoming in this page here</h1>")
     return render(request, 'order/all_order_list.html', {'order_details': order_details})
 
-@login_required('login')
+@login_required(login_url='login')
 def NotReadyOrderHistory(request):
     if request.user.is_superuser:
         order_details = Order.objects.filter(ready_to_ship= False).order_by('id').values()
@@ -37,7 +37,7 @@ def NotReadyOrderHistory(request):
     return render(request, 'order/ready_to_ship.html', {'order_details': order_details})
 
 
-@login_required('login')
+@login_required(login_url='login')
 def shippedOrderHistory(request):
     if request.user.is_superuser:
         order_details = Order.objects.filter(ship= False).order_by('id').values()
@@ -46,7 +46,7 @@ def shippedOrderHistory(request):
     return render(request, 'order/shipOrder.html', {'order_details': order_details})
 
 
-@login_required('login')
+@login_required(login_url='login')
 def viewOrder(request, order_id):
     if request.user.is_authenticated:
         order = Order.objects.get(id=order_id)

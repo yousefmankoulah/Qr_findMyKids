@@ -11,7 +11,7 @@ class Customer_service(models.Model):
     customer_title = models.CharField(max_length=300, blank=True, null=True)
     customer_description = models.TextField(blank=True, null=True)
     ticket_date = models.DateTimeField(auto_now_add=True)
-    ticket_status = models.BooleanField(default=False)
+    ticket_status = models.BooleanField(default=False, blank=True, null=True)
     order_number = models.CharField(max_length=300,blank=True, null=True)
     category = models.CharField(max_length=200, blank=True, null=True)
 

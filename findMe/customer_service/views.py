@@ -42,9 +42,35 @@ def contactus(request):
         
     return render(request, 'contactus.html')
 
-@login_required('login')
+
+@login_required(login_url='login')
+def createTickets(request):
+    if request.user.is_superuser:
+
+        if request.method == 'POST':
+            customer_name = request.POST['customer_name']
+            customer_phone = request.POST['customer_phone']
+            customer_email = request.POST['customer_email']
+            category = request.POST['category']
+            customer_title = request.POST['customer_title']
+            order_number = request.POST['order_number']
+            customer_description = request.POST.get('customer_description')
+            customer_service_rep = request.POST['customer_service_rep']
+            ticket_status = request.POST.get('ticket_status') == 'on'
+ 
+            Customer_service.objects.create(customer_service_rep=customer_service_rep, ticket_status=ticket_status, customer_name=customer_name, customer_phone=customer_phone, customer_email=customer_email, category=category, customer_title=customer_title, order_number=order_number, customer_description=customer_description)
+            messages.success(request, 'TICKET CREATED SUCCESSFULLY')
+            return redirect('opendTickets')
+
+    return render(request, 'createTicket.html')
+
+
+
+@login_required(login_url='login')
 def updateTickets(request, id):
-    customer_service = Customer_service.objects.filter(id=id)
+    customer_service = Customer_service.objects.get(id=id)
+    customer_s = Customer_service.objects.filter(id=id)
+
     if request.user.is_superuser:
         if request.method == 'POST':
             customer_name = request.POST['customer_name']
@@ -67,22 +93,23 @@ def updateTickets(request, id):
             customer_service.customer_description = customer_description
             customer_service.ticket_status = ticket_status == 'on'
             customer_service.save()
+            messages.success(request, 'The request has been updated successfully.')
             return redirect('opendTickets')
-    return render(request, 'ticketDetail.html', {'customer_service': customer_service})
+    return render(request, 'ticketDetail.html', {'customer_service': customer_s})
 
-@login_required('login')
+@login_required(login_url='login')
 def opendTickets(request):
     customer_service = Customer_service.objects.filter(ticket_status= False).order_by('id').values()
     return render(request, 'customerserviceDashboard.html', {'customer_service': customer_service})
 
 
-@login_required('login')
+@login_required(login_url='login')
 def allTickets(request):
     customer_service = Customer_service.objects.all().order_by('id').values()
-    return render(request, 'customerserviceDashboard.html', {'customer_service': customer_service})
+    return render(request, 'allTickets.html', {'customer_service': customer_service})
 
 
-@login_required('login')
+@login_required(login_url='login')
 def closedTickets(request):
     customer_service = Customer_service.objects.filter(ticket_status= True).order_by('id').values()
     return render(request, 'customerserviceDashboard.html', {'customer_service': customer_service})
