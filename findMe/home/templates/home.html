@@ -72,6 +72,19 @@
   </head>
 
   <body>
+
+    {% get_current_language as CURRENT_LANGUAGE %}
+        {% get_available_languages as AVAILABLE_LANGUAGES %}
+        {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+        <div class="languages">
+          
+          {% trans "Choose Your Language" %}: <a href="/ar/"
+                  {% if languages.code == CURRENT_LANGUAGE %} class="active"{% endif %}>Arabic </a> ||
+                <a href="/en/"
+                  {% if languages.code == CURRENT_LANGUAGE %} class="active"{% endif %}> English </a>
+        </div>
+
+
     <!--start navbar-->
     <header class="header">
       <div class="inner-header">
@@ -98,26 +111,52 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active"
-                      aria-current="page"
-                      href="./services.html"
-                      >Services</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pricing.html">Prices</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./review.html">Reviews</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./aboutUs.html">About Us</a>
-                  </li>
+                 {% if request.user.is_superuser %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'allOrderHistory' %}">all Order Admin <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'opendTickets' %}">Customer service <span class="sr-only">(current)</span></a>
+        </li> 
+        {% endif %}
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'dashboard' request.user.id %}">Dashboard<span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'createQR' %}">Create a Qr Profile<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item mainy">
+                  <a class="nav-link" href="{% url 'logout' %}">logout <span class="sr-only">(current)</span></a>
+                </li>
+                {% else %}
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item mainy">
+                <a class="nav-link" href="{% url 'login' %}">Sign In <span class="sr-only">(current)</span></a>
+              </li>
+            {% endif %}
                 </ul>
               </div>
             </div>
@@ -243,23 +282,14 @@
         <div class="card">
           <i class="fa fa-solid fa-child fa-lg card-img-top mt-4"></i>
           <div class="card-body">
-            <h5 class="card-title">Boys</h5>
+            <h5 class="card-title">Children</h5>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
           </div>
         </div>
-        <div class="card">
-          <i class="fa fa-solid fa-child fa-lg card-img-top mt-4"></i>
-          <div class="card-body">
-            <h5 class="card-title">Girls</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
+        
         <div class="card">
           <i class="fa fa-solid fa-user fa-lg card-img-top mt-4"></i>
           <div class="card-body">
@@ -305,9 +335,9 @@
     <!--end second header-->
 
     <!--start product-->
-    <div class="most-product" style="background-image: url({% static 'img/1.jpg' %});">
-      <div class="overlay"></div>
-      <div>
+    <div class="most-product" >
+      
+      <div class="most-product-div">
         <h4
           class="animate__animated animate__zoomIn"
           style="animation-delay: 1s;"
@@ -321,6 +351,7 @@
           You can choose any product you need
         </p>
         <a class="btn btn-primary" href="{% url 'category' %}">Start Shopping Now<a>
+          
       </div>
     </div>
     <!--end product-->
