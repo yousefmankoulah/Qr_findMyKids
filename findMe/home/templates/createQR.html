@@ -5,6 +5,28 @@
 
 {% block content %}
 
+<style>
+    .loginPage{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+      margin-right: 10px;
+    }
+  
+    .created{
+      margin: 15px;
+    }
+  
+    h1{
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      font-size: 40px;
+      font-weight: bold;
+      color: rgb(75, 62, 185)
+    }
+
+  </style>
+
 <br><br>
         {% if messages %}
         <ul class="alert alert-primary" id="box" role="alert">
@@ -22,9 +44,13 @@
         
         <form method="post" class="content form-group">
             {% csrf_token %}<br><br>
+            <div class="loginPage">
+                <div class="created">
             <label for="name">{% trans "Enter the name" %}</label>
             <input class="form-control input_check" type="text" name="name" id="roll" placeholder="Enter the name"><br><br>
-            <label for="type">{% trans "What is the Type" %}</label>
+                </div>
+                <div class="created">
+            <label for="type">{% trans "What is the Type" %}</label><br>
             <select name="type" id="roll2">
                 <option></option>
                 <option value="Boy">Boy</option>
@@ -35,16 +61,27 @@
                 <option value="Cat">Cat</option>
                 <option value="Other Pets">Other Pets</option>
             </select><br><br>
+        </div>
+        <div class="created">
             <label for="address">{% trans "Enter the address" %}</label>
             <input class="form-control input_check" type="text" name="address" placeholder= 'Enter the address'><br><br>
+        </div>
+        <div class="created">
+            
             <label for="phone">{% trans "Enter the phone number" %}</label>
             <input class="form-control input_check" type="text" name="phone" id="roll3" placeholder="Enter the phone number"><br><br>
+        </div>
+   
+        <div class="created">
+            
+           
             <label for="summary">{% trans "Enter more details" %}</label>
-            <textarea class="form-control input_check" name="summary" placeholder="enter more details"></textarea>
-
+            <textarea style="height:250px" class="form-control input_check" name="summary" placeholder="enter more details"></textarea>
+        </div>
+    </div>
             <br><br>
-            <button class="btn btn-primary generate" onClick="return empty()">{% trans "Generate Profile" %}</button>
-
+            <button style="position: relative; left: 45%;" class="btn btn-primary generate" onClick="return empty()">{% trans "Generate Profile" %}</button>
+            <br><br><br><br>
         </form>
 
         <div class="qr-img">
