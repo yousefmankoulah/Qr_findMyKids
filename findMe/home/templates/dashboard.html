@@ -1,7 +1,8 @@
+{% load i18n%}
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang=lang={% if request.LANGUAGE_CODE == 'ar' %}"ar"{% else %}"en"{% endif %} dir={% if request.LANGUAGE_CODE == 'ar' %}"rtl"{% else %}"ltr"{% endif %}>
 
 <head>
 	<meta charset="UTF-8">
@@ -18,7 +19,16 @@
 
 
 <body>
-	
+	{% get_current_language as CURRENT_LANGUAGE %}
+        {% get_available_languages as AVAILABLE_LANGUAGES %}
+        {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+        <div class="languages">
+          
+          {% trans "Choose Your Language" %}: <a href="/ar/"
+                  {% if languages.code == CURRENT_LANGUAGE %} class="active"{% endif %}>Arabic </a> ||
+                <a href="/en/"
+                  {% if languages.code == CURRENT_LANGUAGE %} class="active"{% endif %}> English </a>
+        </div>
 	<header>
 
 		<div class="logosec">
@@ -38,36 +48,36 @@
 			<nav class="nav">
 				<div class="nav-upper-options">
 					<div class="nav-option option1">
-						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}"> Dashboard</a></h3>
+						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}">&nbsp&nbspDashboard</a></h3>
 					</div>
 					<div class="nav-option option2">
 						
-						<h3><a href={% url 'home' %}>Home Page</a> </h3>
+						<h3><a href={% url 'home' %}>&nbsp&nbspHome Page</a> </h3>
 					</div>
 
 					<div class="nav-option option3">
 						
-						<h3><a href={% url 'order_history' %}>Orders</a> </h3>
+						<h3><a href={% url 'order_history' %}>&nbsp&nbspOrders</a> </h3>
 					</div>
 
 					<div class="nav-option option4">
 						
-						<h3> <a href="{% url 'createQR' %}">Create a Qr Profile</a></h3>
+						<h3> <a href="{% url 'createQR' %}">&nbsp&nbspCreate a Qr Profile</a></h3>
 					</div>
 
 					<div class="nav-option option5">
 						
-						<h3> <a href="{% url 'category' %}">Our Products</a></h3>
+						<h3> <a href="{% url 'category' %}">&nbsp&nbspOur Products</a></h3>
 					</div>
 
 					<div class="nav-option option6">
 						
-						<h3> <a href="{% url 'contactus' %}">Contact Us</a></h3>
+						<h3> <a href="{% url 'contactus' %}">&nbsp&nbspContact Us</a></h3>
 					</div>
 
 					<div class="nav-option logout">
 						
-						<h3><a href="{% url 'logout' %}">logout</a></h3>
+						<h3><a href="{% url 'logout' %}">&nbsp&nbsplogout</a></h3>
 					</div>
 
 				</div>
