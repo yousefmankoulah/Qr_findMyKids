@@ -1,25 +1,5 @@
 {% load static %}
 
-{% comment %}
-
-
-{% for dashboard in dashboard  %}
-
-{% if request.user == dashboard.parent %}
-
-{{dashboard.name}}<br>
-
-{{dashboard.type}}<br>
-
-{{dashboard.address}}<br>
-
-{{dashboard.phoneNumber}}<br>
-
-<a class="btn btn-primary" href="{% url 'profileDetail' dashboard.id %}">More Detail</a>
-<hr>
-
- {% endcomment %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,8 +18,7 @@
 
 
 <body>
-	{% comment %} {% if request.user == dashboard.parent %} {% endcomment %}
-	<!-- for header part -->
+	
 	<header>
 
 		<div class="logosec">
@@ -124,88 +103,36 @@
 
 			<div class="report-container">
 				<div class="report-header">
-					<h1 class="recent-Articles">Recent Articles</h1>
-					<button class="view">View All</button>
+					<h1 class="recent-Articles">Your Profiles</h1>
 				</div>
 
 				<div class="report-body">
 					<div class="report-topic-heading">
-						<h3 class="t-op">Article</h3>
-						<h3 class="t-op">Views</h3>
-						<h3 class="t-op">Comments</h3>
-						<h3 class="t-op">Status</h3>
+						<h3 class="t-op">Name</h3>
+						<h3 class="t-op">Phone Number</h3>
+						<h3 class="t-op">Profile Category</h3>
+						<h3 class="t-op">More Information</h3>
 					</div>
 
 					<div class="items">
+						{% for dashboard in dashboard  %}
+						{% if request.user == dashboard.parent %}
 						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 73</h3>
-							<h3 class="t-op-nextlvl">2.9k</h3>
-							<h3 class="t-op-nextlvl">210</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
+							<h3 class="t-op-nextlvl">{{dashboard.name}}</h3>
+							<h3 class="t-op-nextlvl">{{dashboard.phoneNumber}}</h3>
+							<h3 class="t-op-nextlvl">{{dashboard.type}}</h3>
+							<h3 class="t-op-nextlvl label-tag"><a href="{% url 'profileDetail' dashboard.id %}">More Detail</a></h3>
 						</div>
+						{% endif %}
 
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 72</h3>
-							<h3 class="t-op-nextlvl">1.5k</h3>
-							<h3 class="t-op-nextlvl">360</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 71</h3>
-							<h3 class="t-op-nextlvl">1.1k</h3>
-							<h3 class="t-op-nextlvl">150</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 70</h3>
-							<h3 class="t-op-nextlvl">1.2k</h3>
-							<h3 class="t-op-nextlvl">420</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 69</h3>
-							<h3 class="t-op-nextlvl">2.6k</h3>
-							<h3 class="t-op-nextlvl">190</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 68</h3>
-							<h3 class="t-op-nextlvl">1.9k</h3>
-							<h3 class="t-op-nextlvl">390</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 67</h3>
-							<h3 class="t-op-nextlvl">1.2k</h3>
-							<h3 class="t-op-nextlvl">580</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 66</h3>
-							<h3 class="t-op-nextlvl">3.6k</h3>
-							<h3 class="t-op-nextlvl">160</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
-						<div class="item1">
-							<h3 class="t-op-nextlvl">Article 65</h3>
-							<h3 class="t-op-nextlvl">1.3k</h3>
-							<h3 class="t-op-nextlvl">220</h3>
-							<h3 class="t-op-nextlvl label-tag">Published</h3>
-						</div>
-
+						{% endfor %}
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	{% comment %} {% endif %} {% endcomment %}
+	
 
 	
 	
