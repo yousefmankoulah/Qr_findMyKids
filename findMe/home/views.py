@@ -96,9 +96,7 @@ def profileDetail(request, id):
 @login_required(login_url='login')
 def profileVistorLocation(request, id):
     qr = GenerateQr.objects.filter(id=id)
-    profile = GenerateQr.objects.get(id=id)
-            
-        
+    profile = GenerateQr.objects.get(id=id)      
     context = {
         'profile': profile,
         'qr': qr
