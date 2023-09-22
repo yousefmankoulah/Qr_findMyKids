@@ -118,7 +118,7 @@
 						{% for dashboard in dashboard  %}
 						{% if request.user == dashboard.parent %}
 						<div class="item1">
-							<h3 class="t-op-nextlvl">{{dashboard.name}}</h3>
+							<h3 class="t-op-nextlvl"><a href="{% url 'profileDetail' dashboard.id %}">{{dashboard.name}}</a></h3>
 							<h3 class="t-op-nextlvl">{{dashboard.phoneNumber}}</h3>
 							<h3 class="t-op-nextlvl">{{dashboard.type}}</h3>
 							<h3 class="t-op-nextlvl label-tag"><a style="color:white;" href="{% url 'profileDetail' dashboard.id %}">More Detail</a></h3>

@@ -338,6 +338,14 @@
 	color: white;
 	border-radius: 4px;
 	}
+
+	#parent{
+		width: 200px!important;
+		height: 200px!important;
+		overflow: hidden;
+		
+	}
+
 	/* Responsive CSS Here */
 	@media screen and (max-width: 950px) {
 	
@@ -457,9 +465,11 @@
 	.searchbtn img {
 		height: 20px;
 	}
+	
 	}
 	
 	@media screen and (max-width: 320px) {
+
 	.recent-Articles {
 		font-size: 12px;
 	}
@@ -477,7 +487,7 @@
 	}
 	.t-op-nextlvl {
 		font-size: 10px;
-		text-align: center;
+		
 	}
 	.report-topic-heading,
 	.item1,

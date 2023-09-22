@@ -1,23 +1,185 @@
-{% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width,
+				initial-scale=1.0">
+	<title>Find Me</title>
+	<link rel="stylesheet"
+		href="{% static 'css/dashboard.css' %}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	
+</head>
 
 
-{% for qr in qr  %}
+<body>
+	
+	<header>
+
+		<div class="logosec">
+            <div class="logo">Taht w Lenaha</div>
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+                class="icn menuicn"
+                id="menuicn"
+                alt="menu-icon">
+        </div>
 
 
-{% if request.user != qr.parent %}
+	</header>
 
-{% if messages %}
-        <ul class="alert alert-primary" id="box" role="alert">
-            {% for message in messages %}
-            <li style="text-decoration: none;">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    <h1>Please call the phone number below</h1>
-{% endif %}
+	<div class="main-container">
+		<div class="navcontainer">
+			<nav class="nav">
+				<div class="nav-upper-options">
+					<div class="nav-option option1">
+						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}"> Dashboard</a></h3>
+					</div>
+					<div class="nav-option option2">
+						
+						<h3><a href={% url 'home' %}>Home Page</a> </h3>
+					</div>
+
+					<div class="nav-option option3">
+						
+						<h3><a href={% url 'order_history' %}>Orders</a> </h3>
+					</div>
+
+					<div class="nav-option option4">
+						
+						<h3> <a href="{% url 'createQR' %}">Create a Qr Profile</a></h3>
+					</div>
+
+					<div class="nav-option option5">
+						
+						<h3> <a href="{% url 'category' %}">Our Products</a></h3>
+					</div>
+
+					<div class="nav-option option6">
+						
+						<h3> <a href="{% url 'contactus' %}">Contact Us</a></h3>
+					</div>
+
+					<div class="nav-option logout">
+						
+						<h3><a href="{% url 'logout' %}">logout</a></h3>
+					</div>
+
+				</div>
+			</nav>
+		</div>
+		<div class="main">
+
+			
+
+			<div class="box-container">
+
+				<div class="box box1">
+					<div class="text">
+						<h2 class="topic-heading">{{ dashboard.count }}</h2>
+						<h2 class="topic">Profiles</h2>
+					</div>
+
+					<img src=
+					"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
+					alt="comments">
+				</div>
+
+				<div class="box box2">
+					<div class="text">
+						<h2 class="topic-heading">{{ orderNumber }}</h2>
+						<h2 class="topic">Orders</h2>
+					</div>
+
+					<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
+				</div>
+			</div>
+
+			<div class="report-container">
+				<div class="report-header">
+					<h1 class="recent-Articles">Your Profiles</h1>
+				</div>
+
+				<div class="report-body">
+					<div class="report-topic-heading">
+						<h3 class="t-op">Qr Code</h3>
+						<h3 class="t-op">Profile Detail</h3>
+						<h3 class="t-op"></h3>
+					</div>
+
+					<div class="items">
+						{% for qr in qr  %}
+						
+						<div class="item1">
+							<h3 class="t-op-nextlvl">
+                                {% if request.user != qr.parent %}
+                                <h4>Please call the phone number below</h4><br>
+                                <a class="btn btn-primary" href="tel:{{qr.phoneNumber}}">Call Their parent now</a><br>
+                                {% else %}
+                                {% if qr.qr %}
+                                <br>
+                                <img src="{{qr.qr.url}}" id="parent">
+                                {% endif %}
+                                {% endif %} 
+                            </h3>
+                                                              
+							<h3 class="t-op-nextlvl" style="text-alig">
+                            
+                                    <div>
+                                        The Name: {{qr.name}}<br>
+                                    </div>
+                                    <div>
+                                        The Parent phone number: {{qr.phoneNumber}}<br>
+                                    </div>
+                                    {% if qr.address %}
+                                    <div>
+                                        The address: {{qr.address}}<br><br>
+                                    </div>
+                                    {% else %}
+                                    <div>
+                                        The address: No Provided address<br><br>
+                                    </div>
+                                    {% endif %}
+                                    <div>
+                                        The Type: {{qr.type}}<br>
+                                    </div>
+                                    {% if qr.summary %}
+                                    <div>
+                                        More Description: {{qr.summary}}<br>
+                                    </div>
+                                    {% endif %}
+                                   
+
+
+
+
+
+                                
+                            </h3>
+							<h3 class="t-op-nextlvl"></h3>
+							
+						</div>
+						
+
+						{% endfor %}
+						
+					</div>
+				</div>
+			</div>
+
+            
+
+
+
+{% comment %} 
 <div class="container lead">
 {{qr.name}}<br>
 {{qr.type}}<br>
@@ -28,24 +190,37 @@
 
 {% if request.user == qr.parent %}
 
-{% if qr.qr %}
-<img src="{{qr.qr.url}}" id="parent">
 
-{% endif %}
 <br>
 <button class="btn btn-primary printit" onclick='myApp.printDiv()'>Print QR Code</button>
 <a class="btn btn-primary" href="{% url 'updateProfile' qr.id %}">Edit Profile</a>
 <a class="btn btn-info" href="{% url 'profileVistorLocation' qr.id %}">Last Vistor Location</a>
 <a class="btn btn-danger" href="{% url 'delete' qr.id %}">Delete Profile</a>
 
-</div><br><br>
-{% else %}
-<a class="btn btn-primary" href="tel:{{qr.phoneNumber}}">Call Their parent now</a><br>
+</div>
+
 
 {% endif %}
 
 
-{% endfor %}
+{% endfor %} {% endcomment %}
+		</div>
+	</div>
+	
+
+	
+	
+</body>
+
+<script>
+	let menuicn = document.querySelector(".menuicn");
+let nav = document.querySelector(".navcontainer");
+
+menuicn.addEventListener("click", () => {
+	nav.classList.toggle("navclose");
+})
+</script>
+
 
 {% if request.user != profile.parent %}
 
@@ -97,4 +272,5 @@
     
   </script>
     {% endif %}
-{% endblock %}
+
+</html>
