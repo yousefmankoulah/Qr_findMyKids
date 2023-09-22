@@ -10,11 +10,11 @@
         <!--mobile meta-->
         <meta name="description" content="this web site is for exchanging items from all countries all over the world">
 
-        {% if request.LANGUAGE_CODE == 'ar' %}
-        <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
-        {% else %}
+        {% comment %} {% if request.LANGUAGE_CODE == 'ar' %} {% endcomment %}
+        {% comment %} <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css"> {% endcomment %}
+        {% comment %} {% else %} {% endcomment %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-        {% endif %}
+        {% comment %} {% endif %} {% endcomment %}
         
         <link
         rel="stylesheet"
@@ -71,10 +71,7 @@
     </head>
 
     <body class="bg-light">
-      {% comment %} class="{% ifequal request.LANGUAGE_CODE 'en' %}en{% else %}ar{% endifequal %}" {% endcomment %}
-
       
-  
         {% get_current_language as CURRENT_LANGUAGE %}
         {% get_available_languages as AVAILABLE_LANGUAGES %}
         {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
