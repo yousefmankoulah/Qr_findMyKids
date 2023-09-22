@@ -28,8 +28,16 @@
     label{
         font-size: 20px;
         font-weight: bold;
-
     }
+
+    @media (max-width: 450px) {
+        .loginPage{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+            margin-right: 10px;
+          }
+    }
+
   </style>
 
 <br><br>
@@ -46,7 +54,7 @@
             QR code generate Profile
         </h1>
         <br>
-        
+        <div class="content-section">
         <form method="post" class="content form-group">
             {% csrf_token %}<br><br>
             <div class="loginPage">
@@ -88,7 +96,7 @@
             <button style="position: relative; left: 45%;" class="btn btn-primary generate" onClick="return empty()">{% trans "Generate Profile" %}</button>
             <br><br><br><br>
         </form>
-
+    </div>
         <div class="qr-img">
             {% if img_name %}
                 <img src="/media/{{ img_name }}" alt="qr code"  id="parent" onclick='myApp.printDiv()'>

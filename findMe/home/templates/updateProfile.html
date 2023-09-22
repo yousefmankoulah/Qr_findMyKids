@@ -3,6 +3,39 @@
 
 
 {% block content %}
+<style>
+.loginPage{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+  margin-right: 10px;
+}
+
+.created{
+  margin: 15px;
+}
+
+h1{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(75, 62, 185)
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 450px) {
+    .loginPage{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+        margin-right: 10px;
+      }
+}
+</style>
 
 {% if messages %}
         <ul class="alert alert-primary" id="box" role="alert">
@@ -14,14 +47,18 @@
     
 {% if request.user == profile.parent %}
 <h1 class="head_top">Edit The Profile Info</h1>
-<div class="content-section container">
+<div class="content-section">
   <form method="POST" enctype="multipart/form-data" class="content form-group">
     {% csrf_token %}
         <label class="border-bottom mb-4">Edit Profile</label>
-        <div class="row">
-          <div class="col-12 col-lg-12">
+        <div class="loginPage">
+
+          <div class="created">
+            <label for="name">Enter Your Kids Name *</label>
             <input class="form-control input_check" type="text" placeholder="name" name="name" value="{{ profile.name }}">
             <br>
+          </div>
+          <div class="created">
             <label for="type">What is the Type of the Profile</label>
             <select name="type">
                 <option value="{{ profile.type }}" selected>{{ profile.type }}</option>
@@ -34,19 +71,27 @@
                 <option value="Cat">Cat</option>
                 <option value="Other Pets">Other Pets</option>
             </select><br>
+          </div>
+          <div class="created">
+            <label for="phoneNumber">Enter Your Phone number *</label>
             <input class="form-control input_check" type="text" placeholder="phone" name="phoneNumber" value="{{ profile.phoneNumber }}"><br>
 
             <br>
+          </div>
+          <div class="created">
+            <label for="address">Enter Your Address</label>
             <input class="form-control input_check" type="text" placeholder="address" name="address" value="{{ profile.address }}"><br>
-            <textarea class="form-control input_check" placeholder="Write more description" name="summary">{{ profile.summary }}</textarea><br>
+          </div>
+          <div class="created">
+            <label for="summary">Enter More desctiption</label>
+            <textarea style="height:250px" class="form-control input_check" placeholder="Write more description" name="summary">{{ profile.summary }}</textarea><br>
 
-
-            <hr><br><br>
-            
           </div>
         </div>
+            <hr>
+     
     <div class="form-group content_button">
-      <button type="submit" class="btn btn-outline-info">Edit The Profile</button>
+      <button style="position: relative; left: 40%;" type="submit" class="btn btn-outline-info">Edit The Profile</button><br>
     </div>
   </form>
 
