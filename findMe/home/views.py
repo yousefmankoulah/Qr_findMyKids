@@ -174,7 +174,10 @@ def signInView(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, _("You are now logged in."))
-                return redirect('dashboard', id=request.user.id)
+                if request.user.is_superuser:
+                    return redirect('allOrderHistory')
+                else:
+                    return redirect('dashboard', id=request.user.id)
             else:
                 messages.error(request, _("Invalid username or password."))
 
