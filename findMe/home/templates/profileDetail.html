@@ -78,34 +78,18 @@
 		<div class="main">
 
 			
-
+            {% for qr in qr  %}
 			<div class="box-container">
-
-				<div class="box box1">
-					<div class="text">
-						<h2 class="topic-heading">{{ dashboard.count }}</h2>
-						<h2 class="topic">Profiles</h2>
-					</div>
-
-					<img src=
-					"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
-					alt="comments">
-				</div>
-
-				<div class="box box2">
-					<div class="text">
-						<h2 class="topic-heading">{{ orderNumber }}</h2>
-						<h2 class="topic">Orders</h2>
-					</div>
-
-					<img src=
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
-				</div>
+                {% if request.user == qr.parent %}
+				<h1 style="color:#5500cb;"><b>{{ qr.name }} Profile</b></h1>
+                {% endif %}
 			</div>
 
 			<div class="report-container">
+                
 				<div class="report-header">
-					<h1 class="recent-Articles">Your Profiles</h1>
+					<h1 class="recent-Articles">The Profiles</h1>
+
 				</div>
 
 				<div class="report-body">
@@ -116,22 +100,25 @@
 					</div>
 
 					<div class="items">
-						{% for qr in qr  %}
+						
 						
 						<div class="item1">
 							<h3 class="t-op-nextlvl">
                                 {% if request.user != qr.parent %}
-                                <h4>Please call the phone number below</h4><br>
-                                <a class="btn btn-primary" href="tel:{{qr.phoneNumber}}">Call Their parent now</a><br>
+                                <h4>Please call the phone number below<br>
+                                    <button class="view2"><a style="color:white" href="tel:{{qr.phoneNumber}}">Call Parent Now</a></button>
+                                </h4>
+                                <br>
                                 {% else %}
                                 {% if qr.qr %}
                                 <br>
-                                <img src="{{qr.qr.url}}" id="parent">
+                                <img src="{{qr.qr.url}}" id="parent"><br>
+                                <button class="view printit" onclick='myApp.printDiv()'>Print QR</button>
                                 {% endif %}
                                 {% endif %} 
                             </h3>
                                                               
-							<h3 class="t-op-nextlvl" style="text-alig">
+							<h3 class="t-op-nextlvl detail-profile">
                             
                                     <div>
                                         The Name: {{qr.name}}<br>
@@ -157,53 +144,49 @@
                                     </div>
                                     {% endif %}
                                    
-
-
-
-
-
-                                
                             </h3>
 							<h3 class="t-op-nextlvl"></h3>
 							
 						</div>
 						
-
-						{% endfor %}
+                        
+						
 						
 					</div>
 				</div>
+                
+                <div class="report-body" style="border-top: 2px solid #5500cb">
+					
+                    {% if request.user == qr.parent %}
+                        <button class="view"><a style="color:white;" href="{% url 'updateProfile' qr.id %}">Edit Profile</a></button>
+                        <button class="view2"><a style="color:white;" href="{% url 'profileVistorLocation' qr.id %}">Last Vistor Location</a></button>
+                        <button class="view3"><a style="color:white;" href="#popup-box">Delete Profile</a></button>
+
+                        {% endif %}
+
+                        
+                        <div id="popup-box" class="modal">
+                            <div class="content">
+                                <h1 style="color: #5500cb;">
+                                    Are You Sure that you will delete this profile?
+                                </h1>
+                                <br><br>
+                                <b>
+                                    <button class="view3"><a style="color:white;" href="{% url 'delete' qr.id %}">Delete Profile</a></button>
+
+                                </b>
+                                <a href="#"
+                                   class="box-close">
+                                    ×
+                                </a>
+                            </div>
+                        </div>
+				</div>
+
+                
 			</div>
-
-            
-
-
-
-{% comment %} 
-<div class="container lead">
-{{qr.name}}<br>
-{{qr.type}}<br>
-{{qr.address}}<br>
-{{qr.phoneNumber}}<br>
-{{qr.summary}}<br>
-
-
-{% if request.user == qr.parent %}
-
-
-<br>
-<button class="btn btn-primary printit" onclick='myApp.printDiv()'>Print QR Code</button>
-<a class="btn btn-primary" href="{% url 'updateProfile' qr.id %}">Edit Profile</a>
-<a class="btn btn-info" href="{% url 'profileVistorLocation' qr.id %}">Last Vistor Location</a>
-<a class="btn btn-danger" href="{% url 'delete' qr.id %}">Delete Profile</a>
-
-</div>
-
-
-{% endif %}
-
-
-{% endfor %} {% endcomment %}
+            {% endfor %}
+        
 		</div>
 	</div>
 	
@@ -213,6 +196,20 @@
 </body>
 
 <script>
+
+    var myApp = new function () {
+        this.printDiv = function () {
+            // Store DIV contents in the variable.
+            var img = document.getElementById('parent');
+            
+            // Create a window object.
+            var win = window.open('', '', 'height=800,width=800'); // Open the window. Its a popup window.
+            win.document.write(img.outerHTML);     // Write contents in the new window.
+            win.document.close();
+        }
+    }
+
+
 	let menuicn = document.querySelector(".menuicn");
 let nav = document.querySelector(".navcontainer");
 
