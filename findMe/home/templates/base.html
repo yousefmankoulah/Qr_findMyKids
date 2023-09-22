@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load static %}
 <!doctype html>
-<html lang={% if request.LANGUAGE_CODE == 'ar' %}"ar"{% else %}"en"{% endif %}>
+<html lang={% if request.LANGUAGE_CODE == 'ar' %}"ar"{% else %}"en"{% endif %} dir={% if request.LANGUAGE_CODE == 'ar' %}"rtl"{% else %}"ltr"{% endif %}>
     <head>
         <title>Find Me</title>
         <meta charset="utf-8" />

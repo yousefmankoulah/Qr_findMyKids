@@ -47,6 +47,7 @@
 	font-size: 27px;
 	font-weight: 600;
 	color: rgb(47, 141, 70);
+	
 	}
 	
 	.icn {
@@ -56,17 +57,15 @@
 	cursor: pointer;
 	}
 	
-	.searchbar,
-	.message,
+	
 	.logosec {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
 	}
 	
-	.searchbar2 {
-	display: none;
-	}
+
 	
 	.logosec {
 	gap: 60px;
