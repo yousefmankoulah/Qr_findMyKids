@@ -17,6 +17,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 import time
+from order.models import Order
 
 
 
@@ -27,7 +28,11 @@ def home(request):
 @login_required(login_url='login')
 def dashboard(request, id):
     dashboard = GenerateQr.objects.filter(parent=request.user).order_by('-name')
-    return render(request, 'dashboard.html', {'dashboard': dashboard})
+    if request.user.is_authenticated:
+        email = str(request.user.email)
+        order_details = Order.objects.filter(emailAddress=email)
+        orderNumber = order_details.count()
+    return render(request, 'dashboard.html', {'dashboard': dashboard, 'orderNumber': orderNumber})
 
 
 @login_required(login_url='login')
