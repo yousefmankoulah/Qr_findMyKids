@@ -16,7 +16,7 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     search_fields = ['name', 'description', 'price']
     ordering = ['name']
     list_filter = ['name', 'category']
-    list_display = ['category', 'name', 'price']
+    list_display = ['category', 'name', 'price', 'created']
 admin.site.register(Product, ProductAdmin)
 
 

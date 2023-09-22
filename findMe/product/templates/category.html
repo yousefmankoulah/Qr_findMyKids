@@ -2,26 +2,35 @@
 {% load static %}
 
 {% block content %}
-  <div class="container">
+  
+<style>
+    .category{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+    }
+    .my_button{
+        margin: 15px;
+    }
+</style>
 
 
     
-    <h1 class="text-center heh">Our Category</h1><br><br>
+    <h1 class="text-center heh" style="color: rgb(75, 62, 185); margin-top:80px;">Our Category</h1><br><br>
 
 
-    <div class="row mx-auto">
+    <div class="category mx-auto">
         {% for category in category %}
-            <div class="my_button col-md-6 col-sm-12 mt-4 mb-4">
+            <div class="my_button">
                 <div class="card text-center">
                     <a href="{% url 'product' category.id %}"><img class="card-img-top my-image" src="{{category.image.url}}" alt="{{category.name}}"></a>
                     <div class="card-body">
                         <h4>{{category.name}}</h4>
-                        <p class="lead">{{category.description}}</p>
-                       <a href="{% url 'product' category.id %}" class="btn btn-primary">More</a>
+                        <h6>{{category.description}}</h6>
+                       <a href="{% url 'product' category.id %}" class="btn btn-primary">More Info</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
   </div>
-</div>
+
 {% endblock %}

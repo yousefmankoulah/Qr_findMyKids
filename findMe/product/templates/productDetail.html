@@ -5,12 +5,15 @@
       {% for product in product %}
 
         <div class="mx-auto container">
-            <p><a href="{% url 'home' %}">Home</a> | <a href="{{product.category.get_url}}">{{product.category}}</a> | {{product.name}}</p>
+            <p><a href="{% url 'home' %}">Home</a> | <a href="{% url 'product' product.category.id %}">{{product.category}}</a> | {{product.name}}</p>
         </div>
-        <div class="container">
-            <br>
+        
+            <br><br>
+
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.created }}</p><br><br><br>
             <div class="row">
-                <div class="col-sm-12 col-lg-6 text-center">
+                <div class="col-sm-12 col-lg-8 col-md-12 text-center">
                     <div style="min-width: 18rem">
                       <div id="carouselExampleControls" class="carousel slide det" data-ride="carousel">
                           <div class="carousel-inner">
@@ -40,18 +43,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                     <div>
-                        <h1 class="my-prod2">{{product.name}}</h1>
-                        <p class="mt-4">Price: ${{product.price}}</p>
+                        <h4 class="my-prod2">{{product.name}}</h4><br>
                         <p class="lead">Product Description: {{product.description}}</p>
-   
+                        <hr><br>
+                        <p class="mt-4">Price: ${{product.price}}</p>
+                        
                           <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
 
                     </div>
                 </div>
             </div>
-        </div>
+       
         {% endfor %}
 
 

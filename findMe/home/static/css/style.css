@@ -87,18 +87,17 @@ body {
   }
   
   .heh{
-    color: #08526d;
+    color: rgb(75, 62, 185);
     margin-bottom: 50px;
   }
-  .my-image{
-    height: 450px;
-  }
+
   /*end home*/
   
   /*start detail*/
   .det{
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    height: 600px;
+    
   }
   .carousel-control-prev-icon{
     color: black;
@@ -108,12 +107,14 @@ body {
     color: black;
   }
   
-  .det:hover{
-    width: 800px;
-    height: 800px;
-    z-index: 99;
-  }
   
+  @media screen and (max-width: 500px) {
+
+    .det{
+      width: 300px;
+      height: 300px;
+    }
+  }
   /*end detail*/
   
   .my-table{
