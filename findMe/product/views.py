@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Category, Product
+from django.shortcuts import render, redirect
+from .models import Category, Product, ProductReview
 from home.models import GenerateQr
 
 
@@ -18,4 +18,21 @@ def product(request, category):
 def prod_detail(request, id):
     product = Product.objects.filter(id=id)
     kids_name = GenerateQr.objects.filter(parent=request.user)
-    return render(request, 'productDetail.html', {'product': product, 'kids': kids_name})
+    productReview = ProductReview.objects.filter(product=product)
+    return render(request, 'productDetail.html', {'product': product, 'kids': kids_name, 'productReview': productReview})
+
+
+def review(request, id):
+    product = Product.objects.get(id=id)
+    user = GenerateQr.objects.filter(parent=request.user).first()
+    if request.method == 'POST':
+        rating_str = request.POST.get('rating')
+        if rating_str is not None and rating_str != '':
+            rates = int(rating_str)
+        else:
+            rates = 5
+        comment = request.POST.get('review_text')
+        rating = ProductReview.objects.create(product=product, user=user, review=rates, comment=comment)
+        rating.save()
+        return redirect('category')
+    return render(request,'reviews.html')

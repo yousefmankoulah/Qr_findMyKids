@@ -3,10 +3,11 @@ from .models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from home.models import GenerateQr
 from django.core.mail import send_mail
+from product.models import Product
 
 # Create your views here.
 
-
+@login_required(login_url='login')
 def thanks(request, order_id):
     if order_id:
         customer_order = get_object_or_404(Order, id=order_id)
@@ -50,7 +51,8 @@ def shippedOrderHistory(request):
 def viewOrder(request, order_id):
     if request.user.is_authenticated:
         order = Order.objects.get(id=order_id)
-        order_items = OrderItem.objects.filter(order=order)
+        order_items = OrderItem.objects.filter(order=order)        
+        
         if request.method == 'POST':
             ready = request.POST.get('ready')
             ship = request.POST.get('shipped')

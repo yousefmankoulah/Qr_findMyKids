@@ -26,8 +26,11 @@
     <br> <br><br> <hr><br><br>
     {% endif %}
 
+    
+
 
     {% if request.user.email == order.emailAddress or request.user.is_superuser %}
+
     <div>
         <div class="text-center"><br>
             <h1 class="text-center my-title">Order Details</h1>
@@ -63,8 +66,7 @@
                     </tr>
                     <tr>
                         <td><img src="{{item.qr.url}}" width="200px" height="200px" /></td>
-                        <td>{{item.kids_name}}</td>
-                        
+                        <td>{{item.kids_name}}</td>                        
                     </tr>
                 {% endfor %}
                 <tr>

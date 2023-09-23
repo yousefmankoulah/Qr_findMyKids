@@ -2,6 +2,18 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+  .star {
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin: 0 5px;
+    color: gold;
+}
+</style>
+
+
       {% for product in product %}
 
         <div class="mx-auto container">
@@ -55,7 +67,14 @@
                     </div>
                 </div>
             </div>
-       
+            <hr class="mb-4">
+            <h3 class="text-center mt-4">Ratings and Reviews</h3>
+
+            {% for review in productReview %}
+            <p>{{ review.review }}<i class="star fa fa-solid fa-star"></i></p>
+              <p>{{ review.comment }}</p>
+              {{ review.user }}
+            {% endfor %}
         {% endfor %}
 
 

@@ -176,5 +176,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # stripe
-STRIPE_PUBLISHABLE_KEY = 'pk_test_KDo4WyciCbVyG4hGciOwwh4P00XoAg5zzK'
-STRIPE_SECRET_KEY = 'sk_test_l0Dm5N3UZzi6DaAlXTBmttqy00A008TZX3'
+STRIPE_PUBLISHABLE_KEY = 'pk_live_82iWo1wkPRInbW3DRSFBD9sP00GkdOxjJu'
+STRIPE_SECRET_KEY = 'sk_live_Arbc7RYEvIuE1mOk2qYj4s9p00YzhbS6bm'

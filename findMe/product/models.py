@@ -1,6 +1,9 @@
 from django.db import models
 from home.models import GenerateQr
 from django.utils.translation import gettext_lazy as _
+from home.models import GenerateQr
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 # Create your models here.
 
@@ -37,3 +40,14 @@ class Product(models.Model):
         return '{}'.format(self.name)
 
 
+
+class ProductReview(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(GenerateQr, on_delete=models.CASCADE)
+    review = models.IntegerField(
+        default=5,
+        validators=[MaxValueValidator(5), MinValueValidator(1)], blank=True, null=True
+     )
+    comment = models.TextField(blank=True, null=True)
+    def __str__(self):
+        return '{}'.format(self.product.name)

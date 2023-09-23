@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, ProductReview
 from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
@@ -18,5 +18,8 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_filter = ['name', 'category']
     list_display = ['category', 'name', 'price', 'created']
 admin.site.register(Product, ProductAdmin)
+
+admin.site.register(ProductReview)
+
 
 

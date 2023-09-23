@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+        .revire {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 10px;
+            padding: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+ 
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s;
+            margin: 0 5px;
+        }
+
+        .star:hover,
+        .star.active {
+            color: gold;
+        }
+
+        .review-text {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+        <br><br><br>
+        <div class"revire">
+        <h1>Rate our product</h1>
+        <form method="post" action="" class="content form-group">
+            {% csrf_token %}
+            <div class="rating">
+                <!-- Display stars (read-only) -->
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+            </div>
+            <!-- Rating input (hidden) -->
+            <input type="hidden" name="rating" id="rating-input" value="5">
+            <textarea class="review-text" name="review_text" placeholder="Write your review here..."></textarea>
+            <button class="submit-button" type="submit">Submit Review</button>
+        </form>
+        </div>
+        <br><br><br>
+
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating-input');
+
+        stars.forEach((star) => {
+            star.addEventListener('click', () => {
+                const selectedRating = parseInt(star.getAttribute('data-rating'));
+
+                // Update the hidden input field with the selected rating
+                ratingInput.value = selectedRating;
+
+                // Highlight stars up to the selected rating
+                stars.forEach((s, index) => {
+                    if (index < selectedRating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+{% endblock %}
