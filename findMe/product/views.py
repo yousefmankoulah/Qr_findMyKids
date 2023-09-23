@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Category, Product, ProductReview
 from home.models import GenerateQr
 
@@ -16,11 +16,15 @@ def product(request, category):
 
 
 def prod_detail(request, id):
-    product = Product.objects.filter(id=id)
-    kids_name = GenerateQr.objects.filter(parent=request.user)
-    productReview = ProductReview.objects.filter(product=product)
-    return render(request, 'productDetail.html', {'product': product, 'kids': kids_name, 'productReview': productReview})
-
+    try:
+        product = Product.objects.get(id=id)
+        products = Product.objects.filter(id=id)
+        kids_name = GenerateQr.objects.filter(parent=request.user)
+        productReview = ProductReview.objects.filter(product=product)
+        return render(request, 'productDetail.html', {'product': products, 'kids': kids_name, 'productReview': productReview})
+    except Product.DoesNotExist:
+        # Handle the case where the product with the specified ID does not exist
+        return HttpResponse("Product not found", status=404)
 
 def review(request, id):
     product = Product.objects.get(id=id)
