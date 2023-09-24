@@ -12,11 +12,30 @@ def category(request):
 
 
 def product(request, category):
-    product = Product.objects.filter(category=category)
-    average_rating = request.session.get('average_rating', None)
-    count = request.session.get('count', None)
+    products = Product.objects.filter(category=category)
+
+    product_data = []  
+    for product in products:
+        productReview = ProductReview.objects.filter(product=product)
+
+        rating_sum = 0
+        review_count = 0
+
+        for review in productReview:
+            rating_sum += review.review
+            review_count += 1
+
+        average_rating = rating_sum / review_count if review_count > 0 else 0
+        count = productReview.count()
+
+        # Store product data in a dictionary
+        product_data.append({
+            'product': product,
+            'count': count,
+            'average_rating': average_rating,
+        })
     
-    return render(request, 'product.html', {'product': product, 'count': count, 'average_rating': average_rating})
+    return render(request, 'product.html', {'product': products, 'average_rating': average_rating, 'count': count, 'product_data': product_data})
 
 
 def prod_detail(request, id):
@@ -38,8 +57,7 @@ def prod_detail(request, id):
         # Calculate the average rating, handling the case where there are no reviews
         average_rating = rating_sum / review_count if review_count > 0 else 0
         count = productReview.count()
-        request.session['average_rating'] = average_rating
-        request.session['count'] = count
+     
         context = {'product': products, 
                    'kids': kids_name, 
                    'productReview': productReview, 

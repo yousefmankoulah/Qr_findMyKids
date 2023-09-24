@@ -10,6 +10,22 @@
     .my_button{
         margin: 15px;
     }
+
+    .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .stars {
+        font-size: 30px;
+        transition: color 0.3s;
+        margin: 0 5px;
+      }
+      .star:hover,
+      .star.active {
+          color: gold;
+      }
 </style>
 
 
@@ -17,19 +33,27 @@
     <h1 class="text-center heh">Our Product</h1><br><br>
 
     <div class="category mx-auto">
-        {% for product in product %}
+        {% for product in product_data %}
        
 
             <div class="my_button">
                 <div class="card text-center">
-                    <img class="card-img-top my-image" src="{{product.image.url}}" alt="{{product.name}}">
+                    <img class="card-img-top my-image" src="{{ product.product.image.url}}" alt="{{ product.product.name }}">
                     <div class="card-body">
-                        <h3>{{product.name}}</h3>
-                        <h4 class="lead">Description: {{product.description}}</h4>
-                        <h4 class="lead">Price: $ {{product.price}}</h4>
-                        <a class="btn btn-primary" href="{% url 'detail' product.id %}">More Details</a>
+                        <h3>{{ product.product.name }}</h3>
+                        <h4 class="lead">Description: {{product.product.description}}</h4>
+                        <h4 class="lead">Price: $ {{product.product.price}}</h4>
+                        <a class="btn btn-primary" href="{% url 'detail' product.product.id %}">More Details</a>
                         
-                        <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
+                        <a class="btn btn-primary" href="{% url 'add_cart' product.product.id %}">Add to Cart</a>
+                      
+                        {% if product.average_rating >= 1 %}
+            <p>Average Rating: ({{ product.average_rating }})  <span class="rating">
+              <!-- Display stars (read-only) -->
+              <span class="stars" data-rating="{{ product.average_rating }}">★</span>
+            </span>({{ product.count }})</p>
+            {% endif %} 
+           
                     </div>
                 </div>
                 
@@ -40,7 +64,35 @@
         
   </div>
 
-
+  <script>
+    $(document).ready(function() {
+      // Function to set star color based on the data-rating attribute
+      function setStarColor() {
+        $(".stars").each(function() {
+          var rating = parseFloat($(this).data("rating"));
+          var fullStars = Math.floor(rating);
+          var halfStar = (rating - fullStars) >= 0.5;
+    
+          $(this).html(getStars(fullStars, halfStar)).css("color", "gold");
+        });
+      }
+    
+      // Function to generate star characters
+      function getStars(fullStars, halfStar) {
+        var stars = "";
+        for (var i = 1; i <= fullStars; i++) {
+          stars += "★";
+        }
+        if (halfStar) {
+          stars += "½";
+        }
+        return stars;
+      }
+    
+      // Call the function to set star color
+      setStarColor();
+    });
+    </script>
 
 
 {% endblock %}
