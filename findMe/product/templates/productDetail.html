@@ -6,11 +6,73 @@
 <style>
   .star {
     font-size: 15px;
-    cursor: pointer;
+    font-weight: bold;
     transition: color 0.3s;
-    margin: 0 5px;
+    color: gold;
+    padding-left: 12px;
+    position: absolute;
+    left: 1px;
+    padding-top: 6px;
+    
+}
+
+.rating_number{
+  width:50px;
+  height:50px; 
+  margin: 20px 10px;
+  transition: color 0.3s;
+  background-color: #170097;
+  border-radius: 50%;
+}
+
+.rating_number p{
+  margin-right:4px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 12px;
+  position: relative;
+}
+
+.comment{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-left: 10px;
+}
+.user_comment{
+  font-size: 18px;
+  font-weight: bold;
+  color: #170097;
+
+}
+
+.main_comment{
+  border-radius: 25px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.;
+}
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stars {
+  font-size: 30px;
+  transition: color 0.3s;
+  margin: 0 5px;
+}
+.star:hover,
+.star.active {
     color: gold;
 }
+
 </style>
 
 
@@ -23,7 +85,15 @@
             <br><br>
 
             <h1>{{ product.name }}</h1>
-            <p>{{ product.created }}</p><br><br><br>
+            <p>{{ product.created }}</p>
+            {% if average_rating >= 1 %}
+            <p>Average Rating: ({{ average_rating }})  <span class="rating">
+              <!-- Display stars (read-only) -->
+              <span class="stars" data-rating="{{ average_rating }}">★</span>
+            </span>({{ count }})</p>
+            {% endif %}
+            
+            <br><br><br>
             <div class="row">
                 <div class="col-sm-12 col-lg-8 col-md-12 text-center">
                     <div style="min-width: 18rem">
@@ -62,30 +132,49 @@
                         <hr><br>
                         <p class="mt-4">Price: ${{product.price}}</p>
                           <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
+                        
+                          {% if orderBefore %}
+                          {% if usercomment %}
+                          <br><br>
+                          <div><b>You already added your review below</b></div>
+                          {% else %}
+                          <a class="btn btn-primary" href="{% url 'rating' product.id %}">Add Your Ratings</a>
+
+                          {% endif %}
+                        {% else %}
+                        <br><br>
+                          <div><b>You didn't order this product before</b></div>
+                        {% endif %}
+                          
+
+
+
                     </div>
                 </div>
             </div>
 
 
-            <hr class="mb-4">
+            <hr>
             <br><br>
             <h2 class="text-center mt-4 mb-4">Ratings and Reviews</h2>
             <br><br>
 
-            <div class="row bg-white">
+            <div class="row bg-white main_comment">
             {% for review in productReview %}
               <div class="col-12 row">
-                <div class="col-1">
+                <div class="col-2 rating_number">
             {% if review.review %}
-            <p>{{ review.review }}<i class="star fa fa-solid fa-star"></i></p>
+            <p>{{ review.review }} <i class="star fa fa-solid fa-star"></i><p>
                 
             {% endif %}
               </div>
-          <div class="col-11">
+
+          <div class="col-10 comment">
+            <p class=" user_comment">The User: {{ review.user }}</p>
             {% if review.comment %}
-            <p>{{ review.comment }}</p>
+            <p class="comm"><b>The Review:</b> {{ review.comment }}</p>
             {% endif %}
-              {{ review.user }}
+              
           </div>
           <hr class="mt-4">
               </div>
@@ -94,5 +183,40 @@
           </div>
 
         {% endfor %}
+
+        <script>
+          $(document).ready(function() {
+            // Function to set star color based on the data-rating attribute
+            function setStarColor() {
+              $(".stars").each(function() {
+                var rating = parseFloat($(this).data("rating"));
+                var fullStars = Math.floor(rating);
+                var halfStar = (rating - fullStars) >= 0.5;
+          
+                $(this).html(getStars(fullStars, halfStar)).css("color", "gold");
+              });
+            }
+          
+            // Function to generate star characters
+            function getStars(fullStars, halfStar) {
+              var stars = "";
+              for (var i = 1; i <= fullStars; i++) {
+                stars += "★";
+              }
+              if (halfStar) {
+                stars += "½";
+              }
+              return stars;
+            }
+          
+            // Call the function to set star color
+            setStarColor();
+          });
+          </script>
+
+          
+          
+          
+          
 
 {% endblock %}
