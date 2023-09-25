@@ -74,12 +74,12 @@
         </div>
         <div class="content">
             <p>Hello,</p>
-            <p>Your order number is {{ id }}. We received your order and we will let you know when we ship your order</p>
-            <p>You can click the link below to check the order details</p>
+            <p>We have successfully received your order, Order Number {{ id }}, and it is currently being processed. We will promptly notify you as soon as your order is shipped.</p>
+            <p>To review and confirm the details of your order, please click on the link provided below.</p>
             <p>
-                <a href="{% url "order_detail" id %}" class="btn btn-outline-primary">Order Details</a>
+                <a href="{% url "order_detail" id %}" class="btn btn-outline-primary">Check Order Details</a>
             </p>
-            <p>Thank you for reading our email.</p>
+            <p>Thank you for choosing us for your order, and we appreciate your business.</p>
             <p>You have 24 hours to cancel the order by going to the order details</p>
         </div>
         <div class="footer">
