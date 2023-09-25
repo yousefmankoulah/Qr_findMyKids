@@ -112,48 +112,48 @@
                 <ul class="navbar-nav m-auto">
                  {% if request.user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'allOrderHistory' %}">all Order Admin <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'allOrderHistory' %}">{% trans "all Order Admin" %} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'opendTickets' %}">Customer service <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'opendTickets' %}">{% trans "Customer service" %} <span class="sr-only">(current)</span></a>
         </li> 
         {% endif %}
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %} <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'dashboard' request.user.id %}">Dashboard<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'dashboard' request.user.id %}">{% trans "Dashboard" %}<span class="sr-only">(current)</span></a>
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'createQR' %}">Create a Qr Profile<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'createQR' %}">{% trans "Create a Qr Profile" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'category' %}">{% trans "Shop" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'contactus' %}">{% trans "Contact Us" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item mainy">
-                  <a class="nav-link" href="{% url 'logout' %}">logout <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'logout' %}">{% trans "logout" %} <span class="sr-only">(current)</span></a>
                 </li>
                 {% else %}
 
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %} <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'category' %}">{% trans "Shop" %}<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'contactus' %}">{% trans "Contact Us" %}<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item mainy">
-                <a class="nav-link" href="{% url 'login' %}">Sign In <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'login' %}">{% trans "Sign In" %} <span class="sr-only">(current)</span></a>
               </li>
             {% endif %}
                 </ul>
@@ -200,13 +200,13 @@
                 class="animate__animated animate__bounceInRight"
                 style="animation-delay: 1s;"
               >
-                <strong>Emergency Locksmith</strong>
+                <strong>{% trans "QR codes help you find your family" %}</strong>
               </p>
               <p
                 class="animate__animated animate__bounceInLeft"
                 style="animation-delay: 2s;"
               >
-                We can help you 24/7.
+                {% trans "We understand that the well-being of your children, sick family members, and pets is of utmost importance to you." %}
               </p>
             </div>
           </div>
@@ -220,13 +220,13 @@
                 class="animate__animated animate__zoomIn"
                 style="animation-delay: 1s;"
               >
-                <strong>Automotive Locksmith</strong>
+                <strong>{% trans "Create a profile for each kids" %}</strong>
               </p>
               <p
                 class="animate__animated animate__bounceInLeft"
                 style="animation-delay: 2s;"
               >
-                We fix keys for all car types.
+                {% trans "You can easily create a free qr profile for each kids or pets." %}
               </p>
             </div>
           </div>
@@ -240,13 +240,13 @@
                 class="animate__animated animate__slideInDown"
                 style="animation-delay: 1s;"
               >
-                <strong>Commercial & Residential Locksmith</strong>
+                <strong>{% trans "Track you qr code" %}</strong>
               </p>
               <p
                 class="animate__animated animate__fadeInUp"
                 style="animation-delay: 2s;"
               >
-                We fix doors for commercial and residential building.
+                {% trans "For an added layer of security, you have the option to enable location tracking." %}
               </p>
             </div>
           </div>
@@ -281,10 +281,9 @@
         <div class="card">
           <i class="fa fa-solid fa-child fa-lg card-img-top mt-4"></i>
           <div class="card-body">
-            <h5 class="card-title">Children</h5>
+            <h5 class="card-title">{% trans "Children" %}</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {% trans "Kids can provide essential information like their name, and any medical conditions they have. It's an exciting way for kids to be proactive about their safety." %}
             </p>
           </div>
         </div>
@@ -292,40 +291,28 @@
         <div class="card">
           <i class="fa fa-solid fa-user fa-lg card-img-top mt-4"></i>
           <div class="card-body">
-            <h5 class="card-title">Old men zahimar</h5>
+            <h5 class="card-title">{% trans "Sick Family Member" %}</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {% trans "If a family member is struggling with an illness that affects their focus or can potentially lead to them getting lost, you have the option to purchase our products featuring an embedded QR code" %}
             </p>
           </div>
         </div>
-        <div class="card">
-          <i class="fa fa-solid fa-user fa-lg card-img-top mt-4"></i>
-          <div class="card-body">
-            <h5 class="card-title">sick people</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
+        
         <div class="card">
           <i class="fa fa-solid fa-dog fa-lg card-img-top mt-4"></i>
           <div class="card-body">
-            <h5 class="card-title">Dogs</h5>
+            <h5 class="card-title">{% trans "Dogs" %}</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {% trans "If your pet goes missing, you can activate a lost pet alert through our platform. This sends out an immediate notification to the local community and animal shelters, increasing the chances of a speedy reunion. It's a powerful tool to help you find your pet quickly." %}
             </p>
           </div>
         </div>
         <div class="card">
           <i class="fa fa-solid fa-cat fa-lg card-img-top mt-4"></i>
           <div class="card-body">
-            <h5 class="card-title">Cats</h5>
+            <h5 class="card-title">{% trans "Cats" %}</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {% trans "If your pet goes missing, you can activate a lost pet alert through our platform. This sends out an immediate notification to the local community and animal shelters, increasing the chances of a speedy reunion. It's a powerful tool to help you find your pet quickly." %}
             </p>
           </div>
         </div>
@@ -341,15 +328,15 @@
           class="animate__animated animate__zoomIn"
           style="animation-delay: 1s;"
         >
-          <strong>Our Popular Product</strong>
+          <strong>{% trans "Our Popular Product" %}</strong>
         </h4>
         <p
           class="animate__animated animate__bounceInLeft"
           style="animation-delay: 2s;"
         >
-          You can choose any product you need
+          {% trans "You can choose any product you need" %}
         </p>
-        <a class="btn btn-primary" href="{% url 'category' %}">Start Shopping Now<a>
+        <a class="btn btn-primary" href="{% url 'category' %}">{% trans "Start Shopping Now" %}<a>
           
       </div>
     </div>
@@ -357,22 +344,22 @@
 
     <!-- start why to use -->
     <div class="why-to-use">
-      <h5>The Benfits of using our product</h5>
+      <h5>{% trans "The Benfits of using our product" %}</h5>
       <div class="why-track row">
         <div class="col-md-6 col-sm-12">
         <img src="{% static 'img/1.jpg' %}">
         </div>
         <div class="col-md-6 col-sm-12 why-track-div">
-          <h6>Easily Find Your Kids</h6>
-          <p>If your kids are lost any one can find them and scan the qr code and call you</p>
+          <h6>{% trans "Easily Find Your Kids" %}</h6>
+          <p>{% trans "We understand that the well-being of your children, sick family members, and cherished pets is of utmost importance to you. That's why we've created a unique and powerful tool that offers peace of mind in times of uncertainty." %}</p>
         </div>
       </div>
 
       <div class="why-track row">
           
           <div class="col-md-6 col-sm-12 why-track-div">
-            <h6>Easily Find Your Kids</h6>
-            <p>If your kids are lost any one can find them and scan the qr code and call you</p>
+            <h6>{% trans "Find the vistor location" %}</h6>
+            <p>{% trans "For an added layer of security, you have the option to enable location tracking. This feature helps you pinpoint the exact whereabouts of your loved ones or pets, ensuring their safety is never compromised." %}</p>
           </div>
           <div class="col-md-6 col-sm-12">
               <img src="{% static 'img/1.jpg' %}">
@@ -390,7 +377,7 @@
        <section  class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
          <!-- Left -->
          <div class="me-5 d-none d-lg-block text-dark">
-           <span>Get connected with us on social networks:</span>
+           <span>{% trans "Get connected with us on social networks:" %}</span>
          </div>
          <!-- Left -->
      
@@ -429,11 +416,10 @@
              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                <!-- Content -->
                <h6 class="text-uppercase fw-bold mb-4">
-                 <i class="fas fa-gem me-3 text-secondary"></i>Company name
+                 <i class="fas fa-gem me-3 text-secondary"></i>{% trans "Taht w lenaha" %}
                </h6>
-               <p>
-                 Here you can use rows and columns to organize your footer content. Lorem ipsum
-                 dolor sit amet, consectetur adipisicing elit.
+               <p>{% trans "Our website provides a simple yet effective solution for ensuring the safety of your loved ones and pets." %}
+                 
                </p>
              </div>
              <!-- Grid column -->
@@ -445,13 +431,13 @@
                  Products
                </h6>
                <p>
-                 <a href="{% url 'category' %}" class="text-reset">Products For Boys</a>
+                 <a href="{% url 'category' %}" class="text-reset">{% trans "Products For Children" %}</a>
                </p>
                <p>
-                 <a href="{% url 'category' %}" class="text-reset">Products For Boys</a>
+                 <a href="{% url 'category' %}" class="text-reset">{% trans "Products For Pets" %}</a>
                </p>
                <p>
-                 <a href="{% url 'category' %}" class="text-reset">Category</a>
+                 <a href="{% url 'category' %}" class="text-reset">{% trans "Category" %}</a>
                </p>
                
              </div>
@@ -464,14 +450,14 @@
                  Useful links
                </h6>
                <p>
-                 <a href="{% url 'category' %}" class="text-reset">Shop</a>
+                 <a href="{% url 'category' %}" class="text-reset">{% trans "Shop" %}</a>
                </p>
                <p>
-                 <a href="{% url 'createQR' %}" class="text-reset">Create a QR</a>
+                 <a href="{% url 'createQR' %}" class="text-reset">{% trans "Create a QR" %}</a>
                </p>
                
                <p>
-                 <a href="{% url 'login' %}" class="text-reset">Log in</a>
+                 <a href="{% url 'login' %}" class="text-reset">{% trans "Log in" %}</a>
                </p>
              </div>
              <!-- Grid column -->
@@ -479,14 +465,14 @@
              <!-- Grid column -->
              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                <!-- Links -->
-               <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-               <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
+               <h6 class="text-uppercase fw-bold mb-4">{% trans "Cats" %}Contact</h6>
+               <p><i class="fas fa-home me-3 text-secondary"></i> {% trans "New York, NY 10012, US" %}</p>
                <p>
                  <i class="fas fa-envelope me-3 text-secondary"></i>
                  info@example.com
                </p>
                <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-               <a class="btn btn-secondary" style="color:white;" href="{% url 'contactus' %}">Contact Us</a>
+               <a class="btn btn-secondary" style="color:white;" href="{% url 'contactus' %}">{% trans "Contact Us" %}</a>
              </div>
              <!-- Grid column -->
            </div>
