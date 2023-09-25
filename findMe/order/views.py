@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from home.models import GenerateQr
 from django.core.mail import send_mail
 from product.models import Product
-
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 # Create your views here.
 
 @login_required(login_url='login')
@@ -62,13 +63,17 @@ def viewOrder(request, order_id):
             order.ship = ship == 'on'
             
             order.save()
+            
             if order.ship == True:
+                html_message = render_to_string('orderShippedEmail.html')
+                plain_message = strip_tags(html_message)
                 send_mail(
                     "The order has been confirmed",
-                    "Your order is shipped",
+                    plain_message,
                     "yousef.mankola10@gmail.com",
                     [order.emailAddress,],
                     fail_silently=False,
+                    html_message=html_message
                     )
             return redirect('allOrderHistory')
             

@@ -79,7 +79,7 @@ def profileDetail(request, id):
             plain_message = strip_tags(html_message)
             if lat and long:
                 send_mail(
-                    _("This is thelocation of the vistor"),
+                    _("someone scan your qr and this is the location of the vistor"),
                     plain_message,
                     "yousef.mankola10@gmail.com",
                     [profile.parent.email,],

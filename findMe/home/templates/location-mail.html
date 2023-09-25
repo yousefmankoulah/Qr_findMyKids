@@ -1,9 +1,101 @@
-<html>
-    <body>
-        <p>This is the nearest location of who scan your qr code, it is not accurecy</p>
-        <p>Feel free to copy the latitude and longitude and pasted in your map {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}</p>
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-<a class="btn btn-info" href="{% url 'profileVistorLocation' profile.id %}">Last Vistor Location</a>
 
-    </body>
-    </html>
+    </head>
+    <style>
+        /* Reset some default styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Wrapper for the email content */
+        .email-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Logo styles */
+        .logo img {
+            max-width: 100%;
+        }
+
+        /* Main content styles */
+        .content {
+            padding: 20px;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Footer styles */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 12px;
+            color: #777777;
+        }
+    </style>
+<body>
+    <div class="email-wrapper">
+        <div class="header">
+            <div class="logo">
+                <img src="{% static 'img/1.jpg' %}" alt="Company Logo">
+            </div>
+            <h1>Someone Scan your Qr code</h1>
+        </div>
+        <div class="content">
+            <p>Hello,</p>
+            <p>You have a new vistor to your profile and you can easily find his location to easily find your kids.</p>
+            <p>The location in the map is not accuracy 100%, so feel free to copy the latitude and longitude and pasted in your map {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}. This will be the right location. Also, you can check the map by clicking the button below but make sure to sign in our website first to allow you to visit this page. </p>
+            <p>
+                <a class="btn btn-info" href="{% url 'profileVistorLocation' profile.id %}">Last Vistor Location</a>
+            </p>
+            <p>Thank you for reading our email.</p>
+        </div>
+        <div class="footer">
+            <p>Contact us at: contact@example.com</p>
+            <p>Follow us on social media:</p>
+            <p>
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a>
+            </p>
+            &copy; 2023 Taht W lenaha. All rights reserved.
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+

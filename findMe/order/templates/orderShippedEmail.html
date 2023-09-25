@@ -70,17 +70,14 @@
             <div class="logo">
                 <img src="{% static 'img/1.jpg' %}" alt="Company Logo">
             </div>
-            <h1>Your Order confirmation</h1>
+            <h1>Your Order Shipped</h1>
         </div>
         <div class="content">
             <p>Hello,</p>
-            <p>Your order number is {{ id }}. We received your order and we will let you know when we ship your order</p>
-            <p>You can click the link below to check the order details</p>
-            <p>
-                <a href="{% url "order_detail" id %}" class="btn btn-outline-primary">Order Details</a>
-            </p>
+            <p>We shipped your order and your order is on the way, the driver will contact you anytime.</p>
+            <p>Make sure to answer your phone to can easily receive you order</p>
+            
             <p>Thank you for reading our email.</p>
-            <p>You have 24 hours to cancel the order by going to the order details</p>
         </div>
         <div class="footer">
             <p>Contact us at: contact@example.com</p>
