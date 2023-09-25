@@ -70,16 +70,16 @@
             <div class="logo">
                 <img src="{% static 'img/1.jpg' %}" alt="Company Logo">
             </div>
-            <h1>Someone Scan your Qr code</h1>
+            <h1>New Visitor to Your Profile Qr code</h1>
         </div>
         <div class="content">
             <p>Hello,</p>
-            <p>You have a new vistor to your profile and you can easily find his location to easily find your kids.</p>
-            <p>The location in the map is not accuracy 100%, so feel free to copy the latitude and longitude and pasted in your map {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}. This will be the right location. Also, you can check the map by clicking the button below but make sure to sign in our website first to allow you to visit this page. </p>
+            <p>You have a new visitor to your profile, offering a convenient way to track the whereabouts of your children.</p>
+            <p>Please note that the map location may not be 100% accurate. You can copy and paste the precise latitude and longitude coordinates, which are {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}, directly into your preferred mapping application for the exact location. Alternatively, you can verify the location on the map by clicking the button below. Please ensure that you are signed in to our website to access this feature.</p>
             <p>
                 <a class="btn btn-info" href="{% url 'profileVistorLocation' profile.id %}">Last Vistor Location</a>
             </p>
-            <p>Thank you for reading our email.</p>
+            <p>Thank you for entrusting us with your family's safety. If you have any questions or require further assistance, please do not hesitate to contact our support team. We are here to ensure your peace of mind.</p>
         </div>
         <div class="footer">
             <p>Contact us at: contact@example.com</p>
