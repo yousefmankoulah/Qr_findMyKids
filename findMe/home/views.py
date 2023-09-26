@@ -177,10 +177,10 @@ def signInView(request):
                 else:
                     return redirect('dashboard', id=request.user.id)
             else:
-                messages.error(request, _("Invalid username or password."))
+                messages.error(request, _("Invalid username, username is small letter not capital letter or password."))
 
         else:
-            messages.error(request, _("Invalid username or password."))
+            messages.error(request, _("Invalid username, username is small letter not capital letter or password."))
 
     else:
         form = AuthenticationForm()
