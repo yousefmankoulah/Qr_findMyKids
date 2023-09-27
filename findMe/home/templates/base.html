@@ -95,48 +95,48 @@
             <ul class="navbar-nav ml-auto">
               {% if request.user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'allOrderHistory' %}">all Order Admin <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'allOrderHistory' %}">{% trans "all Order Admin" %} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'opendTickets' %}">Customer service <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'opendTickets' %}">{% trans "Customer service" %} <span class="sr-only">(current)</span></a>
         </li> 
         {% endif %}
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %} <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'dashboard' request.user.id %}">Dashboard<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'dashboard' request.user.id %}">{% trans "Dashboard" %}<span class="sr-only">(current)</span></a>
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'createQR' %}">Create a Qr Profile<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'createQR' %}">{% trans "Create a Qr Profile" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'category' %}">{% trans "Shop" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'contactus' %}">{% trans "Contact Us" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item mainy">
-                  <a class="nav-link" href="{% url 'logout' %}">logout <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'logout' %}">{% trans "logout" %} <span class="sr-only">(current)</span></a>
                 </li>
                 {% else %}
 
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %} <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'category' %}">Shop<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'category' %}">{% trans "Shop" %}<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'contactus' %}">{% trans "Contact Us" %}<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item mainy">
-                <a class="nav-link" href="{% url 'login' %}">Sign In <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'login' %}">{% trans "Sign In" %} <span class="sr-only">(current)</span></a>
               </li>
                 <li class="nav-item mainy">
                 <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %} <span class="sr-only">(current)</span></a>
@@ -164,7 +164,7 @@
   <section  class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
     <div class="me-5 d-none d-lg-block text-dark">
-      <span>Get connected with us on social networks:</span>
+      <span>{% trans "Get connected with us on social networks:" %} </span>
     </div>
     <!-- Left -->
 
@@ -203,10 +203,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3 text-secondary"></i>Taht W Lenaha
+            <i class="fas fa-gem me-3 text-secondary"></i>{% trans "Taht W Lenaha" %}
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            {% trans "Register" %}Here you can use rows and columns to organize your footer content. Lorem ipsum
             dolor sit amet, consectetur adipisicing elit.
           </p>
         </div>
@@ -216,16 +216,16 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+            {% trans "Products" %}
           </h6>
           <p>
-            <a href="{% url 'category' %}" class="text-reset">Products For Boys</a>
+            <a href="{% url 'category' %}" class="text-reset">{% trans "Products For Boy" %}s</a>
           </p>
           <p>
-            <a href="{% url 'category' %}" class="text-reset">Products For Boys</a>
+            <a href="{% url 'category' %}" class="text-reset">{% trans "Products For Boys" %}</a>
           </p>
           <p>
-            <a href="{% url 'category' %}" class="text-reset">Category</a>
+            <a href="{% url 'category' %}" class="text-reset">{% trans "Category" %}</a>
           </p>
           
         </div>
@@ -235,17 +235,17 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+            {% trans "Useful links" %}
           </h6>
           <p>
-            <a href="{% url 'category' %}" class="text-reset">Shop</a>
+            <a href="{% url 'category' %}" class="text-reset">{% trans "Shop" %}</a>
           </p>
           <p>
-            <a href="{% url 'createQR' %}" class="text-reset">Create a QR</a>
+            <a href="{% url 'createQR' %}" class="text-reset">{% trans "Create a QR" %}</a>
           </p>
           
           <p>
-            <a href="{% url 'login' %}" class="text-reset">Log in</a>
+            <a href="{% url 'login' %}" class="text-reset">{% trans "Log in" %}</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -253,14 +253,14 @@
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
+          <h6 class="text-uppercase fw-bold mb-4">{% trans "Contact" %}</h6>
+          <p><i class="fas fa-home me-3 text-secondary"></i> {% trans "New York, NY 10012, US" %}</p>
           <p>
             <i class="fas fa-envelope me-3 text-secondary"></i>
             info@example.com
           </p>
           <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-          <a class="btn btn-secondary" style="color:white;" href="{% url 'contactus' %}">Contact Us</a>
+          <a class="btn btn-secondary" style="color:white;" href="{% url 'contactus' %}">{% trans "Contact Us" %}</a>
         </div>
         <!-- Grid column -->
       </div>
