@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n%}
 {% load static %}
 
 
@@ -46,44 +47,43 @@ label{
         {% endif %}
     
 {% if request.user == profile.parent %}
-<h1 class="head_top">Edit The Profile Info</h1>
+<h1 class="head_top">{% trans "Edit The Profile Info" %}</h1>
 <div class="content-section">
   <form method="POST" enctype="multipart/form-data" class="content form-group">
     {% csrf_token %}
-        <label class="border-bottom mb-4">Edit Profile</label>
+        <label class="border-bottom mb-4">{% trans "Edit Profile" %}</label>
         <div class="loginPage">
 
           <div class="created">
-            <label for="name">Enter Your Kids Name *</label>
+            <label for="name">{% trans "Enter Your Kids Name" %} *</label>
             <input class="form-control input_check" type="text" placeholder="name" name="name" value="{{ profile.name }}">
             <br>
           </div>
           <div class="created">
-            <label for="type">What is the Type of the Profile</label>
+            <label for="type">{% trans "What is the Type of the Profile" %}</label>
             <select name="type">
                 <option value="{{ profile.type }}" selected>{{ profile.type }}</option>
                 <option disabled>------------</option>
-                <option value="Boy">Boy</option>
-                <option value="Girl">Girl</option>
-                <option value="Old Man">Old Man</option>
-                <option value="Sick">Sick</option>
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-                <option value="Other Pets">Other Pets</option>
+                <option value="Boy">{% trans "Boy" %}</option>
+                <option value="Girl">{% trans "Girl" %}</option>
+                <option value="Sick">{% trans "Sick" %}</option>
+                <option value="Dog">{% trans "Dog" %}</option>
+                <option value="Cat">{% trans "Cat" %}</option>
+                <option value="Other Pets">{% trans "Other Pets" %}</option>
             </select><br>
           </div>
           <div class="created">
-            <label for="phoneNumber">Enter Your Phone number *</label>
+            <label for="phoneNumber">{% trans "Enter Your Phone number" %} *</label>
             <input class="form-control input_check" type="text" placeholder="phone" name="phoneNumber" value="{{ profile.phoneNumber }}"><br>
 
             <br>
           </div>
           <div class="created">
-            <label for="address">Enter Your Address</label>
+            <label for="address">{% trans "Enter Your Address" %}</label>
             <input class="form-control input_check" type="text" placeholder="address" name="address" value="{{ profile.address }}"><br>
           </div>
           <div class="created">
-            <label for="summary">Enter More desctiption</label>
+            <label for="summary">{% trans "Enter More desctiption" %}</label>
             <textarea style="height:250px" class="form-control input_check" placeholder="Write more description" name="summary">{{ profile.summary }}</textarea><br>
 
           </div>
@@ -91,7 +91,7 @@ label{
             <hr>
      
     <div class="form-group content_button">
-      <button style="position: relative; left: 40%;" type="submit" class="btn btn-outline-info">Edit The Profile</button><br>
+      <button style="position: relative; left: 40%;" type="submit" class="btn btn-outline-info">{% trans "Edit The Profile" %}</button><br>
     </div>
   </form>
 
