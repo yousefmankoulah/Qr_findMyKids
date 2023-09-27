@@ -50,37 +50,38 @@
 			<nav class="nav">
 				<div class="nav-upper-options">
 					<div class="nav-option option1">
-						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}">&nbsp&nbspDashboard</a></h3>
+						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}">&nbsp&nbsp{% trans "Dashboard" %}</a></h3>
 					</div>
 					<div class="nav-option option2">
 						
-						<h3><a href={% url 'home' %}>&nbsp&nbspHome Page</a> </h3>
+						<h3><a href={% url 'home' %}>&nbsp&nbsp{% trans "Home Page" %}</a> </h3>
 					</div>
 
 					<div class="nav-option option3">
 						
-						<h3><a href={% url 'order_history' %}>&nbsp&nbspOrders</a> </h3>
+						<h3><a href={% url 'order_history' %}>&nbsp&nbsp{% trans "Orders" %}</a> </h3>
 					</div>
 
 					<div class="nav-option option4">
 						
-						<h3> <a href="{% url 'createQR' %}">&nbsp&nbspCreate a Qr Profile</a></h3>
+						<h3> <a href="{% url 'createQR' %}">&nbsp&nbsp{% trans "Create a Qr Profile" %}</a></h3>
 					</div>
 
 					<div class="nav-option option5">
 						
-						<h3> <a href="{% url 'category' %}">&nbsp&nbspOur Products</a></h3>
+						<h3> <a href="{% url 'category' %}">&nbsp&nbsp{% trans "Our Products" %}</a></h3>
 					</div>
 
 					<div class="nav-option option6">
 						
-						<h3> <a href="{% url 'contactus' %}">&nbsp&nbspContact Us</a></h3>
+						<h3> <a href="{% url 'contactus' %}">&nbsp&nbsp{% trans "Contact Us" %}</a></h3>
 					</div>
 
 					<div class="nav-option logout">
 						
-						<h3><a href="{% url 'logout' %}">&nbsp&nbsplogout</a></h3>
+						<h3><a href="{% url 'logout' %}">&nbsp&nbsp{% trans "logout" %}</a></h3>
 					</div>
+
 
 				</div>
 			</nav>
@@ -91,21 +92,21 @@
             {% for qr in qr  %}
 			<div class="box-container">
                 {% if request.user == qr.parent %}
-				<h1 style="color:#5500cb;"><b>{{ qr.name }} Profile</b></h1>
+				<h1 style="color:#5500cb;"><b>{{ qr.name }} {% trans "Profile" %}</b></h1>
                 {% endif %}
 			</div>
 
 			<div class="report-container">
                 
 				<div class="report-header">
-					<h1 class="recent-Articles">The Profiles</h1>
+					<h1 class="recent-Articles">{% trans "The Profiles" %}</h1>
 
 				</div>
 
 				<div class="report-body">
 					<div class="report-topic-heading">
-						<h3 class="t-op">Qr Code</h3>
-						<h3 class="t-op">Profile Detail</h3>
+						<h3 class="t-op">{% trans "Qr Code" %}</h3>
+						<h3 class="t-op">{% trans "Profile Detail" %}</h3>
 						<h3 class="t-op"></h3>
 					</div>
 
@@ -115,15 +116,15 @@
 						<div class="item1">
 							<h3 class="t-op-nextlvl">
                                 {% if request.user != qr.parent %}
-                                <h4>Please call the phone number below<br>
-                                    <button class="view2"><a style="color:white" href="tel:{{qr.phoneNumber}}">Call Parent Now</a></button>
+                                <h4>{% trans "Please call the phone number below" %}<br>
+                                    <button class="view2"><a style="color:white" href="tel:{{qr.phoneNumber}}">{% trans "Call Parent Now" %}</a></button>
                                 </h4>
                                 <br>
                                 {% else %}
                                 {% if qr.qr %}
                                 <br>
                                 <img src="{{qr.qr.url}}" id="parent"><br>
-                                <button class="view printit" onclick='myApp.printDiv()'>Print QR</button>
+                                <button class="view printit" onclick='myApp.printDiv()'>{% trans "Print QR" %}</button>
                                 {% endif %}
                                 {% endif %} 
                             </h3>
@@ -131,26 +132,26 @@
 							<h3 class="t-op-nextlvl detail-profile">
                             
                                     <div>
-                                        The Name: {{qr.name}}<br>
+                                       {% trans "The Name: " %} {{qr.name}}<br>
                                     </div>
                                     <div>
-                                        The Parent phone number: {{qr.phoneNumber}}<br>
+                                       {% trans "The Parent phone number:" %}  {{qr.phoneNumber}}<br>
                                     </div>
                                     {% if qr.address %}
                                     <div>
-                                        The address: {{qr.address}}<br><br>
+                                        {% trans "The address:" %} {{qr.address}}<br><br>
                                     </div>
                                     {% else %}
                                     <div>
-                                        The address: No Provided address<br><br>
+                                       {% trans "The address: No Provided address" %} <br><br>
                                     </div>
                                     {% endif %}
                                     <div>
-                                        The Type: {{qr.type}}<br>
+                                        {% trans "The Type:" %} {{qr.type}}<br>
                                     </div>
                                     {% if qr.summary %}
                                     <div>
-                                        More Description: {{qr.summary}}<br>
+                                       {% trans "More Description:" %}  {{qr.summary}}<br>
                                     </div>
                                     {% endif %}
                                    
@@ -168,9 +169,9 @@
                 <div class="report-body" style="border-top: 2px solid #5500cb">
 					
                     {% if request.user == qr.parent %}
-                        <button class="view"><a style="color:white;" href="{% url 'updateProfile' qr.id %}">Edit Profile</a></button>
-                        <button class="view2"><a style="color:white;" href="{% url 'profileVistorLocation' qr.id %}">Last Vistor Location</a></button>
-                        <button class="view3"><a style="color:white;" href="#popup-box">Delete Profile</a></button>
+                        <button class="view"><a style="color:white;" href="{% url 'updateProfile' qr.id %}">{% trans "Edit Profile" %}</a></button>
+                        <button class="view2"><a style="color:white;" href="{% url 'profileVistorLocation' qr.id %}">{% trans "Last Vistor Location" %}</a></button>
+                        <button class="view3"><a style="color:white;" href="#popup-box">{% trans "Delete Profile" %}</a></button>
 
                         {% endif %}
 
@@ -178,11 +179,11 @@
                         <div id="popup-box" class="modal">
                             <div class="content">
                                 <h1 style="color: #5500cb;">
-                                    Are You Sure that you will delete this profile?
+                                    {% trans "Are You Sure that you will delete this profile?" %}
                                 </h1>
                                 <br><br>
                                 <b>
-                                    <button class="view3"><a style="color:white;" href="{% url 'delete' qr.id %}">Delete Profile</a></button>
+                                    <button class="view3"><a style="color:white;" href="{% url 'delete' qr.id %}">{% trans "Delete Profile" %}</a></button>
 
                                 </b>
                                 <a href="#"
