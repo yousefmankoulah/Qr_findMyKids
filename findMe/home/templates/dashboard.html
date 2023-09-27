@@ -32,7 +32,7 @@
 	<header>
 
 		<div class="logosec">
-            <div class="logo">Taht w Lenaha</div>
+            <div class="logo">{% trans "Taht w Lenaha" %}</div>
             <img src=
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
                 class="icn menuicn"
@@ -48,36 +48,36 @@
 			<nav class="nav">
 				<div class="nav-upper-options">
 					<div class="nav-option option1">
-						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}">&nbsp&nbspDashboard</a></h3>
+						<h3><a style="color:white;" href="{% url 'dashboard' request.user.id %}">&nbsp&nbsp{% trans "Dashboard" %}</a></h3>
 					</div>
 					<div class="nav-option option2">
 						
-						<h3><a href={% url 'home' %}>&nbsp&nbspHome Page</a> </h3>
+						<h3><a href={% url 'home' %}>&nbsp&nbsp{% trans "Home Page" %}</a> </h3>
 					</div>
 
 					<div class="nav-option option3">
 						
-						<h3><a href={% url 'order_history' %}>&nbsp&nbspOrders</a> </h3>
+						<h3><a href={% url 'order_history' %}>&nbsp&nbsp{% trans "Orders" %}</a> </h3>
 					</div>
 
 					<div class="nav-option option4">
 						
-						<h3> <a href="{% url 'createQR' %}">&nbsp&nbspCreate a Qr Profile</a></h3>
+						<h3> <a href="{% url 'createQR' %}">&nbsp&nbsp{% trans "Create a Qr Profile" %}</a></h3>
 					</div>
 
 					<div class="nav-option option5">
 						
-						<h3> <a href="{% url 'category' %}">&nbsp&nbspOur Products</a></h3>
+						<h3> <a href="{% url 'category' %}">&nbsp&nbsp{% trans "Our Products" %}</a></h3>
 					</div>
 
 					<div class="nav-option option6">
 						
-						<h3> <a href="{% url 'contactus' %}">&nbsp&nbspContact Us</a></h3>
+						<h3> <a href="{% url 'contactus' %}">&nbsp&nbsp{% trans "Contact Us" %}</a></h3>
 					</div>
 
 					<div class="nav-option logout">
 						
-						<h3><a href="{% url 'logout' %}">&nbsp&nbsplogout</a></h3>
+						<h3><a href="{% url 'logout' %}">&nbsp&nbsp{% trans "logout" %}</a></h3>
 					</div>
 
 				</div>
@@ -92,7 +92,7 @@
 				<div class="box box1">
 					<div class="text">
 						<h2 class="topic-heading">{{ dashboard.count }}</h2>
-						<h2 class="topic">Profiles</h2>
+						<h2 class="topic">{% trans "Profiles" %}</h2>
 					</div>
 
 					<img src=
@@ -103,7 +103,7 @@
 				<div class="box box2">
 					<div class="text">
 						<h2 class="topic-heading">{{ orderNumber }}</h2>
-						<h2 class="topic">Orders</h2>
+						<h2 class="topic">{% trans "Orders" %}</h2>
 					</div>
 
 					<img src=
@@ -113,15 +113,15 @@
 
 			<div class="report-container">
 				<div class="report-header">
-					<h1 class="recent-Articles">Your Profiles</h1>
+					<h1 class="recent-Articles">{% trans "Your Profiles" %}</h1>
 				</div>
 
 				<div class="report-body">
 					<div class="report-topic-heading">
-						<h3 class="t-op">Name</h3>
-						<h3 class="t-op">Phone Number</h3>
-						<h3 class="t-op">Profile Category</h3>
-						<h3 class="t-op">More Information</h3>
+						<h3 class="t-op">{% trans "Name" %}</h3>
+						<h3 class="t-op">{% trans "Phone Number" %}</h3>
+						<h3 class="t-op">{% trans "Profile Category" %}</h3>
+						<h3 class="t-op">{% trans "More Information" %}</h3>
 					</div>
 
 					<div class="items">
@@ -131,7 +131,7 @@
 							<h3 class="t-op-nextlvl"><a href="{% url 'profileDetail' dashboard.id %}">{{dashboard.name}}</a></h3>
 							<h3 class="t-op-nextlvl">{{dashboard.phoneNumber}}</h3>
 							<h3 class="t-op-nextlvl">{{dashboard.type}}</h3>
-							<h3 class="t-op-nextlvl label-tag"><a style="color:white;" href="{% url 'profileDetail' dashboard.id %}">More Detail</a></h3>
+							<h3 class="t-op-nextlvl label-tag"><a style="color:white;" href="{% url 'profileDetail' dashboard.id %}">{% trans "More Detail" %}</a></h3>
 						</div>
 						{% endif %}
 
