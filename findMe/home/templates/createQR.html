@@ -51,7 +51,7 @@
         
         <div class="container">
         <h1 class="text-center">
-            QR code generate Profile
+            {% trans "QR code generate Profile" %}
         </h1>
         <br>
         <div class="content-section">
@@ -66,13 +66,12 @@
             <label for="type">{% trans "What is the Type" %}</label><br>
             <select name="type" id="roll2">
                 <option></option>
-                <option value="Boy">Boy</option>
-                <option value="Girl">Girl</option>
-                <option value="Old Man">Old Man</option>
-                <option value="Sick">Sick</option>
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-                <option value="Other Pets">Other Pets</option>
+                <option value="Boy">{% trans "Boy" %}</option>
+                <option value="Girl">{% trans "Girl" %}</option>
+                <option value="Sick">{% trans "Sick" %}</option>
+                <option value="Dog">{% trans "Dog" %}</option>
+                <option value="Cat">{% trans "Cat" %}</option>
+                <option value="Other Pets">{% trans "Other Pets" %}</option>
             </select><br><br>
         </div>
         <div class="created">
