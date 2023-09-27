@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load i18n%}
 {% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 
-<br><br><h1 class="text-center mt-4" style="font-size: 40px; font-weight: bold; color:#170097">Log in Page</h1><br><br><br>
+<br><br><h1 class="text-center mt-4" style="font-size: 40px; font-weight: bold; color:#170097"></h1><br><br><br>
 
 <div class="row">
 <div class="col-md-3 col-sm-1"></div>
@@ -13,17 +14,17 @@
   
   <form method="POST">
     {% csrf_token %}
-        <label class="border-bottom mb-4">Log In</label>
+        <label class="border-bottom mb-4">{trans "Log in"}</label>
             {{ form|crispy }}
     <div class="form-group">
-      <button type="submit" class="btn btn-outline-info" style=" position: relative; left: 40%;">Login</button>
+      <button type="submit" class="btn btn-outline-info" style=" position: relative; left: 40%;">{trans "Log in"}</button>
     </div>
   </form>
   <div class="border-top pt-3">
    
-      <small class="text-muted ml-4">Don't have an account? <a href="{% url 'register' %}">Register</a></small>
-      <small class="text-muted ml-4">Forget The Password?
-        <a href="{% url 'password_reset' %}">Forgot Password</a>
+      <small class="text-muted ml-4">{trans "Don't have an account? "}<a href="{% url 'register' %}">{trans "Register"}</a></small>
+      <small class="text-muted ml-4">{trans "Forget The Password? "}
+        <a href="{% url 'password_reset' %}">{trans "Forgot Password"}</a>
       </small>
 
   </div>
