@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-16 15:01+0300\n"
+"POT-Creation-Date: 2023-09-28 19:59+0300\n"
 "PO-Revision-Date: 2023-09-16 15:04+0300\n"
 "Last-Translator:   <yousef.mankola10@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,113 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: cart/templates/cart.html:10
+msgid "Your Shopping Cart is empty"
+msgstr ""
+
+#: cart/templates/cart.html:13
+msgid "Please click "
+msgstr ""
+
+#: cart/templates/cart.html:13
+msgid "here"
+msgstr ""
+
+#: cart/templates/cart.html:13
+msgid "to continue shopping"
+msgstr ""
+
+#: cart/templates/cart.html:21
+msgid "Your shopping cart"
+msgstr ""
+
+#: cart/templates/cart.html:35
+msgid "Your items"
+msgstr ""
+
+#: cart/templates/cart.html:47 order/templates/order/order_detail.html:58
+msgid "Unit Price"
+msgstr ""
+
+#: cart/templates/cart.html:53
+#, fuzzy
+#| msgid "Choose Your Language"
+msgid "Choose your kids name"
+msgstr "اختر لغتك"
+
+#: cart/templates/cart.html:85
+msgid "Checkout"
+msgstr ""
+
+#: cart/templates/cart.html:92
+msgid "Please review your shopping cart"
+msgstr ""
+
+#: cart/templates/cart.html:97
+msgid "Your total is"
+msgstr ""
+
+#: cart/templates/cart.html:103
+msgid "Please choose the name of the kids for each product"
+msgstr ""
+
+#: cart/templates/cart.html:124
+msgid "Continue Shopping"
+msgstr ""
+
+#: cart/templates/mail_template.html:74
+msgid "Your Order confirmation"
+msgstr ""
+
+#: cart/templates/mail_template.html:77
+#: customer_service/templates/customer_confirm.html:77
+#: order/templates/orderShippedEmail.html:77
+msgid "Hello"
+msgstr ""
+
+#: cart/templates/mail_template.html:78
+msgid "We have successfully received your order, Order Number "
+msgstr ""
+
+#: cart/templates/mail_template.html:78
+msgid ""
+"and it is currently being processed. We will promptly notify you as soon as "
+"your order is shipped"
+msgstr ""
+
+#: cart/templates/mail_template.html:79
+msgid ""
+"To review and confirm the details of your order, please click on the link "
+"provided below"
+msgstr ""
+
+#: cart/templates/mail_template.html:81
+msgid "Check Order Details"
+msgstr ""
+
+#: cart/templates/mail_template.html:83
+msgid ""
+"Thank you for choosing us for your order, and we appreciate your business"
+msgstr ""
+
+#: cart/templates/mail_template.html:84
+msgid "You have 24 hours to cancel the order by going to the order details"
+msgstr ""
+
+#: cart/templates/mail_template.html:87
+#: customer_service/templates/customer_confirm.html:84
+#: home/templates/location-mail.html:86
+#: order/templates/orderShippedEmail.html:84
+msgid "Contact us at"
+msgstr ""
+
+#: cart/templates/mail_template.html:88
+msgid "Follow us on social medi"
+msgstr ""
 
 #: cart/views.py:130
 msgid "The order has been confirmed"
@@ -27,11 +132,105 @@ msgstr ""
 msgid "You received a new order"
 msgstr ""
 
-#: findMe/settings.py:131
+#: customer_service/templates/contactus.html:38
+msgid "Feel Free to contact us"
+msgstr ""
+
+#: customer_service/templates/contactus.html:43 home/templates/base.html:119
+#: home/templates/base.html:136 home/templates/base.html:262
+#: home/templates/dashboard.html:75 home/templates/home.html:136
+#: home/templates/home.html:153 home/templates/home.html:478
+#: home/templates/profileDetail.html:77
+#: home/templates/profileVistorLocation.html:78
+msgid "Contact Us"
+msgstr ""
+
+#: customer_service/templates/contactus.html:46
+#, fuzzy
+#| msgid "billingName"
+msgid "Full Name"
+msgstr "اسم الفاتورة"
+
+#: customer_service/templates/contactus.html:50
+#: home/templates/dashboard.html:122
+msgid "Phone Number"
+msgstr ""
+
+#: customer_service/templates/contactus.html:54
+#, fuzzy
+#| msgid "billingAddress1"
+msgid "Email Address"
+msgstr "عنوان الفاتورة"
+
+#: customer_service/templates/contactus.html:58
+msgid "Reason for Contacting us"
+msgstr ""
+
+#: customer_service/templates/contactus.html:60
+msgid "Select Reason"
+msgstr ""
+
+#: customer_service/templates/contactus.html:61
+msgid "Report a Bug"
+msgstr ""
+
+#: customer_service/templates/contactus.html:62
+msgid "Advertise"
+msgstr ""
+
+#: customer_service/templates/contactus.html:63
+msgid "Return order"
+msgstr ""
+
+#: customer_service/templates/contactus.html:64
+msgid "Other"
+msgstr ""
+
+#: customer_service/templates/contactus.html:68
+msgid "Title for the Problem"
+msgstr ""
+
+#: customer_service/templates/contactus.html:72
+msgid "Order Number if needed"
+msgstr ""
+
+#: customer_service/templates/contactus.html:76
+msgid "Description for the Problem"
+msgstr ""
+
+#: customer_service/templates/contactus.html:81
+msgid "Send it"
+msgstr ""
+
+#: customer_service/templates/customer_confirm.html:74
+msgid "We recieved your request"
+msgstr ""
+
+#: customer_service/templates/customer_confirm.html:78
+msgid "We recieved your request about the issue"
+msgstr ""
+
+#: customer_service/templates/customer_confirm.html:79
+msgid ""
+"One of our support team will contact you shortly to assist you within 24 to "
+"72 hours. Feel free to contact us anytime"
+msgstr ""
+
+#: customer_service/templates/customer_confirm.html:81
+msgid "Thank you for reading our email"
+msgstr ""
+
+#: customer_service/templates/customer_confirm.html:85
+#: home/templates/location-mail.html:87
+#: order/templates/orderShippedEmail.html:85
+msgid "Follow us on social media"
+msgstr ""
+
+#: findMe/settings.py:133
 msgid "English"
 msgstr ""
 
-#: findMe/settings.py:132
+#: findMe/settings.py:134
 msgid "Arabic"
 msgstr ""
 
@@ -47,7 +246,7 @@ msgstr ""
 msgid "first_name"
 msgstr ""
 
-#: home/models.py:11 product/models.py:9 product/models.py:23
+#: home/models.py:11 product/models.py:12 product/models.py:26
 msgid "name"
 msgstr ""
 
@@ -67,55 +266,562 @@ msgstr ""
 msgid "summary"
 msgstr ""
 
-#: home/templates/base.html:36
+#: home/templates/base.html:77 home/templates/dashboard.html:27
+#: home/templates/home.html:80 home/templates/profileDetail.html:29
+#: home/templates/profileVistorLocation.html:29
 msgid "Choose Your Language"
 msgstr "اختر لغتك"
 
-#: home/templates/createQR.html:23
+#: home/templates/base.html:98 home/templates/home.html:115
+msgid "all Order Admin"
+msgstr ""
+
+#: home/templates/base.html:101 home/templates/home.html:118
+msgid "Customer service"
+msgstr ""
+
+#: home/templates/base.html:106 home/templates/base.html:130
+#: home/templates/home.html:123 home/templates/home.html:147
+#: product/templates/productDetail.html:83
+msgid "Home"
+msgstr ""
+
+#: home/templates/base.html:109 home/templates/dashboard.html:51
+#: home/templates/home.html:126 home/templates/profileDetail.html:53
+#: home/templates/profileVistorLocation.html:54
+msgid "Dashboard"
+msgstr ""
+
+#: home/templates/base.html:113 home/templates/dashboard.html:65
+#: home/templates/home.html:130 home/templates/profileDetail.html:67
+#: home/templates/profileVistorLocation.html:68
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "Create a Qr Profile"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/base.html:116 home/templates/base.html:133
+#: home/templates/base.html:240 home/templates/home.html:133
+#: home/templates/home.html:150 home/templates/home.html:456
+msgid "Shop"
+msgstr ""
+
+#: home/templates/base.html:125 home/templates/dashboard.html:80
+#: home/templates/home.html:142 home/templates/profileDetail.html:82
+#: home/templates/profileVistorLocation.html:83
+msgid "logout"
+msgstr ""
+
+#: home/templates/base.html:139 home/templates/home.html:156
+#: home/templates/register.html:39
+msgid "Sign In"
+msgstr ""
+
+#: home/templates/base.html:142 home/templates/home.html:159
+#: home/templates/login.html:25 home/templates/register.html:33
+msgid "Register"
+msgstr ""
+
+#: home/templates/base.html:167 home/templates/home.html:383
+msgid "Get connected with us on social networks:"
+msgstr ""
+
+#: home/templates/base.html:206
+msgid "Taht W Lenaha"
+msgstr ""
+
+#: home/templates/base.html:209 home/templates/home.html:424
+msgid ""
+"Our website provides a simple yet effective solution for ensuring the safety "
+"of your loved ones and pets."
+msgstr ""
+
+#: home/templates/base.html:218
+msgid "Products"
+msgstr ""
+
+#: home/templates/base.html:221
+msgid "Products For Boy"
+msgstr ""
+
+#: home/templates/base.html:224
+msgid "Products For Boys"
+msgstr ""
+
+#: home/templates/base.html:227 home/templates/home.html:443
+msgid "Category"
+msgstr ""
+
+#: home/templates/base.html:237
+msgid "Useful links"
+msgstr ""
+
+#: home/templates/base.html:243 home/templates/home.html:459
+msgid "Create a QR"
+msgstr ""
+
+#: home/templates/base.html:247 home/templates/home.html:463
+#: home/templates/login.html:17 home/templates/login.html:20
+msgid "Log in"
+msgstr ""
+
+#: home/templates/base.html:255
+msgid "Contact"
+msgstr ""
+
+#: home/templates/base.html:256 home/templates/home.html:472
+msgid "New York, NY 10012, US"
+msgstr ""
+
+#: home/templates/createQR.html:54
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "QR code generate Profile"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/createQR.html:62
 msgid "Enter the name"
 msgstr "أدخل الاسم"
 
-#: home/templates/createQR.html:25
+#: home/templates/createQR.html:66
 msgid "What is the Type"
 msgstr "ما هو النوع"
 
-#: home/templates/createQR.html:36 home/templates/createQR.html:37
+#: home/templates/createQR.html:69 home/templates/updateProfile.html:67
+msgid "Boy"
+msgstr ""
+
+#: home/templates/createQR.html:70 home/templates/updateProfile.html:68
+msgid "Girl"
+msgstr ""
+
+#: home/templates/createQR.html:71 home/templates/updateProfile.html:69
+msgid "Sick"
+msgstr ""
+
+#: home/templates/createQR.html:72 home/templates/updateProfile.html:70
+msgid "Dog"
+msgstr ""
+
+#: home/templates/createQR.html:73 home/templates/updateProfile.html:71
+msgid "Cat"
+msgstr ""
+
+#: home/templates/createQR.html:74 home/templates/updateProfile.html:72
+msgid "Other Pets"
+msgstr ""
+
+#: home/templates/createQR.html:78
 msgid "Enter the address"
 msgstr "أدخل العنوان"
 
-#: home/templates/createQR.html:38
+#: home/templates/createQR.html:83
 msgid "Enter the phone number"
 msgstr "أدخل رقم الهاتف"
 
-#: home/templates/createQR.html:40
+#: home/templates/createQR.html:90
 msgid "Enter more details"
 msgstr "أدخل المزيد من التفاصيل"
 
-#: home/templates/createQR.html:44
+#: home/templates/createQR.html:95
 msgid "Generate Profile"
 msgstr "إنشاء الملف الشخصي"
 
-#: home/templates/home.html:8
-msgid "Site Home Page"
+#: home/templates/dashboard.html:35
+msgid "Taht w Lenaha"
+msgstr ""
+
+#: home/templates/dashboard.html:55 home/templates/profileDetail.html:57
+#: home/templates/profileVistorLocation.html:58
+#, fuzzy
+#| msgid "Site Home Page"
+msgid "Home Page"
 msgstr "الصفحة الرئيسية للموقع"
 
-#: home/views.py:95
+#: home/templates/dashboard.html:60 home/templates/dashboard.html:106
+#: home/templates/profileDetail.html:62
+#: home/templates/profileVistorLocation.html:63
+msgid "Orders"
+msgstr ""
+
+#: home/templates/dashboard.html:70 home/templates/profileDetail.html:72
+#: home/templates/profileVistorLocation.html:73
+msgid "Our Products"
+msgstr ""
+
+#: home/templates/dashboard.html:95
+msgid "Profiles"
+msgstr ""
+
+#: home/templates/dashboard.html:116
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "Your Profiles"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/dashboard.html:121
+msgid "Name"
+msgstr ""
+
+#: home/templates/dashboard.html:123
+msgid "Profile Category"
+msgstr ""
+
+#: home/templates/dashboard.html:124
+msgid "More Information"
+msgstr ""
+
+#: home/templates/dashboard.html:134
+#, fuzzy
+#| msgid "Enter more details"
+msgid "More Detail"
+msgstr "أدخل المزيد من التفاصيل"
+
+#: home/templates/home.html:206
+msgid "QR codes help you find your family"
+msgstr ""
+
+#: home/templates/home.html:212
+msgid ""
+"We understand that the well-being of your children, sick family members, and "
+"pets is of utmost importance to you."
+msgstr ""
+
+#: home/templates/home.html:226
+msgid "Create a profile for each kids"
+msgstr ""
+
+#: home/templates/home.html:232
+msgid "You can easily create a free qr profile for each kids or pets."
+msgstr ""
+
+#: home/templates/home.html:246
+msgid "Track you qr code"
+msgstr ""
+
+#: home/templates/home.html:252
+msgid ""
+"For an added layer of security, you have the option to enable location "
+"tracking."
+msgstr ""
+
+#: home/templates/home.html:287
+msgid "Children"
+msgstr ""
+
+#: home/templates/home.html:289
+msgid ""
+"Kids can provide essential information like their name, and any medical "
+"conditions they have. It's an exciting way for kids to be proactive about "
+"their safety."
+msgstr ""
+
+#: home/templates/home.html:297
+msgid "Sick Family Member"
+msgstr ""
+
+#: home/templates/home.html:299
+msgid ""
+"If a family member is struggling with an illness that affects their focus or "
+"can potentially lead to them getting lost, you have the option to purchase "
+"our products featuring an embedded QR code"
+msgstr ""
+
+#: home/templates/home.html:307
+msgid "Dogs"
+msgstr ""
+
+#: home/templates/home.html:309 home/templates/home.html:318
+msgid ""
+"If your pet goes missing, you can activate a lost pet alert through our "
+"platform. This sends out an immediate notification to the local community "
+"and animal shelters, increasing the chances of a speedy reunion. It's a "
+"powerful tool to help you find your pet quickly."
+msgstr ""
+
+#: home/templates/home.html:316 home/templates/home.html:471
+msgid "Cats"
+msgstr ""
+
+#: home/templates/home.html:334
+msgid "Our Popular Product"
+msgstr ""
+
+#: home/templates/home.html:340
+msgid "You can choose any product you need"
+msgstr ""
+
+#: home/templates/home.html:342
+msgid "Start Shopping Now"
+msgstr ""
+
+#: home/templates/home.html:350
+msgid "The Benfits of using our product"
+msgstr ""
+
+#: home/templates/home.html:356
+msgid "Easily Find Your Kids"
+msgstr ""
+
+#: home/templates/home.html:357
+msgid ""
+"We understand that the well-being of your children, sick family members, and "
+"cherished pets is of utmost importance to you. That's why we've created a "
+"unique and powerful tool that offers peace of mind in times of uncertainty."
+msgstr ""
+
+#: home/templates/home.html:364
+msgid "Find the vistor location"
+msgstr ""
+
+#: home/templates/home.html:365
+msgid ""
+"For an added layer of security, you have the option to enable location "
+"tracking. This feature helps you pinpoint the exact whereabouts of your "
+"loved ones or pets, ensuring their safety is never compromised."
+msgstr ""
+
+#: home/templates/home.html:422
+msgid "Taht w lenaha"
+msgstr ""
+
+#: home/templates/home.html:437
+msgid "Products For Children"
+msgstr ""
+
+#: home/templates/home.html:440
+msgid "Products For Pets"
+msgstr ""
+
+#: home/templates/location-mail.html:74
+msgid "New Visitor to Your Profile Qr code"
+msgstr ""
+
+#: home/templates/location-mail.html:77
+msgid "Hello,"
+msgstr ""
+
+#: home/templates/location-mail.html:78
+msgid ""
+"You have a new visitor to your profile, offering a convenient way to track "
+"the whereabouts of your children."
+msgstr ""
+
+#: home/templates/location-mail.html:79
+#, python-format
+msgid ""
+"Please note that the map location may not be 100%% accurate. You can copy "
+"and paste the precise latitude and longitude coordinates, which are"
+msgstr ""
+
+#: home/templates/location-mail.html:79
+msgid ""
+"directly into your preferred mapping application for the exact location. "
+"Alternatively, you can verify the location on the map by clicking the button "
+"below. Please ensure that you are signed in to our website to access this "
+"feature."
+msgstr ""
+
+#: home/templates/location-mail.html:81 home/templates/profileDetail.html:173
+msgid "Last Vistor Location"
+msgstr ""
+
+#: home/templates/location-mail.html:83
+msgid ""
+"Thank you for entrusting us with your family's safety. If you have any "
+"questions or require further assistance, please do not hesitate to contact "
+"our support team. We are here to ensure your peace of mind."
+msgstr ""
+
+#: home/templates/login.html:25
+msgid "Don't have an account? "
+msgstr ""
+
+#: home/templates/login.html:26
+msgid "Forget The Password? "
+msgstr ""
+
+#: home/templates/login.html:27
+msgid "Forgot Password"
+msgstr ""
+
+#: home/templates/profileDetail.html:95
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "Profile"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/profileDetail.html:102
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "The Profiles"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/profileDetail.html:108
+msgid "Qr Code"
+msgstr ""
+
+#: home/templates/profileDetail.html:109
+msgid "Profile Detail"
+msgstr ""
+
+#: home/templates/profileDetail.html:119
+#, fuzzy
+#| msgid "Enter the phone number"
+msgid "Please call the phone number below"
+msgstr "أدخل رقم الهاتف"
+
+#: home/templates/profileDetail.html:120
+msgid "Call Parent Now"
+msgstr ""
+
+#: home/templates/profileDetail.html:127
+msgid "Print QR"
+msgstr ""
+
+#: home/templates/profileDetail.html:135
+msgid "The Name: "
+msgstr ""
+
+#: home/templates/profileDetail.html:138
+#, fuzzy
+#| msgid "Enter the phone number"
+msgid "The Parent phone number:"
+msgstr "أدخل رقم الهاتف"
+
+#: home/templates/profileDetail.html:142
+#, fuzzy
+#| msgid "Enter the address"
+msgid "The address:"
+msgstr "أدخل العنوان"
+
+#: home/templates/profileDetail.html:146
+msgid "The address: No Provided address"
+msgstr ""
+
+#: home/templates/profileDetail.html:150
+msgid "The Type:"
+msgstr ""
+
+#: home/templates/profileDetail.html:154
+msgid "More Description:"
+msgstr ""
+
+#: home/templates/profileDetail.html:172 home/templates/updateProfile.html:54
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "Edit Profile"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/profileDetail.html:174 home/templates/profileDetail.html:186
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "Delete Profile"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/templates/profileDetail.html:182
+msgid "Are You Sure that you will delete this profile?"
+msgstr ""
+
+#: home/templates/profileVistorLocation.html:95
+msgid "Last Visit Location"
+msgstr ""
+
+#: home/templates/profileVistorLocation.html:103
+msgid "The Location"
+msgstr ""
+
+#: home/templates/profileVistorLocation.html:109
+msgid ""
+"No one has scanned the QR code, or those who have scanned it have not "
+"granted us permission to access their location. Please note that if the user "
+"does not enable location access, we are unable to retrieve their location."
+msgstr ""
+
+#: home/templates/profileVistorLocation.html:111
+msgid ""
+"For precise location details, you can copy the latitude and longitude "
+"coordinates and paste them directly into your mapping application:"
+msgstr ""
+
+#: home/templates/profileVistorLocation.html:111
+msgid "Copy"
+msgstr ""
+
+#: home/templates/register.html:21
+msgid "Register Page"
+msgstr ""
+
+#: home/templates/register.html:27
+msgid "Join Today"
+msgstr ""
+
+#: home/templates/updateProfile.html:50
+msgid "Edit The Profile Info"
+msgstr ""
+
+#: home/templates/updateProfile.html:58
+msgid "Enter Your Kids Name"
+msgstr ""
+
+#: home/templates/updateProfile.html:63
+#, fuzzy
+#| msgid "What is the Type"
+msgid "What is the Type of the Profile"
+msgstr "ما هو النوع"
+
+#: home/templates/updateProfile.html:76
+#, fuzzy
+#| msgid "Enter the phone number"
+msgid "Enter Your Phone number"
+msgstr "أدخل رقم الهاتف"
+
+#: home/templates/updateProfile.html:82
+#, fuzzy
+#| msgid "Enter the address"
+msgid "Enter Your Address"
+msgstr "أدخل العنوان"
+
+#: home/templates/updateProfile.html:86
+#, fuzzy
+#| msgid "Enter more details"
+msgid "Enter More desctiption"
+msgstr "أدخل المزيد من التفاصيل"
+
+#: home/templates/updateProfile.html:94
+#, fuzzy
+#| msgid "Generate Profile"
+msgid "Edit The Profile"
+msgstr "إنشاء الملف الشخصي"
+
+#: home/views.py:82
+msgid "someone scan your qr and this is the location of the vistor"
+msgstr ""
+
+#: home/views.py:129
+#, fuzzy
+#| msgid "you delete the post"
+msgid "you update the profile"
+msgstr "قمت بحذف هذا المنصب"
+
+#: home/views.py:144
 msgid "you delete the post"
 msgstr "قمت بحذف هذا المنصب"
 
-#: home/views.py:97
+#: home/views.py:146
 msgid "you can't delete this post"
 msgstr "لا يمكنك حذف هذه المشاركة"
 
-#: home/views.py:125
+#: home/views.py:174
 msgid "You are now logged in."
 msgstr ""
 
-#: home/views.py:128 home/views.py:131
-msgid "Invalid username or password."
+#: home/views.py:180 home/views.py:183
+msgid ""
+"Invalid username, username is small letter not capital letter or password."
 msgstr ""
 
-#: home/views.py:143
+#: home/views.py:195
 msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly. If you "
@@ -187,12 +893,202 @@ msgstr ""
 msgid "View on site"
 msgstr ""
 
-#: product/models.py:10
+#: order/templates/order/order_detail.html:37 order/templates/thanks.html:24
+msgid "Order Details"
+msgstr ""
+
+#: order/templates/order/order_detail.html:42
+msgid "Order"
+msgstr ""
+
+#: order/templates/order/order_detail.html:43
+msgid "Date"
+msgstr ""
+
+#: order/templates/order/order_detail.html:44
+msgid "Order Total"
+msgstr ""
+
+#: order/templates/order/order_detail.html:45
+msgid "Order Status"
+msgstr ""
+
+#: order/templates/order/order_detail.html:45
+msgid "Complete."
+msgstr ""
+
+#: order/templates/order/order_detail.html:48
+#, fuzzy
+#| msgid "billingAddress1"
+msgid "Billing Address"
+msgstr "عنوان الفاتورة"
+
+#: order/templates/order/order_detail.html:56
+#: product/templates/productDetail.html:132
+msgid "Product Description"
+msgstr ""
+
+#: order/templates/order/order_detail.html:57
+msgid "Qty"
+msgstr ""
+
+#: order/templates/order/order_detail.html:59
+msgid "Sub-Total"
+msgstr ""
+
+#: order/templates/order/order_detail.html:74
+msgid "Total"
+msgstr ""
+
+#: order/templates/order/order_detail.html:78
+msgid "Total Paid"
+msgstr ""
+
+#: order/templates/order/order_detail.html:83
+#, fuzzy
+#| msgid "shippingAddress1"
+msgid "Shipping Address"
+msgstr "عنوان الشحن"
+
+#: order/templates/order/order_detail.html:89
+msgid "Payment Details"
+msgstr ""
+
+#: order/templates/order/order_detail.html:90
+msgid "The order"
+msgstr ""
+
+#: order/templates/order/order_detail.html:90
+msgid "has been paid succuessfully"
+msgstr ""
+
+#: order/templates/order/order_detail.html:94
+msgid "Print Order"
+msgstr ""
+
+#: order/templates/order/order_detail.html:100
+msgid "You Are not welcome here"
+msgstr ""
+
+#: order/templates/order/order_detail.html:101
+msgid ""
+"You used a different email address when placing your product order compared "
+"to the one you are currently using"
+msgstr ""
+
+#: order/templates/orderShippedEmail.html:74
+msgid "Your Order Shipped"
+msgstr ""
+
+#: order/templates/orderShippedEmail.html:78
+msgid ""
+"Your order has been successfully shipped and is currently in transit. Our "
+"delivery driver will be in touch with you shortly to coordinate the delivery"
+msgstr ""
+
+#: order/templates/orderShippedEmail.html:79
+msgid ""
+"To ensure a smooth delivery experience, kindly keep your phone nearby and "
+"readily accessible. We appreciate your business and look forward to serving "
+"you again in the future"
+msgstr ""
+
+#: order/templates/orderShippedEmail.html:81
+msgid "Thank you for choosing us for your order"
+msgstr ""
+
+#: order/templates/thanks.html:11
+msgid "Thanks for placing your order"
+msgstr ""
+
+#: order/templates/thanks.html:13
+msgid "Your order number is"
+msgstr ""
+
+#: order/templates/thanks.html:20
+msgid "Now you can put rating and reviews into your product details"
+msgstr ""
+
+#: order/templates/thanks.html:23
+msgid "Your Order Details is here"
+msgstr ""
+
+#: product/models.py:13
 msgid "slug"
 msgstr ""
 
-#: product/models.py:11 product/models.py:25
+#: product/models.py:14 product/models.py:28
 msgid "description"
+msgstr ""
+
+#: product/templates/category.html:19
+msgid "Our Category"
+msgstr ""
+
+#: product/templates/category.html:30
+msgid "More Info"
+msgstr ""
+
+#: product/templates/product.html:36
+msgid "Our Product"
+msgstr ""
+
+#: product/templates/product.html:47
+msgid "Description"
+msgstr ""
+
+#: product/templates/product.html:48 product/templates/productDetail.html:134
+msgid "Price"
+msgstr ""
+
+#: product/templates/product.html:49
+#, fuzzy
+#| msgid "Enter more details"
+msgid "More Details"
+msgstr "أدخل المزيد من التفاصيل"
+
+#: product/templates/product.html:51 product/templates/productDetail.html:135
+msgid "Add to Cart"
+msgstr ""
+
+#: product/templates/product.html:55
+msgid "Rating"
+msgstr ""
+
+#: product/templates/productDetail.html:91
+msgid "Average Rating"
+msgstr ""
+
+#: product/templates/productDetail.html:140
+msgid "You already added your review below"
+msgstr ""
+
+#: product/templates/productDetail.html:142
+msgid "Add Your Ratings"
+msgstr ""
+
+#: product/templates/productDetail.html:147
+msgid "You didn't order this product before"
+msgstr ""
+
+#: product/templates/productDetail.html:160
+msgid "Ratings and Reviews"
+msgstr ""
+
+#: product/templates/productDetail.html:174
+msgid "The User"
+msgstr ""
+
+#: product/templates/productDetail.html:176
+msgid "The Review"
+msgstr ""
+
+#: product/templates/reviews.html:64
+msgid "Rate our product"
+msgstr ""
+
+#: product/templates/reviews.html:78
+msgid "Submit Review"
 msgstr ""
 
 #~ msgid ""
