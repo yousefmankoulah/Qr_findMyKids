@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 
@@ -7,20 +8,20 @@
         <div class="text-center">
             <br><br>
             <h1 class="text-center my-title">
-                Thanks for placing your order
+                {% trans "Thanks for placing your order" %}
             </h1><br><br>
-            <p>Your order number is: <b>{{customer_order.id}}</b></p>
+            <p>{% trans "Your order number is" %}: <b>{{customer_order.id}}</b></p>
             <br>
             <p>
-                We have received your order and will begin processing right away. for your records an email confirmation has been sent to you.
-                It contains details of the items you purchased.
+               {% trans "We have received your order and will begin processing right away. for your records an email confirmation has been sent to you.
+                It contains details of the items you purchased." %} 
             </p>
             <p>
-                Now you can put rating and reviews into your product details.
+               {% trans "Now you can put rating and reviews into your product details" %} .
             </p>
             <div>
-                Your Order Details is here <br>
-                <a href="{% url "order_detail" customer_order.id %}" class="btn btn-outline-primary">Order Details</a>
+                {% trans "Your Order Details is here" %} <br>
+                <a href="{% url "order_detail" customer_order.id %}" class="btn btn-outline-primary">{% trans "Order Details" %}</a>
 
             </div>
         </div>
