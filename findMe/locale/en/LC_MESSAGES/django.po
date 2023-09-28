@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-28 19:59+0300\n"
+"POT-Creation-Date: 2023-09-28 20:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,7 +117,10 @@ msgid "Contact us at"
 msgstr ""
 
 #: cart/templates/mail_template.html:88
-msgid "Follow us on social medi"
+#: customer_service/templates/customer_confirm.html:85
+#: home/templates/location-mail.html:87
+#: order/templates/orderShippedEmail.html:85
+msgid "Follow us on social media"
 msgstr ""
 
 #: cart/views.py:130
@@ -212,22 +215,12 @@ msgstr ""
 msgid "Thank you for reading our email"
 msgstr ""
 
-#: customer_service/templates/customer_confirm.html:85
-#: home/templates/location-mail.html:87
-#: order/templates/orderShippedEmail.html:85
-msgid "Follow us on social media"
-msgstr ""
-
 #: findMe/settings.py:133
 msgid "English"
 msgstr ""
 
 #: findMe/settings.py:134
 msgid "Arabic"
-msgstr ""
-
-#: findMe/urls.py:13
-msgid "findmeAdmin/"
 msgstr ""
 
 #: home/forms.py:8
@@ -331,11 +324,11 @@ msgid "Products"
 msgstr ""
 
 #: home/templates/base.html:221
-msgid "Products For Boy"
+msgid "Products For Boys"
 msgstr ""
 
 #: home/templates/base.html:224
-msgid "Products For Boys"
+msgid "Products For Girls"
 msgstr ""
 
 #: home/templates/base.html:227 home/templates/home.html:443
@@ -466,7 +459,7 @@ msgstr ""
 #: home/templates/home.html:212
 msgid ""
 "We understand that the well-being of your children, sick family members, and "
-"pets is of utmost importance to you."
+"pets is of the most importance to you."
 msgstr ""
 
 #: home/templates/home.html:226
