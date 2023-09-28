@@ -10,7 +10,7 @@ urlpatterns = [
 ]
     
 urlpatterns += i18n_patterns(
-    path(_('findmeAdmin/'), admin.site.urls),
+    path('findmeAdmin/', admin.site.urls),
     path('', include('home.urls')),
     path('product/', include('product.urls')),
     path('cart/', include('cart.urls')),

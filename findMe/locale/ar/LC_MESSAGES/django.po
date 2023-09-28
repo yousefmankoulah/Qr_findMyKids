@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-28 19:59+0300\n"
-"PO-Revision-Date: 2023-09-28 20:05+0300\n"
+"PO-Revision-Date: 2023-09-28 20:07+0300\n"
 "Last-Translator:   <yousef.mankola10@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -117,23 +117,23 @@ msgstr ""
 #: home/templates/location-mail.html:86
 #: order/templates/orderShippedEmail.html:84
 msgid "Contact us at"
-msgstr ""
+msgstr "تواصل معنا على"
 
 #: cart/templates/mail_template.html:88
 msgid "Follow us on social medi"
-msgstr ""
+msgstr "تابعونا على وسائل التواصل الاجتماعي"
 
 #: cart/views.py:130
 msgid "The order has been confirmed"
-msgstr ""
+msgstr "تم تأكيد الطلب"
 
 #: cart/views.py:138
 msgid "You received a new order"
-msgstr ""
+msgstr "لقد تلقيت طلبًا جديدًا"
 
 #: customer_service/templates/contactus.html:38
 msgid "Feel Free to contact us"
-msgstr ""
+msgstr "لا تتردد في الاتصال بنا"
 
 #: customer_service/templates/contactus.html:43 home/templates/base.html:119
 #: home/templates/base.html:136 home/templates/base.html:262
@@ -142,7 +142,7 @@ msgstr ""
 #: home/templates/profileDetail.html:77
 #: home/templates/profileVistorLocation.html:78
 msgid "Contact Us"
-msgstr ""
+msgstr "اتصل بنا"
 
 #: customer_service/templates/contactus.html:46
 #, fuzzy
@@ -153,7 +153,7 @@ msgstr "اسم الفاتورة"
 #: customer_service/templates/contactus.html:50
 #: home/templates/dashboard.html:122
 msgid "Phone Number"
-msgstr ""
+msgstr "رقم التليفون"
 
 #: customer_service/templates/contactus.html:54
 #, fuzzy
@@ -163,15 +163,15 @@ msgstr "عنوان الفاتورة"
 
 #: customer_service/templates/contactus.html:58
 msgid "Reason for Contacting us"
-msgstr ""
+msgstr "سبب الاتصال بنا"
 
 #: customer_service/templates/contactus.html:60
 msgid "Select Reason"
-msgstr ""
+msgstr "حدد السبب"
 
 #: customer_service/templates/contactus.html:61
 msgid "Report a Bug"
-msgstr ""
+msgstr "الإبلاغ عن خطأ"
 
 #: customer_service/templates/contactus.html:62
 msgid "Advertise"
