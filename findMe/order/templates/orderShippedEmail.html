@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -70,18 +71,18 @@
             <div class="logo">
                 <img src="{% static 'img/1.jpg' %}" alt="Company Logo">
             </div>
-            <h1>Your Order Shipped</h1>
+            <h1>{% trans "Your Order Shipped" %}</h1>
         </div>
         <div class="content">
-            <p>Hello,</p>
-            <p>Your order has been successfully shipped and is currently in transit. Our delivery driver will be in touch with you shortly to coordinate the delivery.</p>
-            <p>To ensure a smooth delivery experience, kindly keep your phone nearby and readily accessible. We appreciate your business and look forward to serving you again in the future.</p>
+            <p>{% trans "Hello" %},</p>
+            <p>{% trans "Your order has been successfully shipped and is currently in transit. Our delivery driver will be in touch with you shortly to coordinate the delivery" %}.</p>
+            <p>{% trans "To ensure a smooth delivery experience, kindly keep your phone nearby and readily accessible. We appreciate your business and look forward to serving you again in the future" %}.</p>
             
-            <p>Thank you for choosing us for your order.</p>
+            <p>{% trans "Thank you for choosing us for your order" %}.</p>
         </div>
         <div class="footer">
-            <p>Contact us at: contact@example.com</p>
-            <p>Follow us on social media:</p>
+            <p>{% trans "Contact us at" %}: contact@example.com</p>
+            <p>{% trans "Follow us on social media" %}:</p>
             <p>
                 <a href="#">Facebook</a> |
                 <a href="#">Twitter</a> |
