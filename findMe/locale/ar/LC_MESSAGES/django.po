@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-28 20:12+0300\n"
-"PO-Revision-Date: 2023-09-28 20:10+0300\n"
+"POT-Creation-Date: 2023-09-28 20:27+0300\n"
+"PO-Revision-Date: 2023-09-28 20:26+0300\n"
 "Last-Translator:   <yousef.mankola10@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -317,7 +317,7 @@ msgstr ""
 
 #: home/templates/base.html:167 home/templates/home.html:383
 msgid "Get connected with us on social networks:"
-msgstr ""
+msgstr "تواصل معنا على شبكات التواصل الاجتماعي:"
 
 #: home/templates/base.html:206
 msgid "Taht W Lenaha"
@@ -327,38 +327,38 @@ msgstr ""
 msgid ""
 "Our website provides a simple yet effective solution for ensuring the safety "
 "of your loved ones and pets."
-msgstr ""
+msgstr "يوفر موقعنا حلاً بسيطًا ولكنه فعال لضمان سلامة أحبائك وحيواناتك الأليفة."
 
 #: home/templates/base.html:218
 msgid "Products"
-msgstr ""
+msgstr "منتجات"
 
 #: home/templates/base.html:221
 msgid "Products For Boys"
-msgstr ""
+msgstr "منتجات للبنين"
 
 #: home/templates/base.html:224
 msgid "Products For Girls"
-msgstr ""
+msgstr "منتجات للبنات"
 
 #: home/templates/base.html:227 home/templates/home.html:443
 msgid "Category"
-msgstr ""
+msgstr "فئة"
 
 #: home/templates/base.html:237
 msgid "Useful links"
-msgstr ""
+msgstr "روابط مفيدة"
 
 #: home/templates/base.html:243 home/templates/home.html:459
 msgid "Create a QR"
-msgstr ""
+msgstr "إنشاء QR"
 
 #: home/templates/base.html:247 home/templates/home.html:463
 #: home/templates/login.html:17 home/templates/login.html:20
 msgid "Log in"
-msgstr ""
+msgstr "تسجيل الدخول"
 
-#: home/templates/base.html:255
+#: home/templates/base.html:255 home/templates/home.html:471
 msgid "Contact"
 msgstr ""
 
@@ -435,16 +435,16 @@ msgstr "الصفحة الرئيسية للموقع"
 #: home/templates/profileDetail.html:62
 #: home/templates/profileVistorLocation.html:63
 msgid "Orders"
-msgstr ""
+msgstr "طلبات"
 
 #: home/templates/dashboard.html:70 home/templates/profileDetail.html:72
 #: home/templates/profileVistorLocation.html:73
 msgid "Our Products"
-msgstr ""
+msgstr "منتجاتنا"
 
 #: home/templates/dashboard.html:95
 msgid "Profiles"
-msgstr ""
+msgstr "الملفات الشخصية"
 
 #: home/templates/dashboard.html:116
 #, fuzzy
@@ -454,15 +454,15 @@ msgstr "إنشاء الملف الشخصي"
 
 #: home/templates/dashboard.html:121
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 #: home/templates/dashboard.html:123
 msgid "Profile Category"
-msgstr ""
+msgstr "فئة الملف الشخصي"
 
 #: home/templates/dashboard.html:124
 msgid "More Information"
-msgstr ""
+msgstr "معلومات اكثر"
 
 #: home/templates/dashboard.html:134
 #, fuzzy
@@ -472,21 +472,23 @@ msgstr "أدخل المزيد من التفاصيل"
 
 #: home/templates/home.html:206
 msgid "QR codes help you find your family"
-msgstr ""
+msgstr "تساعدك رموز QR في العثور على عائلتك"
 
 #: home/templates/home.html:212
 msgid ""
 "We understand that the well-being of your children, sick family members, and "
 "pets is of the most importance to you."
 msgstr ""
+"نحن ندرك أن صحة أطفالك وأفراد أسرتك المرضى وحيواناتك الأليفة هي الأكثر أهمية "
+"بالنسبة لك."
 
 #: home/templates/home.html:226
 msgid "Create a profile for each kids"
-msgstr ""
+msgstr "إنشاء ملف تعريف لكل طفل"
 
 #: home/templates/home.html:232
 msgid "You can easily create a free qr profile for each kids or pets."
-msgstr ""
+msgstr "يمكنك بسهولة إنشاء ملف تعريف qr مجاني لكل طفل أو حيوان أليف."
 
 #: home/templates/home.html:246
 msgid "Track you qr code"
@@ -532,7 +534,7 @@ msgid ""
 "powerful tool to help you find your pet quickly."
 msgstr ""
 
-#: home/templates/home.html:316 home/templates/home.html:471
+#: home/templates/home.html:316
 msgid "Cats"
 msgstr ""
 
@@ -542,19 +544,19 @@ msgstr ""
 
 #: home/templates/home.html:340
 msgid "You can choose any product you need"
-msgstr ""
+msgstr "يمكنك اختيار أي منتج تحتاجه"
 
 #: home/templates/home.html:342
 msgid "Start Shopping Now"
-msgstr ""
+msgstr "ابدأ التسوق الآن"
 
 #: home/templates/home.html:350
 msgid "The Benfits of using our product"
-msgstr ""
+msgstr "فوائد استخدام منتجاتنا"
 
 #: home/templates/home.html:356
 msgid "Easily Find Your Kids"
-msgstr ""
+msgstr "اعثر على أطفالك بسهولة"
 
 #: home/templates/home.html:357
 msgid ""
@@ -562,10 +564,13 @@ msgid ""
 "cherished pets is of utmost importance to you. That's why we've created a "
 "unique and powerful tool that offers peace of mind in times of uncertainty."
 msgstr ""
+"نحن نتفهم أن صحة أطفالك وأفراد أسرتك المرضى وحيواناتك الأليفة العزيزة لها "
+"أهمية قصوى بالنسبة لك. ولهذا السبب قمنا بإنشاء أداة فريدة وقوية توفر راحة "
+"البال في أوقات عدم اليقين."
 
 #: home/templates/home.html:364
 msgid "Find the vistor location"
-msgstr ""
+msgstr "ابحث عن موقع الزائر"
 
 #: home/templates/home.html:365
 msgid ""
@@ -573,6 +578,9 @@ msgid ""
 "tracking. This feature helps you pinpoint the exact whereabouts of your "
 "loved ones or pets, ensuring their safety is never compromised."
 msgstr ""
+"للحصول على طبقة إضافية من الأمان، لديك خيار تمكين تتبع الموقع. تساعدك هذه "
+"الميزة على تحديد مكان وجود أحبائك أو حيواناتك الأليفة بدقة، مما يضمن عدم "
+"المساس بسلامتهم أبدًا."
 
 #: home/templates/home.html:422
 msgid "Taht w lenaha"
@@ -580,11 +588,11 @@ msgstr ""
 
 #: home/templates/home.html:437
 msgid "Products For Children"
-msgstr ""
+msgstr "منتجات للأطفال"
 
 #: home/templates/home.html:440
 msgid "Products For Pets"
-msgstr ""
+msgstr "منتجات للحيوانات الاليفة"
 
 #: home/templates/location-mail.html:74
 msgid "New Visitor to Your Profile Qr code"
@@ -636,7 +644,7 @@ msgstr ""
 
 #: home/templates/login.html:27
 msgid "Forgot Password"
-msgstr ""
+msgstr "هل نسيت كلمة السر"
 
 #: home/templates/profileDetail.html:95
 #, fuzzy
@@ -652,11 +660,11 @@ msgstr "إنشاء الملف الشخصي"
 
 #: home/templates/profileDetail.html:108
 msgid "Qr Code"
-msgstr ""
+msgstr "رمز Qr"
 
 #: home/templates/profileDetail.html:109
 msgid "Profile Detail"
-msgstr ""
+msgstr "تفاصيل الملف الشخصي"
 
 #: home/templates/profileDetail.html:119
 #, fuzzy
@@ -666,15 +674,15 @@ msgstr "أدخل رقم الهاتف"
 
 #: home/templates/profileDetail.html:120
 msgid "Call Parent Now"
-msgstr ""
+msgstr "اتصل بالوالد الآن"
 
 #: home/templates/profileDetail.html:127
 msgid "Print QR"
-msgstr ""
+msgstr "طباعة QR"
 
 #: home/templates/profileDetail.html:135
 msgid "The Name: "
-msgstr ""
+msgstr "الاسم:"
 
 #: home/templates/profileDetail.html:138
 #, fuzzy
@@ -690,15 +698,15 @@ msgstr "أدخل العنوان"
 
 #: home/templates/profileDetail.html:146
 msgid "The address: No Provided address"
-msgstr ""
+msgstr "العنوان: لا يوجد عنوان مقدم"
 
 #: home/templates/profileDetail.html:150
 msgid "The Type:"
-msgstr ""
+msgstr "نوع:"
 
 #: home/templates/profileDetail.html:154
 msgid "More Description:"
-msgstr ""
+msgstr "المزيد من الوصف:"
 
 #: home/templates/profileDetail.html:172 home/templates/updateProfile.html:54
 #, fuzzy
@@ -714,7 +722,7 @@ msgstr "إنشاء الملف الشخصي"
 
 #: home/templates/profileDetail.html:182
 msgid "Are You Sure that you will delete this profile?"
-msgstr ""
+msgstr "هل أنت متأكد من أنك سوف تقوم بحذف هذا الملف الشخصي؟"
 
 #: home/templates/profileVistorLocation.html:95
 msgid "Last Visit Location"
@@ -807,12 +815,14 @@ msgstr "لا يمكنك حذف هذه المشاركة"
 
 #: home/views.py:174
 msgid "You are now logged in."
-msgstr ""
+msgstr "قمت بتسجيل الدخول الآن في."
 
 #: home/views.py:180 home/views.py:183
 msgid ""
 "Invalid username, username is small letter not capital letter or password."
 msgstr ""
+"اسم المستخدم غير صالح، اسم المستخدم هو حرف صغير وليس حرفًا كبيرًا أو كلمة "
+"المرور."
 
 #: home/views.py:195
 msgid ""
@@ -821,6 +831,10 @@ msgid ""
 "don't receive an email, please make sure you've entered the address you "
 "registered with, and check your spam folder."
 msgstr ""
+"لقد أرسلنا إليك تعليمات عبر البريد الإلكتروني لإعداد كلمة المرور الخاصة بك، "
+"في حالة وجود حساب باستخدام البريد الإلكتروني الذي أدخلته. يجب أن تستقبلهم "
+"قريبا. إذا لم تتلق بريدًا إلكترونيًا، فيرجى التأكد من إدخال العنوان الذي قمت "
+"بالتسجيل به، والتحقق من مجلد الرسائل غير المرغوب فيها."
 
 #: order/models.py:13
 msgid "billingName"
@@ -852,31 +866,31 @@ msgstr "عنوان الشحن"
 
 #: order/models.py:20
 msgid "shippingCity"
-msgstr ""
+msgstr "مدينة الشحن"
 
 #: order/models.py:21
 msgid "shippingPostcode"
-msgstr ""
+msgstr "الرمز البريدي للشحن"
 
 #: order/models.py:22
 msgid "shippingCountry"
-msgstr ""
+msgstr "بلد الشحن"
 
 #: order/models.py:34
 msgid "product"
-msgstr ""
+msgstr "منتج"
 
 #: order/models.py:40
 msgid "kids_name"
-msgstr ""
+msgstr "اسم الطفل"
 
 #: order/templates/admin/order/tabular.html:20
 msgid "Delete?"
-msgstr ""
+msgstr "حذف؟"
 
 #: order/templates/admin/order/tabular.html:37
 msgid "Change"
-msgstr ""
+msgstr "التغييرات"
 
 #: order/templates/admin/order/tabular.html:37
 msgid "View"
@@ -927,15 +941,15 @@ msgstr ""
 
 #: order/templates/order/order_detail.html:59
 msgid "Sub-Total"
-msgstr ""
+msgstr "المجموع الفرعي"
 
 #: order/templates/order/order_detail.html:74
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 #: order/templates/order/order_detail.html:78
 msgid "Total Paid"
-msgstr ""
+msgstr "مجموع المبالغ المدفوعة"
 
 #: order/templates/order/order_detail.html:83
 #, fuzzy
@@ -945,33 +959,35 @@ msgstr "عنوان الشحن"
 
 #: order/templates/order/order_detail.html:89
 msgid "Payment Details"
-msgstr ""
+msgstr "بيانات الدفع"
 
 #: order/templates/order/order_detail.html:90
 msgid "The order"
-msgstr ""
+msgstr "الطلب"
 
 #: order/templates/order/order_detail.html:90
 msgid "has been paid succuessfully"
-msgstr ""
+msgstr "لقد تم الدفع بنجاح"
 
 #: order/templates/order/order_detail.html:94
 msgid "Print Order"
-msgstr ""
+msgstr "طلب طباعة"
 
 #: order/templates/order/order_detail.html:100
 msgid "You Are not welcome here"
-msgstr ""
+msgstr "أنت غير مرحب بها هنا"
 
 #: order/templates/order/order_detail.html:101
 msgid ""
 "You used a different email address when placing your product order compared "
 "to the one you are currently using"
 msgstr ""
+"لقد استخدمت عنوان بريد إلكتروني مختلفًا عند تقديم طلب المنتج الخاص بك مقارنةً "
+"بالعنوان الذي تستخدمه حاليًا"
 
 #: order/templates/orderShippedEmail.html:74
 msgid "Your Order Shipped"
-msgstr ""
+msgstr "تم شحن طلبك"
 
 #: order/templates/orderShippedEmail.html:78
 msgid ""
@@ -1020,19 +1036,19 @@ msgstr ""
 
 #: product/templates/category.html:30
 msgid "More Info"
-msgstr ""
+msgstr "مزيد من المعلومات"
 
 #: product/templates/product.html:36
 msgid "Our Product"
-msgstr ""
+msgstr "منتجاتنا"
 
 #: product/templates/product.html:47
 msgid "Description"
-msgstr ""
+msgstr "وصف"
 
 #: product/templates/product.html:48 product/templates/productDetail.html:134
 msgid "Price"
-msgstr ""
+msgstr "سعر"
 
 #: product/templates/product.html:49
 #, fuzzy
@@ -1042,47 +1058,47 @@ msgstr "أدخل المزيد من التفاصيل"
 
 #: product/templates/product.html:51 product/templates/productDetail.html:135
 msgid "Add to Cart"
-msgstr ""
+msgstr "أضف إلى سلة الشراء"
 
 #: product/templates/product.html:55
 msgid "Rating"
-msgstr ""
+msgstr "تقييم"
 
 #: product/templates/productDetail.html:91
 msgid "Average Rating"
-msgstr ""
+msgstr "متوسط ​​تقييم"
 
 #: product/templates/productDetail.html:140
 msgid "You already added your review below"
-msgstr ""
+msgstr "لقد قمت بالفعل بإضافة رأيك أدناه"
 
 #: product/templates/productDetail.html:142
 msgid "Add Your Ratings"
-msgstr ""
+msgstr "أضف تقييماتك"
 
 #: product/templates/productDetail.html:147
 msgid "You didn't order this product before"
-msgstr ""
+msgstr "لم تطلب هذا المنتج من قبل"
 
 #: product/templates/productDetail.html:160
 msgid "Ratings and Reviews"
-msgstr ""
+msgstr "التقييمات والمراجعات"
 
 #: product/templates/productDetail.html:174
 msgid "The User"
-msgstr ""
+msgstr "المستخدم"
 
 #: product/templates/productDetail.html:176
 msgid "The Review"
-msgstr ""
+msgstr "المراجعة"
 
 #: product/templates/reviews.html:64
 msgid "Rate our product"
-msgstr ""
+msgstr "قيم منتجنا"
 
 #: product/templates/reviews.html:78
 msgid "Submit Review"
-msgstr ""
+msgstr "إرسال المراجعة"
 
 #~ msgid "Follow us on social medi"
 #~ msgstr "تابعونا على وسائل التواصل الاجتماعي"

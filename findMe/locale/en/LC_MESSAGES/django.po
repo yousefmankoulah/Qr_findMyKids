@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-28 20:12+0300\n"
+"POT-Creation-Date: 2023-09-28 20:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -348,7 +348,7 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: home/templates/base.html:255
+#: home/templates/base.html:255 home/templates/home.html:471
 msgid "Contact"
 msgstr ""
 
@@ -514,7 +514,7 @@ msgid ""
 "powerful tool to help you find your pet quickly."
 msgstr ""
 
-#: home/templates/home.html:316 home/templates/home.html:471
+#: home/templates/home.html:316
 msgid "Cats"
 msgstr ""
 
