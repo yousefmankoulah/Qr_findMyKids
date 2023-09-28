@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -33,18 +34,18 @@
 
     <div>
         <div class="text-center"><br>
-            <h1 class="text-center my-title">Order Details</h1>
+            <h1 class="text-center my-title">{% trans "Order Details" %}</h1>
             <br>
             <table class="table table-bordered">
                 <tr>
                     <td class="text-left" colspan="2">
-                        <b>Order: </b>#{{order.id}}<br>
-                        <b>Date: </b>{{order.created|date:"d M Y"}}<br>
-                        <b>Order Total: </b>${{order.total}}<br>
-                        <b>Order Status: </b><i class="fa fa-check"></i>Complete.
+                        <b>{% trans "Order" %}: </b>#{{order.id}}<br>
+                        <b>{% trans "Date" %}: </b>{{order.created|date:"d M Y"}}<br>
+                        <b>{% trans "Order Total" %}: </b>${{order.total}}<br>
+                        <b>{% trans "Order Status" %}: </b><i class="fa fa-check"></i>{% trans "Complete." %}
                     </td>
                     <td colspan="2" class="text-left">
-                        <b>Billing Address:</b><br>
+                        <b>{% trans "Billing Address" %}:</b><br>
                         {{order.billingName}}<br>
                         {{order.billingAddress1}}<br>
                         {{order.billingCity}}<br>
@@ -52,10 +53,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Product Description</b></td>
-                    <td><b>Qty</b></td>
-                    <td><b>Unit Price</b></td>
-                    <td><b>Sub-Total</b></td>
+                    <td><b>{% trans "Product Description" %}</b></td>
+                    <td><b>{% trans "Qty" %}</b></td>
+                    <td><b>{% trans "Unit Price" %}</b></td>
+                    <td><b>{% trans "Sub-Total" %}</b></td>
                 </tr>
                 {% for item in order_items %}
                     <tr>
@@ -70,33 +71,33 @@
                     </tr>
                 {% endfor %}
                 <tr>
-                    <td class="text-right" colspan="3"><b>Total</b></td>
+                    <td class="text-right" colspan="3"><b>{% trans "Total" %}</b></td>
                     <td>${{order.total}}</td>
                 </tr>
                 <tr>
-                    <td class="text-right" colspan="3"><b>Total Paid</b></td>
+                    <td class="text-right" colspan="3"><b>{% trans "Total Paid" %}</b></td>
                     <td>${{order.total}}</td>
                 </tr>
                 <tr>
                     <td class="text-left" colspan="2">
-                        <b>Shipping Address</b><br>
+                        <b>{% trans "Shipping Address" %}</b><br>
                         {{order.shippingName}}<br>
                         {{order.shippingAddress1}}<br>
                         {{order.shippingCity}}<br>
                     </td>
                     <td class="text-left" colspan="2">
-                        <b>Payment Details</b><br>
-                        The order#{{order.id}} has been paid succuessfully via Stripe
+                        <b>{% trans "Payment Details" %}</b><br>
+                        {% trans "The order" %}#{{order.id}} {% trans "has been paid succuessfully" %} 
                     </td>
                 </tr>
             </table>
-        <button class="btn btn-secondary" onclick="window.print();"><i class="fa fa-print"></i>Print Order</button>
+        <button class="btn btn-secondary" onclick="window.print();"><i class="fa fa-print"></i>{% trans "Print Order" %}</button>
         </div>
     </div>
 <br><br>
 
 {% else %}
-    <h3>You Are not welcome here</h3>
-    <h4>You used a different email address when placing your product order compared to the one you are currently using.</h4>
+    <h3>{% trans "You Are not welcome here" %}</h3>
+    <h4>{% trans "You used a different email address when placing your product order compared to the one you are currently using" %}.</h4>
 {% endif %}
 {% endblock %}
