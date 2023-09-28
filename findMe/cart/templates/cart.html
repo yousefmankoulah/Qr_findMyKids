@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n%}
 {% load static %}
 
 {% block content %}
@@ -6,10 +7,10 @@
         <div>
             <div class="text-center">
                 <br>
-                <h1 class="text-center my-title">Your Shopping Cart is empty</h1>
+                <h1 class="text-center my-title">{% trans "Your Shopping Cart is empty" %}</h1>
                 <br>
                 <p class="text-center">
-                    Please click <a href="{% url 'category' %}">here</a>to continue shopping
+                    {% trans "Please click " %} <a href="{% url 'category' %}">{% trans "here" %}</a>{% trans "to continue shopping" %}
                 </p>
             </div>
         </div>
@@ -17,7 +18,7 @@
         <div>
             <div class="text-center">
                 <br>
-                <h1 class="text-center my-title">Your shopping cart</h1>
+                <h1 class="text-center my-title">{% trans "Your shopping cart" %}</h1>
                 <br>
             </div>
         </div>
@@ -31,7 +32,7 @@
                     <thead class="my-table-head">
                        <tr>
                         <th colspan="5">
-                           Your items
+                           {% trans "Your items" %}
                         </th>
                        </tr>
                     </thead>
@@ -43,13 +44,13 @@
                             </td>
                                <td class="text-left">
                                     {{cart_item.product.name}}<br>
-                                    Unit Price: ${{cart_item.product.price}}<br>
+                                    {% trans "Unit Price" %}: ${{cart_item.product.price}}<br>
                                     Qty: {{cart_item.quantity}} * ${{cart_item.product.price}}<br>
                                
                                   
                                         
                                           
-                                        <label for="kids_name" style="color:#ec1c23">Choose your kids name: </label>
+                                        <label for="kids_name" style="color:#ec1c23">{% trans "Choose your kids name" %}: </label>
                                         <select name="kids_name" id="name" class="name" required style="border-color: #ec1c23; color:#ec1c23">
                                             <option></option>
                                             {% for kid in kids_name %}
@@ -81,25 +82,25 @@
                     <thead class="my-table-head">
                         <tr>
                             <th>
-                                Checkout
+                                {% trans "Checkout" %}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                Please review your shopping cart
+                                {% trans "Please review your shopping cart" %}
                             </td>
                         </tr>
                         <tr>
                             <td class="text-left">
-                                Your total is: <strong>${{total}}</strong>
+                                {% trans "Your total is" %}: <strong>${{total}}</strong>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                
-                <h5 style="color: #ec1c23">Please choose the name of the kids for each product</h5>
+                <h5 style="color: #ec1c23">{% trans "Please choose the name of the kids for each product" %}</h5>
                     <div class="stripeButton" id="stripeButton">
                         
                     <script
@@ -120,7 +121,7 @@
               
                     </form>
 
-                    <a href="{% url 'category' %}" class="btn btn-secondary btn-block my-custom-button">Continue Shopping</a>
+                    <a href="{% url 'category' %}" class="btn btn-secondary btn-block my-custom-button">{% trans "Continue Shopping" %}</a>
                 </div>
             </div>
         </div><br>
