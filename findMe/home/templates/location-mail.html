@@ -1,3 +1,4 @@
+{% load i18n%}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -70,20 +71,20 @@
             <div class="logo">
                 <img src="{% static 'img/1.jpg' %}" alt="Company Logo">
             </div>
-            <h1>New Visitor to Your Profile Qr code</h1>
+            <h1>{% trans "New Visitor to Your Profile Qr code" %}</h1>
         </div>
         <div class="content">
-            <p>Hello,</p>
-            <p>You have a new visitor to your profile, offering a convenient way to track the whereabouts of your children.</p>
-            <p>Please note that the map location may not be 100% accurate. You can copy and paste the precise latitude and longitude coordinates, which are {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}, directly into your preferred mapping application for the exact location. Alternatively, you can verify the location on the map by clicking the button below. Please ensure that you are signed in to our website to access this feature.</p>
+            <p>{% trans "Hello," %}</p>
+            <p>{% trans "You have a new visitor to your profile, offering a convenient way to track the whereabouts of your children." %}</p>
+            <p>{% trans "Please note that the map location may not be 100% accurate. You can copy and paste the precise latitude and longitude coordinates, which are" %} {{ profile.vistor_latitude }}, {{ profile.vistor_longitude }}, {% trans "directly into your preferred mapping application for the exact location. Alternatively, you can verify the location on the map by clicking the button below. Please ensure that you are signed in to our website to access this feature." %} </p>
             <p>
-                <a class="btn btn-info" href="{% url 'profileVistorLocation' profile.id %}">Last Vistor Location</a>
+                <a class="btn btn-info" href="{% url 'profileVistorLocation' profile.id %}">{% trans "Last Vistor Location" %}</a>
             </p>
-            <p>Thank you for entrusting us with your family's safety. If you have any questions or require further assistance, please do not hesitate to contact our support team. We are here to ensure your peace of mind.</p>
+            <p>{% trans "Thank you for entrusting us with your family's safety. If you have any questions or require further assistance, please do not hesitate to contact our support team. We are here to ensure your peace of mind." %}</p>
         </div>
         <div class="footer">
-            <p>Contact us at: contact@example.com</p>
-            <p>Follow us on social media:</p>
+            <p>{% trans "Contact us at" %}: contact@example.com</p>
+            <p>{% trans "Follow us on social media" %}:</p>
             <p>
                 <a href="#">Facebook</a> |
                 <a href="#">Twitter</a> |
