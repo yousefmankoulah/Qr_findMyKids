@@ -1,3 +1,4 @@
+{% load i18n%}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -70,21 +71,21 @@
             <div class="logo">
                 <img src="{% static 'img/1.jpg' %}" alt="Company Logo">
             </div>
-            <h1>Your Order confirmation</h1>
+            <h1>{% trans "Your Order confirmation" %}</h1>
         </div>
         <div class="content">
-            <p>Hello,</p>
-            <p>We have successfully received your order, Order Number {{ id }}, and it is currently being processed. We will promptly notify you as soon as your order is shipped.</p>
-            <p>To review and confirm the details of your order, please click on the link provided below.</p>
+            <p>{% trans "Hello" %},</p>
+            <p>{% trans "We have successfully received your order, Order Number " %} {{ id }}, {% trans "and it is currently being processed. We will promptly notify you as soon as your order is shipped" %}.</p>
+            <p>{% trans "To review and confirm the details of your order, please click on the link provided below" %}.</p>
             <p>
-                <a href="{% url "order_detail" id %}" class="btn btn-outline-primary">Check Order Details</a>
+                <a href="{% url "order_detail" id %}" class="btn btn-outline-primary">{% trans "Check Order Details" %}</a>
             </p>
-            <p>Thank you for choosing us for your order, and we appreciate your business.</p>
-            <p>You have 24 hours to cancel the order by going to the order details</p>
+            <p>{% trans "Thank you for choosing us for your order, and we appreciate your business" %}.</p>
+            <p>{% trans "You have 24 hours to cancel the order by going to the order details" %}</p>
         </div>
         <div class="footer">
-            <p>Contact us at: contact@example.com</p>
-            <p>Follow us on social media:</p>
+            <p>{% trans "Contact us at" %}: contact@example.com</p>
+            <p>{% trans "Follow us on social medi" %}a:</p>
             <p>
                 <a href="#">Facebook</a> |
                 <a href="#">Twitter</a> |
