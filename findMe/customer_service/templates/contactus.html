@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -34,50 +35,50 @@
             {% endfor %}
         </ul>
         {% endif %}
-    <h1>Feel Free to contact us</h1>
+    <h1>{% trans "Feel Free to contact us" %}</h1>
     
 <div class="content-section">
     <form method="POST">
       {% csrf_token %}
-          <label class="border-bottom mb-4">Contact Us</label>
+          <label class="border-bottom mb-4">{% trans "Contact Us" %}</label>
     <div class="loginPage">
         <div class="form-group">
-          <label for="customer_name">Full Name</label>
+          <label for="customer_name">{% trans "Full Name" %}*</label>
           <input type="text" class="form-control" name="customer_name">
         </div>
         <div class="form-group">
-          <label for="customer_phone">Phone Number</label>
+          <label for="customer_phone">{% trans "Phone Number" %}*</label>
           <input type="number" class="form-control"name="customer_phone">
         </div>
         <div class="form-group">
-            <label for="customer_email">Email Address</label>
+            <label for="customer_email">{% trans "Email Address" %}*</label>
             <input type="email" class="form-control" name="customer_email">
           </div>
           <div class="form-group">
-            <label for="category">Reason for Contacting us</label>
+            <label for="category">{% trans "Reason for Contacting us" %}*</label>
             <select name="category" class="form-control">
-                <option value="">Select Reason</option>
-                <option value="Report a Bug">Report a Bug</option>
-                <option value="Advertise">Advertise</option>
-                <option value="Return">Return order</option>
-                <option value="Other">Other</option>
+                <option value="">{% trans "Select Reason" %}</option>
+                <option value="Report a Bug">{% trans "Report a Bug" %}</option>
+                <option value="Advertise">{% trans "Advertise" %}</option>
+                <option value="Return">{% trans "Return order" %}</option>
+                <option value="Other">{% trans "Other" %}</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="customer_title">Title for the Problem</label>
+            <label for="customer_title">{% trans "Title for the Problem" %}</label>
             <input type="text" class="form-control"name="customer_title">
           </div>
           <div class="form-group">
-            <label for="order_number">Order Number if needed</label>
+            <label for="order_number">{% trans "Order Number if needed" %}</label>
             <input type="text" class="form-control"name="order_number">
           </div>
           <div class="form-group">
-            <label for="customer_description">Description for the Problem</label>
+            <label for="customer_description">{% trans "Description for the Problem" %}</label>
             <textarea style="height:300px;" class="form-control"name="customer_title"></textarea>
           </div>
           <br>
         </div>
-        <button type="submit" class="btn btn-primary">Send it</button> <br> <br>
+        <button type="submit" class="btn btn-primary">{% trans "Send it" %}</button> <br> <br>
     </form>
 </div>
 <br><br><br>
