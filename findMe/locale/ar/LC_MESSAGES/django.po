@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-28 20:27+0300\n"
-"PO-Revision-Date: 2023-09-28 20:43+0300\n"
+"PO-Revision-Date: 2023-09-28 20:45+0300\n"
 "Last-Translator:   <yousef.mankola10@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -289,10 +289,9 @@ msgstr "لوحة المعلومات"
 #: home/templates/base.html:113 home/templates/dashboard.html:65
 #: home/templates/home.html:130 home/templates/profileDetail.html:67
 #: home/templates/profileVistorLocation.html:68
-#, fuzzy
 #| msgid "Generate Profile"
 msgid "Create a Qr Profile"
-msgstr "إنشاء الملف الشخصي"
+msgstr "إنشاء QR"
 
 #: home/templates/base.html:116 home/templates/base.html:133
 #: home/templates/base.html:240 home/templates/home.html:133
