@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -60,7 +61,7 @@
 
         <br><br><br>
         <div class"revire">
-        <h1>Rate our product</h1>
+        <h1>{% trans "Rate our product" %}</h1>
         <form method="post" action="" class="content form-group">
             {% csrf_token %}
             <div class="rating">
@@ -74,7 +75,7 @@
             <!-- Rating input (hidden) -->
             <input type="hidden" name="rating" id="rating-input" value="5">
             <textarea class="review-text" name="review_text" placeholder="Write your review here..."></textarea>
-            <button class="submit-button" type="submit">Submit Review</button>
+            <button class="submit-button" type="submit">{% trans "Submit Review" %}</button>
         </form>
         </div>
         <br><br><br>
