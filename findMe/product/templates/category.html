@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -15,7 +16,7 @@
 
 
     
-    <h1 class="text-center heh" style="color: rgb(75, 62, 185); margin-top:80px;">Our Category</h1><br><br>
+    <h1 class="text-center heh" style="color: rgb(75, 62, 185); margin-top:80px;">{% trans "Our Category" %}</h1><br><br>
 
 
     <div class="category mx-auto">
@@ -26,7 +27,7 @@
                     <div class="card-body">
                         <h4>{{category.name}}</h4>
                         <h6>{{category.description}}</h6>
-                       <a href="{% url 'product' category.id %}" class="btn btn-primary">More Info</a>
+                       <a href="{% url 'product' category.id %}" class="btn btn-primary">{% trans "More Info" %}</a>
                     </div>
                 </div>
             </div>
