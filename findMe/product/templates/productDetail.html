@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -79,7 +80,7 @@
       {% for product in product %}
 
         <div class="mx-auto container">
-            <p><a href="{% url 'home' %}">Home</a> | <a href="{% url 'product' product.category.id %}">{{product.category}}</a> | {{product.name}}</p>
+            <p><a href="{% url 'home' %}">{% trans "Home" %}</a> | <a href="{% url 'product' product.category.id %}">{{product.category}}</a> | {{product.name}}</p>
         </div>
         
             <br><br>
@@ -87,7 +88,7 @@
             <h1>{{ product.name }}</h1>
             <p>{{ product.created }}</p>
             {% if average_rating >= 1 %}
-            <p>Average Rating: ({{ average_rating }})  <span class="rating">
+            <p>{% trans "Average Rating" %}: ({{ average_rating }})  <span class="rating">
               <!-- Display stars (read-only) -->
               <span class="stars" data-rating="{{ average_rating }}">★</span>
             </span>({{ count }})</p>
@@ -128,22 +129,22 @@
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div>
                         <h4 class="my-prod2">{{product.name}}</h4><br>
-                        <p class="lead">Product Description: {{product.description}}</p>
+                        <p class="lead">{% trans "Product Description" %}: {{product.description}}</p>
                         <hr><br>
-                        <p class="mt-4">Price: ${{product.price}}</p>
-                          <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">Add to Cart</a>
+                        <p class="mt-4">{% trans "Price" %}: ${{product.price}}</p>
+                          <a class="btn btn-primary" href="{% url 'add_cart' product.id %}">{% trans "Add to Cart" %}</a>
                         
                           {% if orderBefore %}
                           {% if usercomment %}
                           <br><br>
-                          <div><b>You already added your review below</b></div>
+                          <div><b>{% trans "You already added your review below" %}</b></div>
                           {% else %}
-                          <a class="btn btn-primary" href="{% url 'rating' product.id %}">Add Your Ratings</a>
+                          <a class="btn btn-primary" href="{% url 'rating' product.id %}">{% trans "Add Your Ratings" %}</a>
 
                           {% endif %}
                         {% else %}
                         <br><br>
-                          <div><b>You didn't order this product before</b></div>
+                          <div><b>{% trans "You didn't order this product before" %}</b></div>
                         {% endif %}
                           
 
@@ -156,7 +157,7 @@
 
             <hr>
             <br><br>
-            <h2 class="text-center mt-4 mb-4">Ratings and Reviews</h2>
+            <h2 class="text-center mt-4 mb-4">{% trans "Ratings and Reviews" %}</h2>
             <br><br>
 
             <div class="row bg-white main_comment">
@@ -170,9 +171,9 @@
               </div>
 
           <div class="col-10 comment">
-            <p class=" user_comment">The User: {{ review.user }}</p>
+            <p class=" user_comment">{% trans "The User" %}: {{ review.user }}</p>
             {% if review.comment %}
-            <p class="comm"><b>The Review:</b> {{ review.comment }}</p>
+            <p class="comm"><b>{% trans "The Review" %}:</b> {{ review.comment }}</p>
             {% endif %}
               
           </div>
