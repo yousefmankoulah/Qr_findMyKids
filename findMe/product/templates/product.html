@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -32,7 +33,7 @@
 
 
   <br><br>
-    <h1 class="text-center heh">Our Product</h1><br><br>
+    <h1 class="text-center heh">{% trans "Our Product" %}</h1><br><br>
 
     <div class="category mx-auto">
         {% for product in product_data %}
@@ -43,15 +44,15 @@
                     <img class="card-img-top my-image" src="{{ product.product.image.url}}" alt="{{ product.product.name }}">
                     <div class="card-body">
                         <h3>{{ product.product.name }}</h3>
-                        <h4 class="lead">Description: {{product.product.description}}</h4>
-                        <h4 class="lead">Price: $ {{product.product.price}}</h4>
-                        <a class="btn btn-primary" href="{% url 'detail' product.product.id %}">More Details</a>
+                        <h4 class="lead">{% trans "Description" %}: {{product.product.description}}</h4>
+                        <h4 class="lead">{% trans "Price" %}: $ {{product.product.price}}</h4>
+                        <a class="btn btn-primary" href="{% url 'detail' product.product.id %}">{% trans "More Details" %}</a>
                         
-                        <a class="btn btn-primary" href="{% url 'add_cart' product.product.id %}">Add to Cart</a>
+                        <a class="btn btn-primary" href="{% url 'add_cart' product.product.id %}">{% trans "Add to Cart" %}</a>
                       
                         {% if product.average_rating >= 1 %}
                         <br>
-            <p class="rating">Rating: ({{ product.average_rating }}) 
+            <p class="rating">{% trans "Rating" %}: ({{ product.average_rating }}) 
               <span class="stars" data-rating="{{ product.average_rating }}">★</span>
            ({{ product.count }})</p>
             {% endif %} 
