@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Category, Product, ProductReview
 from home.models import GenerateQr
 from order.models import OrderItem
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -35,9 +36,10 @@ def product(request, category):
             'average_rating': average_rating,
         })
     
-    return render(request, 'product.html', {'product': products, 'average_rating': average_rating, 'count': count, 'product_data': product_data})
+    return render(request, 'product.html', {'product_data': product_data})
 
 
+@login_required(login_url='login')
 def prod_detail(request, id):
     try:
         product = Product.objects.get(id=id)
@@ -71,6 +73,8 @@ def prod_detail(request, id):
         # Handle the case where the product with the specified ID does not exist
         return HttpResponse("Product not found", status=404)
 
+
+@login_required(login_url='login')
 def review(request, id):
     product = Product.objects.get(id=id)
     user = GenerateQr.objects.filter(parent=request.user).first()
